@@ -55,7 +55,10 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
   </head>
   <body>
     <header class="site">
-      <a href="/" class="brand">MIND&nbsp;THE&nbsp;POUR</a>
+      <a href="/" class="brand" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/logo.png" alt="Mind the Pour Logo" style="height:28px; width:auto; border-radius:4px;" />
+        MIND&nbsp;THE&nbsp;POUR
+      </a>
       <nav>
         <a href="/states/">Prices by State</a>
         <a href="/brands/">Brands</a>
