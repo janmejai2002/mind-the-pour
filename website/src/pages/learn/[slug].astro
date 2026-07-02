@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import explainers from '../../data/explainers.json';
+import generated from '../../data/explainer-content.json';
+
+export function getStaticPaths() {
+  return explainers.map((e) => ({ params: { slug: e.slug }, props: { e } }));
+}
+
+const { e } = Astro.props;
+const gen = generated[e.slug];
+const title = `${e.title} | Mind the Pour`;
+const description = gen?.intro?.slice(0, 155) ?? e.angle.slice(0, 155);
+
+const faqs = gen?.faqs ?? [];
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: e.title,
+    description,
+    articleSection: e.pillar,
+    inLanguage: 'en-IN',
+  },
+  ...(faqs.length
+    ? [{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }]
+    : []),
+];
+---
+<Base title={title} description={description} jsonld={jsonld} ogType="article">
+  <p class="tag">{e.pillar}</p>
+  <h1>{e.title}</h1>
+  <p>{gen?.intro ?? e.angle}</p>
+
+  {gen?.sections?.map((sec) => (
+    <section>
+      <h2>{sec.heading}</h2>
+      {sec.paragraphs.map((p) => <p>{p}</p>)}
+    </section>
+  ))}
+
+  {gen?.takeaways?.length > 0 && (
+    <section>
+      <h2>Key takeaways</h2>
+      <ul>{gen.takeaways.map((t) => <li>{t}</li>)}</ul>
+    </section>
+  )}
+
+  {faqs.length > 0 && (
+    <section>
+      <h2>FAQs</h2>
+      {faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+  )}
+
+  {!gen && (
+    <p style="color:var(--stone)">Full explainer coming soon. Run <code>node scripts/generate-explainers.mjs</code> to draft it.</p>
+  )}
+</Base>

@@ -1,0 +1,17 @@
+# Allow all crawlers, including AI engines (GEO)
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI/answer engines
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://mindthepour.space/sitemap-index.xml

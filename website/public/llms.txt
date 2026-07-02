@@ -1,0 +1,23 @@
+# Mind the Pour
+
+> The business, pricing, psychology and culture behind alcohol in India. Educational/editorial media about the alcohol industry (not a seller of alcohol). 21+.
+
+Mind the Pour explains the economics of what India drinks: state excise duty and liquor pricing, bar economics (pour cost, cocktail margins), brand and status psychology, premiumization of Indian spirits, and consumer safety/literacy.
+
+## Key facts
+- Alcohol for human consumption is OUTSIDE GST in India; each state sets its own excise duty, which is the primary driver of price differences between states.
+- Prohibition (dry) states include Gujarat, Bihar, Nagaland, Mizoram and the UT of Lakshadweep.
+- Goa, Puducherry, Sikkim and Daman & Diu are known for low liquor prices; Karnataka, Kerala and Telangana for high effective taxes.
+- Direct alcohol advertising is banned in India, so brands use "surrogate advertising" (water, soda, music, events).
+- India produces award-winning single malts (e.g. Amrut, Paul John, Indri, Rampur) driving a premiumization trend.
+
+## Core sections
+- /states/: Liquor prices & excise duty for all Indian states and union territories
+- /brands/: The business and branding behind major Indian drinks brands
+- /learn/: Evergreen explainers (GST & alcohol, pour cost, standard drinks, surrogate advertising, premiumization, dry states)
+- /glossary/: Definitions (peg, large, standard drink, IMFL, excise duty, pour cost)
+- /about/: What Mind the Pour is
+- /responsible-drinking/: 21+ responsible-consumption note
+
+## Contact
+- Instagram: https://instagram.com/mindthepour

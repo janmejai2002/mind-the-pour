@@ -1,0 +1,16 @@
+state,retail_model,relative_price_tier,prohibition,legal_drinking_age,excise_duty_note,status,source_url
+Goa,Private,Low,No,todo,Famously low duty; a major reason liquor is cheapest here,estimate,todo
+Karnataka,Private (high tax),High,No,todo,Among the highest state excise/additional excise duties in India,estimate,todo
+Telangana,Govt-linked,High,No,todo,High taxes; state revenue heavily reliant on liquor,estimate,todo
+Delhi,Private,Medium,No,todo,Policy changed repeatedly (2021-2022 excise policy saga),estimate,todo
+Maharashtra,Private,Medium-High,No,todo,Multiple duty slabs incl. special/country liquor,todo,todo
+Kerala,Govt monopoly (BEVCO),High,No,todo,State-run retail (KSBC/BEVCO) controls sales,estimate,todo
+Tamil Nadu,Govt monopoly (TASMAC),Medium-High,No,todo,State-run TASMAC retail monopoly,estimate,todo
+Gujarat,Prohibition,NA,Yes,NA,Dry state; permits for limited exceptions,verified,todo
+Bihar,Prohibition,NA,Yes,NA,Prohibition since 2016,verified,todo
+Nagaland,Prohibition,NA,Yes,NA,Prohibition (with enforcement debate),estimate,todo
+Lakshadweep,Prohibition,NA,Yes,NA,Dry UT,estimate,todo
+Uttar Pradesh,Private,Medium,No,todo,Large volume market; slab-based duty,todo,todo
+Rajasthan,Private,Medium,No,todo,Duty + label fees,todo,todo
+Haryana,Private,Low-Medium,No,todo,Often cheaper than neighbouring Delhi/NCR,estimate,todo
+West Bengal,Private,Medium,No,todo,Ad valorem duty structure,todo,todo

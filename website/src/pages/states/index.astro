@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import states from '../../data/states.json';
+
+const title = 'Liquor Prices & Excise Duty by State in India';
+const description = 'Compare how liquor prices, excise duty and retail models differ across Indian states — from low-tax Goa to high-tax Karnataka and dry states like Gujarat and Bihar.';
+---
+<Base title={title} description={description}>
+  <h1>Liquor prices &amp; excise duty by state</h1>
+  <p>Alcohol sits <em>outside</em> GST in India, so every state sets its own excise duty and retail model.
+  That's why prices vary so dramatically. Browse by state:</p>
+  <table>
+    <thead><tr><th>State</th><th>Retail model</th><th>Price tier</th></tr></thead>
+    <tbody>
+      {states.map((s) => (
+        <tr>
+          <td><a href={`/states/${s.slug}/`}>{s.name}</a></td>
+          <td>{s.model}</td>
+          <td>{s.prohibition ? 'Dry state' : s.priceTier}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Base>

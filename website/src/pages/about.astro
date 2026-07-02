@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const title = 'About Mind the Pour — The Economics of What India Drinks';
+const description = 'Mind the Pour is an editorial media brand decoding the business, pricing, psychology and culture behind alcohol in India. Educational content, not a seller of alcohol. 21+.';
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Mind the Pour',
+  description,
+  url: 'https://mindthepour.in',
+  sameAs: ['https://instagram.com/mindthepour'],
+};
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <h1>About Mind the Pour</h1>
+  <p>Alcohol is one of India's largest consumer industries — and one of its least understood.
+  Prices swing wildly across a state line, brands become status symbols, bars make their margins
+  on cocktails, and premiumization is quietly rewriting the market.</p>
+
+  <p><strong>Mind the Pour decodes all of it.</strong> We're an editorial media brand covering the
+  business, pricing, psychology and culture of what India drinks — with data and plain English.</p>
+
+  <h2>What we are (and aren't)</h2>
+  <p>We are a media/education project <em>about</em> the alcohol industry. We are <strong>not</strong>
+  a seller or promoter of alcohol, and we don't glamorise drinking. Our "Drink Smart" work is about
+  consumer literacy and safety.</p>
+
+  <h2>What we cover</h2>
+  <ul>
+    <li><a href="/states/">Price Decoded</a> — how state excise duty shapes what you pay</li>
+    <li><a href="/brands/">Brands &amp; Status</a> — the business behind the bottle</li>
+    <li><a href="/learn/">Learn</a> — evergreen explainers on the economics of alcohol</li>
+    <li><a href="/glossary/">Glossary</a> — the terms, in plain English</li>
+  </ul>
+
+  <p><strong>21+ only. Please drink responsibly.</strong> See our <a href="/responsible-drinking/">responsible drinking</a> note.</p>
+
+  <Newsletter />
+</Base>

@@ -1,0 +1,788 @@
+{
+  "amrut": {
+    "intro": "Amrut Distilleries took a humble South Indian spirit and turned it into a global talking point by betting on single malt whisky. By focusing on craft, local barley and unconventional cask finishes, the brand challenged the notion that premium whisky had to come from Scotland. Its rise shows how a regional player can rewrite category rules when advertising restrictions force creativity.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Amrut built its identity around small‑batch production, sourcing Indian barley and experimenting with casks that once held rum, wine or sherry. This approach gave the whisky a distinct flavor profile that could not be replicated by traditional Scotch methods.",
+          "Instead of relying on that, the company turned to surrogate routes — sponsoring music festivals, curating lifestyle content and engaging whisky enthusiasts on social media. Distribution started in high‑end bars and specialty stores in major cities before moving to duty‑free shops and online platforms, letting the product speak for itself."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Amrut’s success reshaped how Indian whisky is viewed, proving that a domestically made spirit can sit alongside imported premium labels on the shelf. It opened space for other craft distillers to invest in quality and storytelling rather than competing solely on price.",
+          "The brand also demonstrated a workaround for the advertising ban, showing that experiential marketing and earned media can build awareness without violating regulations. This has influenced how newer alcohol brands approach market entry in India."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How does Amrut advertise when direct liquor ads are banned?",
+        "a": "They rely on surrogate advertising — sponsoring music events, creating lifestyle content and using social media to tell the brand story without showing the product being consumed."
+      },
+      {
+        "q": "What makes Amrut’s single malt different from Scotch?",
+        "a": "It uses Indian barley, matures faster in the warm climate and often finishes in casks that previously held rum, wine or sherry, giving it a unique taste profile."
+      },
+      {
+        "q": "Why did Amrut choose the premium craft route instead of competing on price?",
+        "a": "By emphasizing quality, provenance and experimental cask work, the brand could differentiate itself in a market flooded with inexpensive blends and imported Scotch, avoiding a race to the bottom on cost."
+      },
+      {
+        "q": "How has Amrut influenced other Indian whisky makers?",
+        "a": "Its success encouraged more distillers to launch single malt expressions and highlight local ingredients, expanding the premium segment of the domestic whisky market."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "paul-john": {
+    "intro": "Paul John has turned India’s tropical climate into a branding lever, positioning its single‑malt as a premium, craft spirit that ages faster than its Scottish cousins. The story isn’t just about taste; it’s a clever play on economics, margins and the country’s advertising restrictions.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "John Distilleries launched Paul John as a home‑grown alternative to imported single malts, using the narrative that the warm Indian climate accelerates barrel maturation, delivering a richer profile in a shorter time. This claim lets the brand charge a premium while keeping inventory turnover high, because the spirit reaches its target taste window faster than a Scotch would.",
+          "With direct alcohol ads banned, Paul John leans on surrogate channels – lifestyle events, music festivals and a strong social‑media presence that highlight the ‘crafted in India’ angle. The visual identity – earthy tones, handwritten typography and references to Himalayan water – reinforces the craft story without ever showing the bottle in a traditional ad."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Accelerated aging translates into lower warehousing costs and faster cash conversion, a rare advantage in a segment where barrels sit for years. That efficiency feeds into higher gross margins, allowing Paul John to position itself alongside imported premium brands while still delivering a better price‑to‑perceived‑value ratio.",
+          "The climate narrative also serves a regulatory purpose: by emphasizing ‘process’ over ‘product’, the brand sidesteps the spirit of the advertising ban. Consumers hear a story about science and terroir, not a direct invitation to buy, which keeps the marketing legal and the buzz alive."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How does India's climate affect whisky aging?",
+        "a": "Warmer temperatures increase the rate of interaction between spirit and wood, so barrels mature faster, developing colour and flavor in fewer years than in cooler climates."
+      },
+      {
+        "q": "What is surrogate advertising in Indian alcohol marketing?",
+        "a": "It’s the use of non‑alcoholic touchpoints – events, music, lifestyle content – to promote a brand indirectly, staying within the legal ban on direct alcohol ads."
+      },
+      {
+        "q": "Is Paul John considered a premium whisky?",
+        "a": "Yes, the brand is positioned as a premium, craft single malt, targeting urban professionals who value a locally‑sourced narrative and a refined taste profile."
+      },
+      {
+        "q": "Does faster aging mean lower quality?",
+        "a": "Not necessarily; the accelerated process can produce complex flavors, but quality still depends on cask selection, grain sourcing and distillation practices."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "openai/gpt-oss-120b:free",
+    "draft": true
+  },
+  "indri": {
+    "intro": "Indri Single Malt has burst onto India’s whisky scene as a premium craft offering from Piccadily Distilleries, turning heads with its distinct flavour profile and sleek packaging. Its rapid ascent raises a key question for marketers: how do accolades translate into real pricing power when direct advertising is off the table?",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Indri positions itself at the intersection of tradition and modernity, leveraging Piccadily’s legacy in grain spirits while carving out a niche in the single‑malt category. The brand’s visual identity — minimalist labels, muted tones, and a focus on the whisky’s origin story — signals a craft‑premium ethos aimed at discerning urban drinkers.",
+          "Because direct liquor ads are prohibited in India, Indri relies on surrogate routes — lifestyle events, music partnerships, and curated digital content — to build awareness. These touchpoints reinforce the premium narrative without overtly promoting consumption, letting the product’s quality and award recognition do the heavy lifting."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "The whisky category in India is witnessing a shift from mass‑market blends to higher‑priced, differentiated offerings. Indri’s trajectory illustrates how a new entrant can use perceived excellence — highlighted by industry recognitions — to justify a premium price point even when traditional advertising channels are barred.",
+          "For marketers, the case underscores the strategic value of awards and third‑party validation as proxies for trust in a restricted‑advertising environment. When consumers cannot see the brand on TV or billboards, accolades become a shortcut to signal quality, influencing willingness to pay and shaping distribution negotiations with premium outlets."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What makes Indri different from other Indian whiskies?",
+        "a": "Indri is positioned as a craft single malt, emphasizing barley‑based distillation, maturation in selected casks, and a minimalist brand aesthetic that targets premium consumers rather than the mass market."
+      },
+      {
+        "q": "How does Indri promote itself given the ban on liquor ads?",
+        "a": "The brand uses surrogate channels such as sponsored cultural events, music festivals, and curated online storytelling to build awareness and reinforce its premium image without directly advertising the product."
+      },
+      {
+        "q": "Do awards really affect the price of a whisky like Indri?",
+        "a": "Industry recognitions serve as credible signals of quality, allowing the brand to command a higher price point and secure shelf space in premium outlets, especially when traditional advertising is unavailable."
+      },
+      {
+        "q": "Is Indri considered a widely available brand across India?",
+        "a": "While distribution is expanding, Indri is currently focused on select urban markets and premium retail channels, aligning with its craft‑premium positioning rather than pursuing nationwide mass availability."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "rampur": {
+    "intro": "When Radico Khaitan looked beyond the domestic market, it leveraged its legacy distilling infrastructure to craft a single malt aimed at the luxury segment. Rampur was launched with a clear export‑first mindset, using surrogate routes like music sponsorships and lifestyle partnerships to build awareness where direct liquor ads are barred. The brand’s narrative blends heritage cask expertise with a contemporary premium image, positioning it as a global contender rather than just another Indian whisky.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Radico Khaitan’s existing distillation capacity and aging facilities gave it a head start in experimenting with malt whisky production. Instead of competing on volume in the crowded Indian whiskey market, the company chose to differentiate Rampur through single‑malting, extended maturation in ex‑bourbon and ex‑sherry casks, and a focus on limited‑edition releases that speak to collectors.",
+          "To overcome the ban on direct alcohol advertising in India, Rampur’s marketing relies on surrogate platforms – sponsoring indie music festivals, collaborating with visual artists, and curating experiential pop‑ups that convey a lifestyle of sophistication. These activities reinforce the brand’s premium positioning while keeping the product itself out of the broadcast spotlight, allowing the distiller to build equity in overseas markets where the whisky is actually sold."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Rampur’s approach shows how a legacy Indian distiller can move up the value chain by exporting a premium product, thereby reducing dependence on price‑sensitive domestic sales. It also demonstrates that surrogate advertising, when aligned with lifestyle cues, can create brand desirability without violating regulatory restrictions.",
+          "For the broader spirits industry, the brand’s success highlights a pathway for other Indian players to pursue luxury positioning abroad, influencing investment decisions in aging infrastructure, cask management, and brand storytelling. It underscores that premiumization is less about the liquid alone and more about the surrounding brand ecosystem."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is Rampur available for purchase in India?",
+        "a": "Rampur is primarily marketed and sold in international markets; its presence in Indian retail is limited, reflecting the brand’s export‑first strategy."
+      },
+      {
+        "q": "How does surrogate advertising work for a whisky like Rampur?",
+        "a": "The brand sponsors music events, art collaborations, and lifestyle experiences that evoke a premium image, allowing consumers to associate those qualities with Rampur without showing the product in ads."
+      },
+      {
+        "q": "What factors contribute to Rampur’s premium positioning?",
+        "a": "Extended cask maturation, limited‑edition releases, sophisticated packaging, and a narrative that ties Radico Khaitan’s distilling heritage to global whisky trends all support its luxury stance."
+      },
+      {
+        "q": "Why did Radico Khaitan choose to build a luxury export brand rather than focus on the domestic market?",
+        "a": "Domestic whisky sales are highly competitive and price‑driven, so leveraging its aging assets to create a high‑margin export product offered a clearer route to brand building and profitability."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "godawan": {
+    "intro": "When Diageo launched Godawan it signaled a shift: a global giant trying to speak the language of small‑batch whisky. The move is less about tapping a niche and more about using craft as a lever for premiumization from the top down. In a market where direct liquor ads are banned, the brand leans on surrogate routes to build its aura.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Godawan is presented as a single malt whisky made with Indian barley and matured in carefully chosen casks. The narrative stresses small‑batch production, local provenance and a hands‑on distilling approach, aiming to create a craft aura despite the backing of a multinational.",
+          "Distribution is kept selective: premium bars, high‑end retail outlets and duty‑free channels carry the brand. Limited releases and collaborations with music or art festivals act as surrogate advertising, letting the name appear in lifestyle contexts without showing the product itself."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Godawan’s entry shows how a multinational can drive premiumization by borrowing craft cues, potentially shifting consumer expectations across the Indian whisky segment.",
+          "The surrogate advertising model highlights the creative ways brands navigate the ban on direct liquor promotion, using cultural events to build brand equity while staying within legal boundaries."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How does Godawan differ from other Indian whiskies?",
+        "a": "It is positioned as a single malt crafted with Indian barley and matured in selected casks, aiming for a premium craft image rather than mass market volume."
+      },
+      {
+        "q": "Why does Diageo use surrogate advertising for Godawan?",
+        "a": "Because direct liquor ads are prohibited in India, the brand builds visibility through music, art and lifestyle events that associate the name with a premium lifestyle."
+      },
+      {
+        "q": "What does the top‑down premiumization strategy mean for Godawan?",
+        "a": "It means the multinational uses its resources to create a high‑end craft perception, hoping to lift the overall whisky category and attract consumers seeking exclusivity."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "mcdowells-no1": {
+    "intro": "McDowell's No.1 is the quiet engine behind United Spirits’ volume game, winning shelf space not with flashy heritage but with relentless distribution and razor‑thin pricing. In a market where direct liquor ads are banned, the brand leans on surrogate tactics to stay top‑of‑mind while keeping costs low.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Positioned as a mass‑market staple, McDowell's No.1 leans on economies of scale: massive production runs keep unit costs down, allowing the brand to compete on price rather than prestige. Its portfolio spans whisky and rum variants, each tailored to the same everyday‑drinker occasion.",
+          "Distribution is the real differentiator. A deep network of wholesalers, retail outlets, and state‑run liquor shops ensures the product reaches even the smallest towns, turning sheer availability into a competitive advantage that premium rivals struggle to match."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "The success of McDowell's No.1 shows how volume‑driven logic can coexist with a multinational parent’s portfolio, proving that scale can be a sustainable moat even when advertising routes are restricted. It forces competitors to rethink whether they chase premiumization or double‑down on reach.",
+          "For consumers, the brand’s approach means consistent accessibility and predictable pricing, while regulators see a case study in how surrogate advertising can fulfill brand‑building goals without violating the ban on direct liquor promotion."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is McDowell's No.1 actually a whisky or a rum?",
+        "a": "McDowell's No.1 is offered in both whisky and rum expressions, each positioned as an affordable, everyday option within the same mass‑market umbrella."
+      },
+      {
+        "q": "How does surrogate advertising work for a brand like McDowell's No.1?",
+        "a": "The brand promotes music events, sports sponsorships, or lifestyle campaigns that feature its logo or name without showing the product, thereby keeping the brand visible while obeying the advertising ban."
+      },
+      {
+        "q": "Why does McDowell's No.1 stay cheap despite being owned by Diageo?",
+        "a": "Diageo leverages the brand’s high volume and efficient production to keep costs low, using the scale advantage to maintain a low‑price positioning rather than pushing it upmarket."
+      },
+      {
+        "q": "What role does distribution play in McDowell's No.1’s success?",
+        "a": "An extensive distribution network ensures the product is available in countless outlets across urban and rural markets, turning sheer reach into a key driver of sales and brand recall."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "royal-stag": {
+    "intro": "When liquor ads vanished from Indian TV, Royal Stag turned to music festivals and artist collaborations to keep the brand in consumers' minds. The surrogate play lets Pernod Ricard India sell a lifestyle, not a spirit, while staying within the law.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Royal Stag positions itself as a mass‑premium whisky, aiming to bridge the gap between everyday drinking and aspirational lifestyle. Rather than relying on traditional spirit ads, the brand builds its image through music‑centric events, artist partnerships and branded content that echo the energy of live performances.",
+          "These surrogate platforms act as owned stages where the whisky logo appears alongside stage backdrops, merchandise and digital streams. By associating the brand with popular music acts and festival experiences, Royal Stag creates recall and emotional ties that would be hard to achieve through direct product advertising."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "In a market where direct liquor advertising is prohibited, surrogate strategies become a core part of brand building and distribution planning. Royal Stag's music focus shows how a brand can sidestep restrictions while still shaping consumer perception and driving trial.",
+          "The approach also offers lessons for other categories facing similar bans: investing in experiential, cultural properties can generate earned media, strengthen retailer relationships and support long‑term equity without violating advertising codes."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What is surrogate advertising and why do Indian alcohol brands use it?",
+        "a": "Surrogate advertising promotes a non‑restricted product or service—like music, soda or merchandise—to keep a liquor brand visible when direct ads are banned. Indian whisky makers use it to stay top‑of‑mind and support sales channels within the legal framework."
+      },
+      {
+        "q": "How does Royal Stag's music‑focused surrogate strategy differ from traditional whisky advertising?",
+        "a": "Instead of showing the whisky in a glass or a tasting note, Royal Stag places its logo on festival stages, artist merch and online music content, letting the brand ride the cultural buzz of live performances rather than talking about taste or heritage."
+      },
+      {
+        "q": "Does surrogate advertising actually drive whisky sales, or is it just brand building?",
+        "a": "While surrogate efforts do not mention the product directly, they build awareness and affinity that translate into shelf pull and trial when consumers encounter the whisky in stores or bars, making them a valuable part of the overall sales mix."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "blenders-pride": {
+    "intro": "Blenders Pride sits at the crossroads of mass appeal and premium pretension in India's whisky aisle. Owned by Pernod Ricard India, the brand leans on surrogate campaigns and lifestyle cues to carve out a 'premium mass' niche despite the advertising ban.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Blenders Pride relies heavily on surrogate advertising because direct promotion of liquor is prohibited. The brand appears in music festivals, fashion events and sports sponsorships, linking the whisky to lifestyle moments rather than the product itself.",
+          "Its visual language uses dark tones, sleek typography and imagery of night‑life to suggest exclusivity. By aligning with aspirational activities, the label tries to shift perception from a regular spirit to a premium offering while still keeping distribution wide enough for mass reach."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "In a crowded whisky market, perception often outweighs actual taste differences. Blenders Pride shows how a brand can use cultural touchpoints to create a sense of upscale status without breaking the law.",
+          "For competitors, the case highlights the importance of consistent surrogate messaging and the risks when those cues fade. It also underscores how regulatory constraints can drive creative, albeit indirect, brand building."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is Blenders Pride considered a premium whisky in India?",
+        "a": "It is positioned as a premium mass brand, aiming to feel upscale while remaining widely available."
+      },
+      {
+        "q": "How does Blenders Pride advertise when direct alcohol ads are banned?",
+        "a": "The brand uses surrogate advertising, appearing in music, fashion and sports events to associate the name with lifestyle experiences."
+      },
+      {
+        "q": "What sets Blenders Pride apart from other Indian whiskies?",
+        "a": "Its branding emphasizes night‑life imagery and sponsorships that suggest exclusivity, even though the liquid itself sits in a competitive price band."
+      },
+      {
+        "q": "Who owns Blenders Pride in India?",
+        "a": "The brand is part of Pernod Ricard India's portfolio."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "officers-choice": {
+    "intro": "Officer’s Choice has become the whisky you see on almost every shelf, not because of flashy ads but because it nails the basics: low cost and wide availability. In a market where direct liquor promotion is banned, the brand leans on surrogate routes and sheer distribution muscle to stay top‑of‑mind for the everyday drinker.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Officer’s Choice positions itself as a reliable, no‑frills whisky that promises consistent taste at a price point that fits the budget of the average urban consumer. Its branding leans on familiar imagery — think uniformed figures and straightforward packaging — to convey trust and accessibility without needing to invoke luxury.",
+          "Because direct alcohol advertising is prohibited in India, the brand invests heavily in surrogate advertising through music events, sports sponsorships, and branded merchandise that keep the name visible while staying within legal bounds. This approach lets it reinforce recall and association without ever showing the product being consumed."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "For a mass‑market player, winning on price and reach translates into higher volume sales, which in turn drives economies of scale in production and distribution. Officer’s Choice’s strategy shows how a brand can build a durable presence by focusing on the fundamentals of availability and affordability rather than premium storytelling.",
+          "The surrogate advertising model also highlights a broader industry workaround: when traditional channels are shut off, brands turn to cultural touchpoints and lifestyle associations to maintain consumer mindshare. This tactic not only sustains sales but also shapes how the product is perceived in everyday contexts."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How does Officer’s Choice stay visible without showing its whisky in ads?",
+        "a": "It uses surrogate advertising — sponsoring events, music shows, and sports teams — so the brand name appears in contexts that are allowed under Indian law, keeping the name top‑of‑mind without depicting consumption."
+      },
+      {
+        "q": "What makes Officer’s Choice a mass‑market whisky?",
+        "a": "Its pricing is set to be affordable for a broad audience, and it is distributed across a wide network of retail outlets, making it easy to find in most cities and towns."
+      },
+      {
+        "q": "Why do brands rely on surrogate advertising in India?",
+        "a": "Because direct promotion of alcoholic beverages is banned, companies use indirect methods like event sponsorships or branded merchandise to maintain visibility and build brand recall while staying compliant with regulations."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "imperial-blue": {
+    "intro": "Imperial Blue has become a familiar name on Indian liquor shelves not by flashing the bottle on screen, but by selling a feeling through surrogate campaigns. Pernod Ricard India turned the ban on direct alcohol advertising into an opportunity to embed the brand in music, sport and film moments that consumers already love. The result is mass‑market whisky that lives in the mind long before they ever pour a dram.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Pernod Ricard positions Imperial Blue as a value‑driven whisky that competes on price and availability across urban and semi‑urban outlets. To build awareness without showing the product, the brand relies on surrogate platforms — music tours, cricket sponsorships and film integrations — where its logo and tagline appear alongside the entertainment content.",
+          "These surrogate touchpoints are designed to echo the brand’s promise of smoothness and celebration, using high‑energy visuals and celebrity cameos that reinforce recall. By keeping the liquid out of the frame, the ads sidestep the regulatory ban while still associating Imperial Blue with moments of fun and camaraderie."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "The surrogate strategy has helped Imperial Blue achieve strong top‑achieve strong top‑of‑mind awareness in a category where direct claims are prohibited,of‑mind awareness in a category where direct claims are prohibited, allowing it to compete on perceived quality rather than just price. This perception supports its mass‑market push, encouraging retailers to give the brand prominent shelf space.",
+          "Beyond recall, the approach illustrates how Indian alcohol marketers navigate advertising restrictions, turning regulatory constraints into creative opportunities that shape consumer behaviour and distribution dynamics."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why can't alcohol brands show their products in Indian advertisements?",
+        "a": "Indian law prohibits direct promotion of alcoholic beverages on broadcast and print media, so brands must find indirect ways to communicate."
+      },
+      {
+        "q": "How does surrogate advertising help a whisky brand like Imperial Blue?",
+        "a": "By linking the brand to music, sport or film events, surrogate ads create visibility and emotional connections without ever depicting the liquor itself."
+      },
+      {
+        "q": "Does Imperial Blue’s surrogate approach affect how people perceive its taste?",
+        "a": "While the ads never show the drink, the repeated association with lively experiences builds a favourable impression that can influence taste expectations."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "old-monk": {
+    "intro": "Old Monk rum has survived decades without a single TV ad, relying instead on college canteens, railway stations and late‑night chai stalls to become a cultural icon. Its story is less about marketing spend and more about the power of organic word‑of‑mouth in a market where direct liquor advertising is banned.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Mohan Meakin introduced Old Monk in the 1950s as a dark rum that blended Caribbean style with Indian tastes, packaging it in the now‑recognisable bottle with a monk figure. The brand never pursued heavy media buys; instead it leaned on distribution through defence canteens, college hostels and railway stations where the product could be sampled and talked about.",
+          "Because direct liquor ads are prohibited, Old Monk stays visible through surrogate routes such as music sponsorships, branded merchandise and occasional social‑media posts that focus on lifestyle rather than the drink itself. Over time these low‑key touches, combined with a consistent flavour, turned the rum into a badge of camaraderie among students and young professionals."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Old Monk shows that a brand can thrive on heritage, product reliability and community rituals even when traditional advertising channels are off‑limits. Its longevity proves that word‑of‑mouth, reinforced by consistent quality, can create a self‑sustaining demand loop.",
+          "For marketers in regulated industries, the Old Monk case highlights the value of creating consumption occasions—like late‑night gatherings or festive celebrations—that become natural talking points, allowing the brand to stay relevant without breaking the law."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why is Old Monk often described as an anti‑marketing brand?",
+        "a": "Because it grew famous without relying on conventional ads, letting college canteens, word‑of‑mouth and nostalgic packaging do the talking."
+      },
+      {
+        "q": "How does Old Monk advertise when direct liquor ads are banned in India?",
+        "a": "It uses surrogate channels such as music events, branded apparel and occasional social‑media posts that focus on lifestyle rather than promoting the drink directly."
+      },
+      {
+        "q": "What makes Old Monk a cult favourite among young adults?",
+        "a": "Its distinctive monk label, affordable price point and the ritual of sharing a bottle during hostel nights have turned it into a symbol of friendship and nostalgia."
+      },
+      {
+        "q": "Can other liquor brands copy Old Monk’s word‑of‑mouth success?",
+        "a": "They can try by focusing on product consistency, creating memorable consumption rituals and leveraging surrogate marketing, but replicating the exact cultural bond takes time and authentic heritage."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "kingfisher": {
+    "intro": "Kingfisher has been the poster child of Indian beer for decades, not just because it sells a lot but because it knows how to stay in the public eye without ever showing a bottle on TV. Its playbook of surrogate branding and high‑visibility sponsorships turns a legal restriction into a marketing advantage.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "United Breweries built Kingfisher into a household name by turning every non‑alcoholic touchpoint into a brand moment – from the iconic blue‑white logo on soda cans to the Kingfisher airline livery that flies the same colors across the sky.",
+          "When direct beer ads were banned, the company poured money into sports, music festivals and lifestyle events, ensuring the brand was seen wherever the target demographic gathered, while the actual product stayed off‑screen."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Surrogate advertising creates an associative halo: consumers link the excitement of a cricket match or a concert to the Kingfisher name, which then translates into purchase intent when the beer is finally offered.",
+          "The strategy also shields the brand from regulatory backlash; by investing in non‑alcoholic assets, Kingfisher builds equity that survives policy shifts, making it harder for new entrants to displace the market leader."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How does Kingfisher advertise without showing its beer?",
+        "a": "It uses surrogate branding – sponsoring sports teams, events, and even an airline – to keep the logo and tagline in public view while complying with ad bans."
+      },
+      {
+        "q": "Why is surrogate advertising effective in India?",
+        "a": "Because it leverages high‑reach platforms like cricket and music festivals, creating brand recall that transfers to the product once consumers are in a buying situation."
+      },
+      {
+        "q": "Can new beer brands use the same surrogate strategy?",
+        "a": "They can, but Kingfisher’s decades‑long relationships and cross‑industry assets give it a scale advantage that’s hard for newcomers to match."
+      },
+      {
+        "q": "Is Kingfisher’s sponsorship spending justified?",
+        "a": "The spend is viewed as a long‑term brand equity investment, turning visibility into a perceived premium status that supports its market‑leader pricing."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "openai/gpt-oss-120b:free",
+    "draft": true
+  },
+  "bira-91": {
+    "intro": "Bira 91 turned a commodity lager into a design‑led lifestyle badge, using bold graphics and limited‑edition cans to signal premium intent in a market where beer is still seen as a mass drink. By treating the package itself as the product story, the brand sidestepped advertising bans and built a cultural foothold among urban youth.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Bira 91 launched with a clear visual language: bright colours, quirky illustrations, and a logo that feels more like a street‑art stamp than a traditional beer badge. This design focus let the brand claim a craft‑like aura without changing the core brewing process.",
+          "Because direct alcohol ads are prohibited in India, Bira leaned on surrogate routes — sponsoring music festivals, collaborating with artists, and releasing limited‑run cans that double as collectibles. The packaging became the primary touchpoint, conveying premium positioning through aesthetics rather than taste claims."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "The approach shows how a beverage can escape the price‑only competition that dominates the Indian beer market by investing in brand symbols that resonate with lifestyle aspirations. It also highlights a workaround for advertising restrictions: when you can’t talk about the product, you let the product talk for itself through design and cultural partnerships.",
+          "For other alcohol brands, Bira’s case underscores the value of treating every consumer interaction — especially the unboxing moment — as a chance to reinforce positioning. It demonstrates that premium perception can be built through visual storytelling and experiential touchpoints, even when the liquid inside remains broadly similar to mass offerings."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How does Bira 91 claim to be a craft beer if it’s brewed at large scale?",
+        "a": "The brand relies on design, limited‑edition collaborations, and a youth‑focused image to create a craft‑like perception, even though the brewing process uses standard large‑scale facilities."
+      },
+      {
+        "q": "What role does surrogate advertising play for Bira 91 in India?",
+        "a": "Since direct beer ads are banned, Bira uses music events, art partnerships, and collectible cans to reach consumers, letting the brand’s style and cultural associations do the promotional work."
+      },
+      {
+        "q": "Why does the can design matter more than the beer’s taste for Bira  taste for Bira 91?",
+        "a": "In a market where taste differences among lagers are subtle, the can becomes the main differentiator, signalling premium intent and enabling the brand to command higher perceived value without altering the liquid."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "simba": {
+    "intro": "When the Indian market is dominated by mass‑market lagers, a handful of brewers are betting on craft as a higher‑margin niche. Simba Beer is the latest attempt to turn a premium narrative into a profit lever, all while sidestepping India’s ban on direct alcohol advertising.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Simba entered the scene with a clear craft‑beer positioning: small‑batch, hop‑forward recipes and a visual identity that leans on rustic Indian motifs. The brand is backed by a parent company that already runs non‑alcoholic beverages, allowing it to leverage existing distribution networks and retail relationships without the heavy cost of building a new sales force.",
+          "Because traditional advertising is off‑limits, Simba leans on surrogate channels—music festivals, lifestyle events, and a robust social media presence that showcases the brewing process rather than the product itself. The packaging, with its matte label and embossed logo, is designed to sit alongside imported craft imports on premium shelves, signalling a ‘premium experience’ even before the first sip."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Craft beer in India enjoys a price premium that can translate into double‑digit margins, a stark contrast to the thin margins on volume‑driven lagers. By positioning itself as a craft brand, Simba can command higher shelf‑prices and attract a younger, aspirational consumer who equates price with status.",
+          "The surrogate advertising model also creates a data‑rich ecosystem: event sponsorships and digital engagement generate consumer insights that can be fed back into product development and targeted distribution. In a market where the legal ad spend is zero, those insights become a competitive edge."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What defines a craft beer in India?",
+        "a": "A craft beer is generally defined by small‑scale production, a focus on flavor innovation, and branding that emphasizes authenticity over mass appeal."
+      },
+      {
+        "q": "How do Indian beer brands advertise without breaking the law?",
+        "a": "They use surrogate advertising—sponsoring events, promoting non‑alcoholic product lines, and creating lifestyle content that indirectly references the brand."
+      },
+      {
+        "q": "Is craft beer more expensive than regular lager?",
+        "a": "Yes, craft beers are priced higher to reflect smaller batch sizes, premium ingredients, and the brand’s positioning as a lifestyle choice."
+      },
+      {
+        "q": "Can I find Simba Beer outside metro cities?",
+        "a": "Distribution is currently focused on metro and tier‑1 cities where premium retail space and consumer willingness to pay a premium are strongest."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "openai/gpt-oss-120b:free",
+    "draft": true
+  },
+  "sula": {
+    "intro": "Sula Vineyards didn’t just bring wine to India; it invented the idea of wine as a lifestyle choice in a market dominated by spirits. By turning vineyards into destinations, the brand found a way to grow sales when direct alcohol advertising is prohibited.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "From its launch, Sula positioned itself as the pioneer that would teach Indian consumers what wine could be, investing heavily in vineyard visits, tasting rooms, and educational events.",
+          "Because direct promotion of alcohol is banned, the brand built its identity through storytelling, partnerships with lifestyle platforms, and creating memorable experiences that subtly linked the product to aspirational living."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "Creating a new drinking category opened a premium segment that had previously been negligible, encouraging other players to explore wine and related experiences.",
+          "The tourism angle diversified revenue streams, making the business less reliant on bottle sales alone and demonstrating how experiential marketing can work within regulatory limits."
+        ]
+      },
+      {
+        "heading": "Surrogate advertising & tourism monetization",
+        "paragraphs": [
+          "Sula uses surrogate channels such as music festivals, art shows, and branded merchandise to keep the name visible without showing the product itself.",
+          "Wine tourism — offering tours, stays, and culinary pairings — turns the vineyard into a destination where the brand experience drives both direct sales and ancillary income, effectively bypassing advertising restrictions."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What does it mean to be a category creator in Indian wine?",
+        "a": "It means Sula was the first to establish wine as a recognizable and aspirational choice for Indian consumers, shaping perceptions and demand where none existed before."
+      },
+      {
+        "q": "How does Sula use tourism to make money?",
+        "a": "By turning its vineyards into visit‑worthy destinations with tours, stays, and food experiences, Sula earns revenue from hospitality and related services that complement bottle sales."
+      },
+      {
+        "q": "Why does Sula rely on surrogate advertising?",
+        "a": "Indian law prohibits direct promotion of alcohol, so the brand builds awareness through indirect channels like events, lifestyle partnerships, and branded experiences that keep the name in public view."
+      },
+      {
+        "q": "What challenges does Sula face in growing the wine market?",
+        "a": "The brand must continually educate consumers about wine while navigating advertising limits, competition from established spirits, and the need to maintain quality as demand expands."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "fratelli": {
+    "intro": "Fratelli Vineyards entered India’s wine scene when most consumers still reached for beer or whisky, betting that a premium label could carve out a niche in a thin market. By marrying Italian winemaking heritage with Indian terroir, the brand positioned itself as a sophisticated alternative for urban professionals looking to explore beyond the usual spirits. Its story is less about the liquid in the bottle and more about how a brand builds desire when direct ads are off the table.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Fratelli started with a clear premise: offer wines that feel imported but are grown locally, thereby controlling costs while retaining an exotic image. The label leans on European aesthetics — classic fonts, muted colours, and vineyard imagery — to signal quality without needing to spell out taste notes.",
+          "Because direct alcohol advertising is prohibited, Fratelli relies on surrogate routes such as sponsoring cultural events, lifestyle content partnerships, and branded merchandise that keep the name visible in settings where wine is naturally discussed. This approach lets the brand talk about the experience around wine — food pairing, celebrations, gifting — while staying within legal bounds."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "India’s wine category is still nascent, with per‑capita consumption far below global averages, which means every new drinker represents a disproportionate growth opportunity. Fratelli’s premium positioning attempts to shift the conversation from volume to value, encouraging consumers to trade up rather than simply drink more.",
+          "For marketers, the brand illustrates how a surrogate‑heavy strategy can build equity in a restricted environment: by associating the wine with aspirational lifestyle cues, it creates demand that later translates into trial when the product is encountered in retail or hospitality outlets."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What does Fratelli do to get around the ban on alcohol ads?",
+        "a": "The brand uses surrogate advertising — sponsoring art festivals, collaborating with lifestyle influencers, and selling branded accessories — so its name stays in front of consumers without directly promoting the wine."
+      },
+      {
+        "q": "Is Fratelli considered an Indian wine or an import?",
+        "a": "Although the grapes are grown in Indian vineyards, Fratelli markets itself with a European‑style identity, letting buyers perceive it as a premium, imported‑feeling product while benefiting from local production efficiencies."
+      },
+      {
+        "q": "Why does Fratelli focus on premium pricing in a low‑consumption market?",
+        "a": "By targeting a premium segment, the brand aims to attract early adopters who are willing to pay more for perceived quality, thereby creating a profitable niche that can expand as overall wine interest grows."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "magic-moments": {
+    "intro": "Magic Moments has turned vodka from a neutral spirit into a playground of flavours, grabbing the attention of India's first-time drinkers. By weaving taste experiments into its brand story, Radico Khaitan built a market-leading vodka franchise without ever showing a bottle on TV.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Radico Khaitan positioned Magic Moments as the go-to vodka for newcomers who want something approachable yet exciting. Instead of competing on purity alone, the brand layered fruit, spice and dessert-inspired notes into its lineup, turning each variant into a conversation starter.",
+          "Because direct liquor ads are banned, the company relies on surrogate routes - music events, lifestyle sponsorships and digital content that echo the flavour themes without ever showing the product. This lets the flavour narrative travel where traditional ads cannot."
+        ]
+      },
+      {
+        "heading": "Flavour innovation as a growth lever",
+        "paragraphs": [
+          "By launching variants such as green apple, orange and chocolate, Magic Moments created low-barrier entry points for consumers who might find plain vodka harsh. Each new taste acts as a trial hook, encouraging repeat purchases and word-of-mouth sharing.",
+          "The flavour pipeline also feeds the surrogate strategy: event names, playlist themes and social-media challenges are built around the taste profile, reinforcing brand recall while staying within advertising restrictions."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "For a market where first-time spirits drinkers are a key growth segment, flavour-led positioning can shift category perception from 'strong alcohol' to 'fun beverage experience'. Magic Moments shows how product innovation can drive volume when traditional advertising channels are closed.",
+          "The approach also offers a template for other players: invest in sensory differentiation, let the product itself become the messenger, and use culturally relevant surrogate platforms to amplify the story."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What makes Magic Moments different from other vodkas in India?",
+        "a": "Its focus on flavoured variants creates a softer, more approachable taste profile aimed at newcomers, setting it apart from plain‑vodka competitors."
+      },
+      {
+        "q": "How does Magic Moments advertise when liquor ads are prohibited?",
+        "a": "It uses surrogate channels such as music festivals, lifestyle events and digital content that echo its flavour themes without showing the product directly."
+      },
+      {
+        "q": "Why are flavoured vodkas important for attracting first-time drinkers?",
+        "a": "Flavours mask the harshness of neutral spirit, lowering the trial barrier and encouraging repeat consumption among those new to spirits."
+      },
+      {
+        "q": "Can other brands copy the flavor-first strategy of Magic Moments?",
+        "a": "Yes, but success depends on genuine taste innovation and aligning surrogate marketing with those flavours to maintain brand consistency."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "greater-than": {
+    "intro": "Greater Than, the gin label from Nao Spirits, rides India’s craft‑gin surge by betting on small‑batch production and a city‑slick image. In a market where liquor ads are barred, the brand leans on surrogate tactics to stay top‑of‑mind among young professionals.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Greater Than positions itself as a craft gin, emphasizing limited‑run batches and a curated botanical blend that aims to stand out from mass‑market offerings.",
+          "The brand’s visual identity — bold typography, muted colours and a name that invites comparison — targets urban professionals who seek a distinct, premium experience rather than just another spirit."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "By carving out a premium niche, Greater Than helps expand the overall gin category in India, encouraging consumers to experiment beyond traditional whisky and rum.",
+          "Its reliance on surrogate advertising — through music festivals, lifestyle collaborations and branded merchandise — shows how companies navigate the ad ban while building brand equity."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What makes Greater Than different from regular gin?",
+        "a": "Greater Than is marketed as a craft gin, produced in small batches with a specific botanical mix that aims to deliver a more nuanced flavour profile than standard, large‑scale gin."
+      },
+      {
+        "q": "How does Greater Than advertise when liquor ads are banned in India?",
+        "a": "The brand uses surrogate advertising — sponsoring music events, collaborating with lifestyle influencers and selling branded merchandise — to keep its name visible without directly promoting the spirit."
+      },
+      {
+        "q": "Is Greater Than considered a premium gin in the Indian market?",
+        "a": "Yes, it is positioned at the premium end, targeting urban consumers who are willing to pay more for a differentiated, craft‑style product."
+      },
+      {
+        "q": "What role does Nao Spirits play in the craft‑gin wave?",
+        "a": "Nao Spirits launched Greater Than to tap into the growing demand for artisanal spirits, helping to drive the broader trend of premium, small‑batch gin in the country."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "hapusa": {
+    "intro": "Hapusa positions itself as a premium craft gin that leans heavily on the idea of Indian terroir, turning locally sourced botanicals into a story worth a higher price tag. In a market where direct liquor ads are banned, the brand leans on surrogate routes and lifestyle messaging to convey its Indian‑ness.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Hapusa is produced by Nao Spirits with a focus on small‑batch distillation and botanicals sourced from across India, such as Himalayan juniper, regional citrus, and native spices. The brand frames these ingredients as an expression of place, using the concept of terroir to differentiate itself from imported gins.",
+          "Its visual identity and marketing avoid showing the product being consumed; instead, Hapusa sponsors music festivals, art exhibitions, and fashion collaborations that highlight Indian craftsmanship and contemporary culture. This surrogate approach lets the brand talk about heritage and lifestyle without violating advertising restrictions."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "By tying the gin’s flavor profile to specific Indian landscapes, Hapusa creates a narrative that justifies a premium price point even in a category where consumers are often price‑sensitive. The terroir story adds perceived value that extends beyond the liquid itself.",
+          "The brand’s reliance on surrogate advertising illustrates how alcohol companies navigate India’s ad ban: they sell an experience, a cultural identity, and a lifestyle cue. This strategy shapes consumer perception and sets a benchmark for how other premium spirits might communicate without showing the product."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What does Hapusa mean by ‘Indian terroir’?",
+        "a": "Hapusa uses the term to describe how the gin’s flavor is shaped by botanicals gathered from distinct Indian regions, linking taste to geography and local agriculture."
+      },
+      {
+        "q": "How does Hapusa advertise when direct liquor ads are prohibited?",
+        "a": "The brand relies on surrogate channels such as sponsoring cultural events, partnering with artists and designers, and producing lifestyle content that evokes Indian heritage without showing the product being consumed."
+      },
+      {
+        "q": "Why is Hapusa priced higher than mass‑market gins?",
+        "a": "Its premium positioning stems from small‑batch production, the use of specially sourced Indian botanicals, and the storytelling around terroir, which together create a differentiated, higher‑value proposition."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "signature": {
+    "intro": "Signature whisky sits at the crossroads of mass appeal and premium aspiration, a balancing act that United Spirits (Diageo) has refined over years in India’s tightly regulated alcohol market. With direct advertising off‑limits, the brand leans on lifestyle cues to carve out a distinct identity amid a crowded whisky shelf.",
+    "sections": [
+      {
+        "heading": "The business/branding story",
+        "paragraphs": [
+          "Signature is positioned as a ‘premium‑mass’ offering, targeting consumers who want a step up from everyday spirits without moving into the ultra‑luxury tier. This positioning lets United Spirits tap into a broad base while still commanding a price premium that supports higher margins.",
+          "Because outright liquor ads are prohibited, Signature’s marketing relies on surrogate channels—music festivals, sports sponsorships, and digital content that evoke a aspirational lifestyle rather than the product itself. The visual language, tone, and partnership choices consistently reinforce a image of modern, confident urban living."
+        ]
+      },
+      {
+        "heading": "Why it matters",
+        "paragraphs": [
+          "In a category where many whiskies share similar flavour profiles, differentiation through branding becomes a key lever for market share and consumer loyalty. Signature’s lifestyle‑centric approach helps it stand out on shelf and in consumer mind‑sets, turning a commodity‑like product into a badge of personal identity.",
+          "The surrogate strategy also illustrates how Indian alcohol brands navigate regulatory constraints while still building brand equity. By aligning with cultural moments and lifestyle narratives, Signature sustains relevance and drives trial without breaching advertising bans."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What is surrogate advertising and how does Signature use it?",
+        "a": "Surrogate advertising promotes a brand through non‑alcohol‑related products or events, such as music or sports, to imply the liquor brand’s values. Signature ties its name to lifestyle‑focused sponsorships and digital storytelling that evoke sophistication and urban confidence."
+      },
+      {
+        "q": "How does Signature’s lifestyle positioning differ from other Indian whiskies?",
+        "a": "While many competitors emphasize heritage or rugged masculinity, Signature leans on contemporary urban imagery—think modern music, fashion‑forward events, and aspirational social scenes—to appeal to younger, city‑based professionals seeking a subtle status signal."
+      },
+      {
+        "q": "Why is premium‑mass positioning important for Diageo in India?",
+        "a": "It allows Diageo to capture volume from the growing middle class while still enjoying better profitability than pure‑play value brands, creating a scalable platform that can be upgraded to higher tiers as consumer tastes evolve."
+      },
+      {
+        "q": "Can lifestyle branding overcome taste similarity in the whisky category?",
+        "a": "Yes—when product differences are subtle, consumers often choose based on the brand’s story and the identity it signals. Signature’s lifestyle framing creates an emotional hook that can drive preference even when the liquid itself is comparable to rivals."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  }
+}

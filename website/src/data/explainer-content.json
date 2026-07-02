@@ -1,0 +1,585 @@
+{
+  "why-alcohol-not-under-gst-india": {
+    "intro": "Alcohol for human consumption stays outside the Goods and Services Tax (GST) because the Indian Constitution gives states the exclusive right to tax it. As a result, each state levies its own excise duty, which is the main reason why the price of the same drink can vary widely from one state to another.",
+    "sections": [
+      {
+        "heading": "Constitutional basis for state taxation",
+        "paragraphs": [
+          "Article 268 of the Constitution places the taxation of alcoholic liquors for human consumption in the State List, meaning only state governments can impose taxes on these products. The GST Council therefore excluded alcohol from the GST regime to respect this federal division of powers.",
+          "Because the Centre cannot tax alcohol under GST, states retain full control over the rate, structure, and administration of excise duties on liquor, beer, wine, and spirits."
+        ]
+      },
+      {
+        "heading": "How state excise works and price variation",
+        "paragraphs": [
+          "Each state designs its own excise policy, setting duties based on factors like alcohol content, product type, and local fiscal needs. These duties are added to the manufacturer's cost before any wholesale or retail markup.",
+          "Since excise rates differ across states, the final shelf price of a bottle of whisky or a can of beer can be significantly higher in one state compared with another, even when the base production cost is identical."
+        ]
+      },
+      {
+        "heading": "Impact on advertising and consumer choice",
+        "paragraphs": [
+          "Direct advertising of alcoholic beverages is prohibited nationwide, leading brands to rely on surrogate advertising—promoting unrelated products like soda or music under the same brand name.",
+          "The combination of state‑level taxation and advertising restrictions shapes how consumers encounter and purchase alcohol, influencing both price perception and brand visibility across different markets."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Alcohol for human consumption is constitutionally a state subject, so it stays outside GST.",
+      "States levy their own excise duties, creating the primary source of price differences across India.",
+      "The excise system allows states to adjust taxes according to local revenue goals and policy priorities.",
+      "Advertising bans push brands toward surrogate campaigns, altering how alcohol is marketed to consumers."
+    ],
+    "faqs": [
+      {
+        "q": "Is any type of alcohol taxed under GST?",
+        "a": "Only industrial alcohol, such as ethanol used for fuel or solvents, falls under GST; alcohol meant for drinking remains exempt."
+      },
+      {
+        "q": "Why do states keep alcohol out of GST?",
+        "a": "States rely on excise revenue from liquor as a significant fiscal resource, and the Constitution gives them exclusive authority to tax it."
+      },
+      {
+        "q": "Does the GST Council ever discuss bringing alcohol into GST?",
+        "a": "The GST Council has periodically reviewed the issue, but no consensus has been reached to move alcohol into the GST framework."
+      },
+      {
+        "q": "How does surrogate advertising work for alcohol brands?",
+        "a": "Brands promote a non‑alcoholic product—like soda, water, or music—under the same brand name to bypass the ban on direct liquor ads."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "why-liquor-prices-vary-by-state": {
+    "intro": "The same bottle of liquor can cost markedly different amounts when you cross a state border because alcohol taxation and sales are handled entirely by each state. Since liquor is kept outside the national GST regime, states levy their own excise duties, set retail policies, and charge various licence fees. These combined factors create the price gaps you see.",
+    "sections": [
+      {
+        "heading": "Alcohol taxation outside GST",
+        "paragraphs": [
+          "In India, alcoholic beverages for human consumption are excluded from the Goods and Services Tax framework. This exclusion means that the central government does not apply a uniform tax on liquor, leaving the taxation authority to the individual states.",
+          "Each state therefore designs its own excise duty structure, which can differ widely in basis (ad valorem, specific, or a mix) and in the way it is applied to different categories of liquor such as beer, wine, and spirits."
+        ]
+      },
+      {
+        "heading": "Variations in state excise duty",
+        "paragraphs": [
+          "Excise duty is the primary tax on alcohol and is imposed at the point of manufacture or import into the state. Because states set their own duty rates, the tax burden on an identical product can be higher in one state and lower in another.",
+          "Some states may also impose additional levies such as special fees on premium brands or extra charges on high‑alcohol content beverages, further widening the price disparity across borders."
+        ]
+      },
+      {
+        "heading": "Retail and distribution models",
+        "paragraphs": [
+          "States choose between a government‑controlled monopoly (where only state‑run outlets can sell liquor) and a liberalised private‑retail system. In monopoly states, the government fixes the wholesale and retail prices, often leading to uniform but potentially higher costs.",
+          "In states that allow private retailers, competition can drive prices down, but the final cost still reflects the state’s excise duty and any additional margins that private players add."
+        ]
+      },
+      {
+        "heading": "Licence fees, permits and other state‑level charges",
+        "paragraphs": [
+          "Beyond excise duty, states collect various fees for manufacturing, bottling, wholesale, and retail licences. These fees can be fixed annual amounts or volume‑based charges, and they differ from one state to another.",
+          "Administrative costs, such as those for label approval or health‑related clearances, are also set at the state level and add to the overall cost structure that determines the shelf price of a bottle."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Liquor pricing in India is driven by state‑level policies, not a national tax system.",
+      "Excise duty rates vary widely between states, directly affecting the shelf price.",
+      "The choice between state monopoly and private retail shapes how prices are set and how competitive they are.",
+      "Additional licence fees and permits imposed by states add another layer of cost variation."
+    ],
+    "faqs": [
+      {
+        "q": "Why is alcohol kept out of GST in India?",
+        "a": "Alcohol for human consumption was excluded from GST to preserve the states’ traditional revenue source from excise duties, allowing them to retain fiscal autonomy over this sector."
+      },
+      {
+        "q": "How does a state monopoly influence liquor prices compared to a private‑retail system?",
+        "a": "In a monopoly state, the government sets both wholesale and retail prices, often resulting in uniform but potentially higher costs; in private‑retail states, market competition can lower prices, though the underlying excise duty still sets a baseline."
+      },
+      {
+        "q": "What is surrogate advertising and why do alcohol brands use it?",
+        "a": "Direct advertising of alcoholic beverages is prohibited, so brands promote related products like music, soda, or events under the same brand name to maintain visibility without violating the law."
+      },
+      {
+        "q": "Can I buy liquor online and have it delivered across state borders?",
+        "a": "Interstate online sale and delivery of liquor is generally restricted because each state controls its own licensing and taxation; most platforms can only deliver within the state where the licence is held."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "what-is-a-standard-drink-peg-large": {
+    "intro": "A peg, a large peg, and a patiala peg are informal Indian serving measures for spirits, and the amount of pure alcohol they contain depends on the volume poured and the drink’s alcohol‑by‑volume (ABV). Understanding these measures helps you gauge your intake more accurately than relying on glass size alone. This guide explains what each term means, how it relates to the concept of a standard drink, and why knowing the volume matters for health and responsible drinking.",
+    "sections": [
+      {
+        "heading": "What a peg means in India",
+        "paragraphs": [
+          "In everyday bar lingo, a ‘peg’ refers to a single pour of a spirit such as whisky, rum, or vodka. The term is not legally defined, but it is widely understood as a modest serving meant for one person.",
+          "Because the exact volume can vary between establishments, a peg is often described as roughly [verify: standard volume] millilitres of spirit. This volume, multiplied by the drink’s ABV, gives the amount of pure alcohol in that peg."
+        ]
+      },
+      {
+        "heading": "Large peg and patiala peg",
+        "paragraphs": [
+          "A ‘large peg’ is simply understood as twice the volume of a regular peg, while a ‘patiala peg’ is understood as four times that volume. These terms are used when someone wants a stronger pour without ordering multiple drinks.",
+          "Thus, a large peg contains about [verify: large volume] millilitres of spirit, and a patiala peg contains about [verify: patiala volume] millilitres. Again, the actual alcohol content follows from the ABV of the spirit being served."
+        ]
+      },
+      {
+        "heading": "Connecting pour size to the standard drink concept",
+        "paragraphs": [
+          "Public‑health guidance often uses the idea of a ‘standard drink’ to express a fixed amount of pure alcohol, regardless of the beverage type. In India, a standard drink is commonly taken as [verify: standard drink alcohol] grams of pure alcohol.",
+          "By knowing the approximate volume of a peg, large peg, or patiala peg and the ABV of your spirit, you can calculate how many standard drinks each pour represents. This makes it easier to track consumption across different drinks and settings."
+        ]
+      },
+      {
+        "heading": "Why accurate measures matter",
+        "paragraphs": [
+          "Taxation and licensing for alcohol in India are handled through state excise, not GST, and advertising restrictions mean surrogate branding is common. Clear serving measures help consumers stay informed despite limited direct marketing.",
+          "Understanding pour sizes also supports responsible drinking habits, allowing you to compare your intake to health guidelines without relying on vague glass sizes."
+        ]
+      }
+    ],
+    "takeaways": [
+      "A peg, large peg, and patiala peg are informal volume measures for spirits, not legally fixed amounts.",
+      "The pure alcohol in each pour depends on both the poured volume and the drink’s ABV.",
+      "You can convert these pours into standard drink units using the known ABV and the approximate volume placeholders.",
+      "State excise governs alcohol taxation in India, and direct advertising is banned, making surrogate common.",
+      "Knowing these measures helps you track intake and follow health‑related drinking advice."
+    ],
+    "faqs": [
+      {
+        "q": "Is a peg the same across all bars in India?",
+        "a": "No, the term is informal and the actual poured volume can vary; it is generally understood as a modest serving but is not legally standardized."
+      },
+      {
+        "q": "How does ABV affect the alcohol content of a peg?",
+        "a": "Alcohol‑by‑volume tells you the percentage of pure alcohol in the spirit; multiplying that percentage by the poured volume (in millilitres) gives the grams of pure alcohol in the peg."
+      },
+      {
+        "q": "Can I use the peg system to count standard drinks for wine or beer?",
+        "a": "The peg measure is traditionally used for spirits; for wine or beer you would use their typical serving sizes and ABV to calculate standard drinks."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "how-bars-price-cocktails-pour-cost": {
+    "intro": "Cocktails feel pricey because the liquid itself is only a fraction of the cost you’re covering. Bars price drinks using a pour‑cost formula that layers ingredient cost, rent, labour, utilities and the experience they sell. In India, where alcohol sits outside GST and is taxed through state excise, those overheads become even more visible on the bill.",
+    "sections": [
+      {
+        "heading": "What pour cost really means",
+        "paragraphs": [
+          "Pour cost is the ratio of the actual cost of the ingredients that go into a drink to its selling price. Bars calculate it by adding up the price of spirits, mixers, garnishes and any other consumables used for one serving.",
+          "Industry practice is to keep this ratio within a target band so that the remaining margin covers fixed expenses and profit. The exact band varies, but operators often refer to a range like [verify: low]% to [verify: high]% when setting prices."
+        ]
+      },
+      {
+        "heading": "Fixed overheads: rent, staff and utilities",
+        "paragraphs": [
+          "Rent for prime locations, salaries for bartenders and support staff, electricity, water and licensing fees are spread across every drink sold. These costs do not change with the volume of alcohol in a cocktail, so they add a flat charge to each pour.",
+          "Because the liquid ingredient cost is relatively low, the share of rent and labour in the final price can be substantial, especially in high‑rent urban centres or upscale venues."
+        ]
+      },
+      {
+        "heading": "Experience and ambiance: the intangible markup",
+        "paragraphs": [
+          "Beyond the tangible inputs, bars charge for the atmosphere they create – lighting, music, interior design, glassware and the skill of the bartender. These elements are part of the product you’re paying for.",
+          "A well‑crafted cocktail also includes labour for shaking, stirring, garnishing and service, which adds time‑based cost that is not captured in the raw ingredient total."
+        ]
+      },
+      {
+        "heading": "How state excise and advertising rules shape pricing",
+        "paragraphs": [
+          "In India, alcohol for human consumption is excluded from GST and is instead taxed through state excise duties, which differ from state to state. This tax is built into the wholesale price that bars pay for spirits and mixers.",
+          "Because direct advertising of liquor is prohibited, brands rely on surrogate advertising and bars often invest in branding, events and partnerships to attract customers. Those marketing expenses are another layer that gets factored into the final drink price."
+        ]
+      }
+    ],
+    "takeaways": [
+      "The liquid in a cocktail usually accounts for only a small portion of what you pay.",
+      "Pour cost helps bars ensure ingredient expenses stay within a target margin.",
+      "Fixed costs like rent, staff salaries and utilities are allocated per drink and can outweigh the ingredient cost.",
+      "Ambiance, bartender skill and service time add significant value that is reflected in the price.",
+      "State excise taxes and advertising restrictions in India further shape the final price you see on the menu."
+    ],
+    "faqs": [
+      {
+        "q": "Why do some cocktails cost more than others even when they use similar spirits?",
+        "a": "Price differences often come from premium mixers, fresh ingredients, elaborate garnishes or the time and skill required to prepare the drink. Bars may also position certain cocktails as signature items with a higher perceived value."
+      },
+      {
+        "q": "Does happy hour really lower the pour cost of a drink?",
+        "a": "Happy hour usually reduces the selling price while the ingredient cost stays the same, which temporarily raises the pour cost ratio. Bars accept this to drive traffic during slower periods, expecting higher overall sales volume."
+      },
+      {
+        "q": "How do bars decide their target pour cost percentage?",
+        "a": "Bars look at their overall cost structure – rent, labour, utilities and desired profit – then set a pour cost range that leaves enough margin to cover those expenses. The exact target varies by venue type and location."
+      },
+      {
+        "q": "Is it cheaper to drink at home versus ordering the same cocktail at a bar?",
+        "a": "Drinking at home eliminates the bar’s overheads like rent, service and ambiance, so the same ingredients cost far less. However, you also miss out on the experience, bartender expertise and social setting that the bar price includes."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "surrogate-advertising-alcohol-india": {
+    "intro": "Liquor brands in India cannot show their drinks in ads because direct alcohol advertising is prohibited by law. To stay visible, they promote surrogate products—such as packaged water, soda, music concerts or events—that share the same brand name or logo. This lets them keep the brand in consumers’ minds while staying within the legal framework.",
+    "sections": [
+      {
+        "heading": "The legal ban on direct alcohol advertising",
+        "paragraphs": [
+          "Indian law treats the promotion of alcoholic beverages for human consumption as restricted, covering television, print, radio, outdoor and digital media. The restriction stems from both central guidelines and state-level excise regulations that aim to curb consumption.",
+          "Because the ban applies to the product itself, companies cannot run ads that feature whisky, beer, rum or any other spirit in a way that encourages purchase or consumption."
+        ]
+      },
+      {
+        "heading": "What surrogate advertising looks like",
+        "paragraphs": [
+          "Brands replace the prohibited product with a legally advertisable item—most commonly packaged drinking water, carbonated soda, music albums, or event sponsorships—while retaining the same brand name, logo, colour scheme and tagline.",
+          "These surrogate goods are genuinely sold in the market, but the advertising campaign’s primary goal is to remind consumers of the parent alcohol brand, exploiting the overlap in brand identity."
+        ]
+      },
+      {
+        "heading": "How regulators and courts view surrogate ads",
+        "paragraphs": [
+          "Advertising standards authorities examine whether the surrogate product is being marketed on its own merits or merely as a veil for alcohol promotion. If the ad is found to indirectly promote liquor, it can be pulled down.",
+          "Courts have upheld by courts when the surrogate is deemed a mere extension of the banned product.",
+          "Enforcement actions vary by state, with some issuing notices to advertisers and others allowing the practice to continue as long as the surrogate product has a separate, verifiable market presence."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Direct advertising of alcoholic drinks is illegal across most media in India.",
+      "Brands use surrogate products like water, soda or music events to keep their name visible.",
+      "Regulators watch closely to ensure the same way they watch alcohol ads, and courts can intervene if the surrogate is seen as a sham.",
+      "The practice persists because it lets companies maintain brand recall without breaking the law.",
+      "Consumers see the same branding on unrelated goods, which keeps the alcohol brand top‑of‑mind."
+    ],
+    "faqs": [
+      {
+        "q": "Is surrogate advertising legal in India?",
+        "a": "Surrogate advertising is permitted only when the promoted product is genuinely sold and advertised on its own terms; if it is found to be a thinly veiled promotion of liquor, authorities can treat it as illegal."
+      },
+      {
+        "q": "Why do companies choose water or soda as surrogate products?",
+        "a": "Packaged water and soda are easy to produce, widely distributed, and can carry the exact same branding as the alcohol line, making the brand recall transfer seamless."
+      },
+      {
+        "q": "Can surrogate ads appear on social media?",
+        "a": "Yes, surrogate ads can run on digital platforms as long as the content focuses on the surrogate product and does not implicitly encourage consumption of the associated alcoholic beverage."
+      }
+    ],
+    "ta": "",
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "premiumization-indian-alcohol-market": {
+    "intro": "Premium Indian spirits and single malts are booming because rising disposable incomes, aspirational lifestyles, and a growing pride in homegrown craftsmanship are nudging consumers toward higher‑priced, higher‑margin drinks. The shift is less about getting drunk and more about signalling status, taste and a sense of national identity.",
+    "sections": [
+      {
+        "heading": "The economics of aspiration",
+        "paragraphs": [
+          "Young urban professionals are earning more and spending a larger slice of their budget on experiences that reinforce their social standing. Premium spirits, with their higher price tags, serve as a visible marker of success, especially in a market where direct alcohol advertising is prohibited.",
+          "Because the industry cannot rely on traditional ads, brands invest heavily in curated events, influencer collaborations and premium packaging – all of which reinforce the perception of exclusivity and justify the price premium."
+        ]
+      },
+      {
+        "heading": "Made‑in‑India pride meets global standards",
+        "paragraphs": [
+          "A new generation of Indian distilleries is producing single‑grain whiskies, aged rums and craft gins that can stand shoulder‑to‑shoulder with imported labels. This ‘local luxury’ narrative taps into a growing desire to support domestic talent while enjoying world‑class quality.",
+          "State excise structures, which tax alcohol on a per‑volume basis rather than value, mean that premium products enjoy relatively lower effective tax rates compared with cheap mass‑market brands, improving margins for producers and keeping shelf‑price gaps sustainable."
+        ]
+      },
+      {
+        "heading": "Supply‑side dynamics and margin incentives",
+        "paragraphs": [
+          "Manufacturers are shifting capacity from low‑margin bulk spirits to smaller‑batch, higher‑margin offerings. The premium segment also benefits from lower price elasticity – consumers are less sensitive to price hikes when they view the product as a status symbol.",
+          "Craft and premium brands often command a margin premium that more than offsets the higher excise duty on alcohol, encouraging distributors to give them better shelf placement and promotional support."
+        ]
+      },
+      {
+        "heading": "Regulatory backdrop and marketing workarounds",
+        "paragraphs": [
+          "Alcohol for human consumption is outside GST and is taxed solely through state excise, creating a patchwork of rates that can make premium products comparatively attractive in high‑tax states.",
+          "With direct advertising banned, brands resort to surrogate advertising—sponsoring movies, music festivals, and lifestyle content. These indirect channels amplify the premium narrative without breaching the law."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Higher disposable incomes and status‑driven consumption are the main drivers of premium spirit growth.",
+      "Domestic distilleries are leveraging ‘Made in India’ storytelling to compete with imports.",
+      "Excise tax structures favour higher‑priced, lower‑volume products, boosting margins.",
+      "Surrogate advertising keeps premium brands top‑of‑mind despite a total ad ban."
+    ],
+    "faqs": [
+      {
+        "q": "What defines a premium spirit in India?",
+        "a": "Premium spirits are typically positioned above mass‑market offerings by price, aging, ingredient quality, and branding, often targeting consumers willing to pay a margin for perceived superiority."
+      },
+      {
+        "q": "How does state excise affect the price of premium drinks?",
+        "a": "Excise is levied per litre, so higher‑priced spirits bear a lower effective tax rate relative to their retail price, making the premium segment relatively more tax‑efficient."
+      },
+      {
+        "q": "Why can’t alcohol brands advertise directly?",
+        "a": "Indian law bans direct advertising of alcoholic beverages; brands therefore use surrogate methods like event sponsorships, product placement and lifestyle content to stay visible."
+      },
+      {
+        "q": "Is the premium spirit trend limited to whisky?",
+        "a": "No, while single‑malts lead the conversation, premium rums, gins, and even craft vodkas are all experiencing comparable growth driven by the same aspirational forces."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "openai/gpt-oss-120b:free",
+    "draft": true
+  },
+  "which-states-india-are-dry-prohibition": {
+    "intro": "Alcohol is banned for human consumption in several Indian states and union territories where state law enforces total prohibition. These include Gujarat, Bihar, Nagaland, Mizoram and the union territory of Lakshadweep. In some other states, certain districts observe dry rules while the rest of the state permits sale.",
+    "sections": [
+      {
+        "heading": "States with total prohibition",
+        "paragraphs": [
+          "Gujarat, Bihar, Nagaland, Mizoram and Lakshadweep have laws that prohibit the manufacture, sale and consumption of alcoholic beverages for ordinary use. These prohibitions are written into each state’s excise act and apply uniformly across the territory.",
+          "Exceptions exist for medicinal or religious purposes, but they require a special permit from the excise authority. Without such a permit, possession or consumption can lead to fines or imprisonment under the respective state laws."
+        ]
+      },
+      {
+        "heading": "States with partial or district‑level bans",
+        "paragraphs": [
+          "Some states allow local administrations to declare dry days or dry districts based on community sentiment or religious calendars. Examples include certain districts in Manipur and temporary bans observed in parts of Kerala during festival periods.",
+          "These restrictions are not statewide and can be lifted or tightened by the concerned district magistrate. Consequently, the legal status of alcohol may vary within short distances depending on local orders."
+        ]
+      },
+      {
+        "heading": "Economic side of prohibition",
+        "paragraphs": [
+          "Because alcohol for human consumption stays outside the GST regime and is taxed through state excise, a dry state forgoes a potential source of revenue that neighboring states collect from legal sales.",
+          "The absence of a legal market often encourages informal supply chains and cross‑border bootlegging, which can affect excise collections in adjoining regions and create enforcement challenges for authorities."
+        ]
+      },
+      {
+        "heading": "Enforcement and realities on the ground",
+        "paragraphs": [
+          "Enforcement relies on state police and excise departments, which conduct raids, highway checkpoints and surveillance of known smuggling routes. Penalties for violating prohibition range from monetary fines to imprisonment, depending on the quantity involved and the state’s specific statutes.",
+          "Despite strict laws, illicit consumption persists through hidden distilleries, smuggling from wet states and occasional misuse of permits meant for medicinal use. Periodic reviews by governments sometimes consider relaxing bans to boost tourism or increase excise income, but any change remains subject to political and social debate."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Alcohol is completely banned in Gujarat, Bihar, Nagaland, Mizoram and Lakshadweep.",
+      "Some states allow districts or local bodies to impose temporary dry days.",
+      "Prohibition means the state loses excise revenue that GST does not cover.",
+      "Enforcement depends on police and excise, but illegal markets often arise.",
+      "Debates continue over whether to keep or lift bans for economic or social reasons."
+    ],
+    "faqs": [
+      {
+        "q": "Is alcohol completely banned in Gujarat?",
+        "a": "Yes, Gujarat enforces a statewide prohibition on the manufacture, sale and consumption of alcohol for ordinary use, with limited exceptions requiring special permits."
+      },
+      {
+        "q": "Can you bring alcohol into a dry state from another state?",
+        "a": "Transporting alcohol into a state where prohibition applies is illegal and can lead to seizure, fines or imprisonment under that state’s excise law."
+      },
+      {
+        "q": "What happens if someone is caught drinking in a dry area?",
+        "a": "Penalties vary by state but generally include monetary fines, possible imprisonment and confiscation of the alcohol involved."
+      },
+      {
+        "q": "Does prohibition affect the price of alcohol in nearby wet states?",
+        "a": "Demand from dry regions can influence cross‑border trade, but prices in wet states are mainly set by their own excise policies and market conditions."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "does-branding-change-how-alcohol-tastes": {
+    "intro": "Yes, you can taste a difference — but much of what you perceive comes from what you expect, not just the liquid in the glass. Branding, price tags and the stories behind a bottle prime your brain to notice certain flavours and ignore others. In other words, the label does real perceptual work, which is why producers can charge a premium.",
+    "sections": [
+      {
+        "heading": "How Expectation Shapes Taste",
+        "paragraphs": [
+          "When you see a premium label, your brain sets up an expectation of quality, smoothness or complexity. This expectation can amplify subtle aromas or mute perceived flaws, a phenomenon known as expectation bias.",
+          "Neuroscience research shows that areas linked to reward and taste light up more when participants believe they are drinking a high‑end product, even if the liquid is identical to a cheaper one."
+        ]
+      },
+      {
+        "heading": "Branding, Storytelling and Surrogate Advertising",
+        "paragraphs": [
+          "In India, direct alcohol ads are banned, so brands rely on surrogate campaigns — selling music, sports or lifestyle goods that carry the same name and imagery. These cues build a narrative around heritage, craftsmanship or exclusivity.",
+          "Packaging weight, glass shape, foil stamping and the wording on the back label all act as non‑verbal signals that tell your brain what to expect before the first sip."
+        ]
+      },
+      {
+        "heading": "Blind Tastings Reveal the Baseline",
+        "paragraphs": [
+          "When the same whiskies are served blind — without labels or price information — many tasters struggle to tell them apart, and preference scores often converge.",
+          "This does not mean the liquids are identical; rather, the perceptual gap narrows when expectation is removed, showing that branding adds a measurable layer to the experience."
+        ]
+      },
+      {
+        "heading": "What This Means for Indian Consumers",
+        "paragraphs": [
+          "Because alcohol is taxed through state excise and stays outside GST, price differences often reflect branding costs, taxes and distribution margins more than raw production cost.",
+          "Knowing that expectation shapes taste can help you decide whether you are paying for genuine sensory differences or for the story, prestige and marketing that surround a bottle."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Expectation and priming can change how you perceive flavour, aroma and mouthfeel.",
+      "Branding works through visual cues, packaging and surrogate campaigns that build a story.",
+      "Blind tastings often reduce perceived differences, showing the power of expectation.",
+      "In India, price premiums largely reflect marketing, taxes and distribution, not just liquid quality."
+    ],
+    "faqs": [
+      {
+        "q": "Does a higher price guarantee better taste in whisky?",
+        "a": "Not necessarily; price often reflects branding, taxes and production scale, and blind tests show that taste differences can be modest when expectations are removed."
+      },
+      {
+        "q": "How do surrogate advertisements influence what I think a drink tastes like?",
+        "a": "They associate the brand with lifestyle, music or sports, creating expectations of quality or sophistication that prime your palate before you even taste the product."
+      },
+      {
+        "q": "Can I train myself to notice real differences between expensive and cheap spirits?",
+        "a": "Yes, focused nosing and tasting practice can improve your ability to detect subtle flavour notes, but awareness of bias helps you separate expectation from actual sensation."
+      },
+      {
+        "q": "Why does alcohol pricing work differently in India compared to other goods?",
+        "a": "Alcohol is kept outside GST and taxed through state excise, so price variations often stem from state‑specific duties, branding costs and distribution margins rather than uniform national tax."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "traditional-tribal-alcohol-india": {
+    "intro": "Traditional and tribal alcoholic drinks of India refer to a wide range of locally fermented beverages made from ingredients such as mahua flowers, rice, palm sap, cashew apple and various millets. These drinks have been produced for generations within communities, often outside the formal excise system, and carry deep cultural and ritual significance. Today, many of these brews are seeing renewed interest as producers seek to formalise and premiumise them while respecting their heritage.",
+    "sections": [
+      {
+        "heading": "Overview of India's traditional alcoholic landscape",
+        "paragraphs": [
+          "India's alcohol landscape includes a vast array of community‑brewed drinks that predate modern distilleries and breweries. These beverages are typically crafted using locally available raw materials and traditional fermentation techniques passed down through oral knowledge.",
+          "Because alcohol for human consumption is outside GST and taxed via state excise, many of these drinks operate in a grey area where they are either exempt from formal taxation or fall under specific state-level provisions.",
+          "The diversity of these drinks reflects the country's agro‑climatic variety, with each region adapting its brew to the crops and flora that grow nearby."
+        ]
+      },
+      {
+        "heading": "Key drinks from different regions",
+        "paragraphs": [
+          "Mahua, made from the flowers of the mahua tree, is popular in central and eastern tribal belts and is often consumed during festivals and marriage ceremonies.",
+          "Handia, a rice-based fermented drink, is brewed by various tribal groups in Odisha, Jharkhand and Chhattisgarh, and is known for its mild sourness and low alcohol content.",
+          "Feni, distilled from cashew apple or coconut palm sap, is a signature spirit of Goa that has gained recognition both locally and beyond.",
+          "Toddy, tapped from the sap of palm trees such as date or coconut, is found across southern and western India and is consumed fresh or after a short fermentation period.",
+          "Other notable examples include chhang from the Himalayas, lugdi from Himachal Pradesh, and apong from Assam, each showcasing unique ingredients and preparation styles."
+        ]
+      },
+      {
+        "heading": "Cultural and social roles",
+        "paragraphs": [
+          "These drinks are more than just sources of alcohol; they are woven into the social fabric of the communities that produce them. They appear in rituals, harvest celebrations, ancestral worship and as offerings to deities.",
+          "Sharing a brew often signifies hospitality and strengthens bonds between families and clans, reinforcing identity and continuity across generations.",
+          "The knowledge of preparation is typically held by elders or specific community members, making the drink a carrier of traditional wisdom and local biodiversity."
+        ]
+      },
+      {
+        "heading": "From informal brews to formalised products",
+        "paragraphs": [
+          "In recent years, entrepreneurs and cooperatives have begun to register some of these beverages, seeking geographical indication tags or state licences to bring them into the formal market.",
+          "Formalisation aims to ensure quality consistency, widen distribution and create premium positioning, while also addressing concerns about hygiene and responsible consumption.",
+          "However, the process faces hurdles such as varying state excise laws, the ban on direct alcohol advertising (which pushes brands toward surrogate advertising), and the need to balance commercial interests with the protection of traditional practices."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Traditional drinks are deeply rooted in local culture and often made from region‑specific ingredients.",
+      "Many of these brews operate outside the formal excise system, though moves are underway to bring them into regulated markets.",
+      "Their social role extends beyond consumption, serving as markers of identity, hospitality and ritual significance.",
+      "Efforts to formalise and premiumise these drinks must navigate complex state excise rules and advertising restrictions while preserving heritage."
+    ],
+    "faqs": [
+      {
+        "q": "What is the most widely known tribal drink of India?",
+        "a": "Mahua, made from the flowers of the mahua tree, is a widely recognised tribal beverage, especially in central and eastern India."
+      },
+      {
+        "q": "How does feni differ from other Indian spirits?",
+        "a": "Feni is distilled from cashew apple or coconut palm sap, giving it a distinct flavour profile compared to grain‑based spirits."
+      },
+      {
+        "q": "Are traditional alcoholic drinks subject to state excise taxes?",
+        "a": "Alcohol for human consumption is outside GST and taxed via state excise, but many community‑brewed drinks may fall under specific exemptions or informal channels depending on the state."
+      },
+      {
+        "q": "Why are some traditional drinks being premiumised?",
+        "a": "Producers see premiumisation as a way to add value, ensure quality and reach new markets while highlighting the unique heritage and ingredients of the brews."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  },
+  "traditional-drinks-northeast-india": {
+    "intro": "The tribes of Northeast India traditionally drink a variety of rice‑based and millet‑based fermented beverages, such as apong, zutho, kyat and tongba. These drinks are deeply woven into community life, marking festivals, rituals and everyday hospitality. Though they share a common grain foundation, each brew carries distinct preparation methods and cultural meanings tied to specific ethnic groups.",
+    "sections": [
+      {
+        "heading": "What are the traditional drinks of Northeast India?",
+        "paragraphs": [
+          "Across the region, communities produce fermented grain drinks that are often called rice beer or millet beer, even though the ingredients and techniques vary. Apong is associated with the Mising and Adi peoples of Assam and Arunachal Pradesh, while zutho is a staple among the Naga tribes. Kyat is known in Manipur, and tongba is a warm millet drink popular with the Limbu and other groups in Sikkim and Darjeeling. Each name reflects a local language and a particular way of preparing the brew."
+        ]
+      },
+      {
+        "heading": "How are these drinks made?",
+        "paragraphs": [
+          "The process typically begins with cooking rice or millet, then mixing it with a starter culture made from local herbs or previous batches of ferment. The mixture is left to ferment in earthenware pots, bamboo containers or wooden vats for several days, depending on the desired strength and flavour. After fermentation, the liquid is strained and consumed fresh, or in the case of tongba, served hot by adding boiling water to the soaked millet grains."
+        ]
+      },
+      {
+        "heading": "Cultural significance and occasions",
+        "paragraphs": [
+          "These beverages are more than refreshment; they play a central role in rituals such as harvest festivals, weddings and ancestral offerings. Sharing a pot of apong during the Ali‑Ai‑Ligang festival of the Mising, or serving zutho at a Naga feast, reinforces social bonds and marks important life events. The drinks are often prepared communally, with knowledge passed down through generations."
+        ]
+      },
+      {
+        "heading": "Legal context and modern challenges",
+        "paragraphs": [
+          "Alcohol for human consumption falls outside the GST regime and is taxed through state excise laws, which means each Northeastern state sets its own rules for production, sale and consumption of traditional brews. While many of these drinks are made and consumed locally without commercial licensing, growing interest from urban markets has raised questions about regulation, quality control and the preservation of traditional practices amid changing legal frameworks."
+        ]
+      }
+    ],
+    "takeaways": [
+      "Northeast India’s traditional drinks are primarily fermented rice or millet beverages, each linked to specific ethnic communities.",
+      "Preparation involves local starter cultures and fermentation in traditional vessels, resulting in distinct flavours and strengths.",
+      "The drinks are integral to festivals, rituals and daily hospitality, serving as social and cultural markers.",
+      "State excise laws govern their taxation and sale, creating a varied legal landscape across the region.",
+      "Increasing commercial interest brings both opportunities and challenges for preserving these age‑old brewing traditions."
+    ],
+    "faqs": [
+      {
+        "q": "Is apong the same as rice beer?",
+        "a": "Apong is a type of rice beer made by the Mising and Adi communities, but the term refers specifically to their traditional preparation method and cultural context."
+      },
+      {
+        "q": "Can you buy tongba outside the Northeast?",
+        "a": "Tongba is primarily found in Sikkim, Darjeeling and neighbouring areas; outside these regions it is rarely sold commercially, though some specialty stores may stock it."
+      },
+      {
+        "q": "Are these traditional drinks taxed like other alcohol in India?",
+        "b": "They are subject to state excise duties rather than GST, with each state setting its own rates and regulations for production and sale."
+      }
+    ],
+    "generated_at": "2026-07-02",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": true
+  }
+}

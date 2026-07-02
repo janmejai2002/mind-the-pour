@@ -1,0 +1,26 @@
+{
+  "name": "mind-the-pour",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "The business, pricing & culture behind every drink in India.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "gen:states": "node scripts/generate-states.mjs",
+    "gen:brands": "node scripts/generate-brands.mjs",
+    "gen:explainers": "node scripts/generate-explainers.mjs",
+    "gen:all": "npm run gen:states && npm run gen:brands && npm run gen:explainers",
+    "gen:og": "node scripts/gen-og.mjs",
+    "gen:cards": "node scripts/gen-cards.mjs",
+    "gen:images": "npm run gen:og && npm run gen:cards",
+    "models": "node scripts/list-free.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "astro": "^5.6.0",
+    "satori": "^0.26.0"
+  }
+}

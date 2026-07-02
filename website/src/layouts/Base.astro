@@ -1,0 +1,112 @@
+---
+// Base layout — carries all SEO + GEO signals.
+// GEO = Generative Engine Optimization: structured data + clear semantics
+// so AI engines (ChatGPT, Gemini, Perplexity) can cite this page.
+const {
+  title,
+  description,
+  jsonld,          // optional array/object of schema.org JSON-LD
+  ogType = 'website',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const schemas = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
+
+// Pick the auto-generated branded OG image for this page (scripts/gen-og.mjs).
+const seg = Astro.url.pathname.split('/').filter(Boolean);
+let ogKey = 'default';
+if (seg[0] === 'states' && seg[1]) ogKey = `state-${seg[1]}`;
+else if (seg[0] === 'brands' && seg[1]) ogKey = `brand-${seg[1]}`;
+else if (seg[0] === 'learn' && seg[1]) ogKey = `learn-${seg[1]}`;
+const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
+---
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Mind the Pour" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts (free, Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- schema.org structured data (the GEO signal) -->
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body>
+    <header class="site">
+      <a href="/" class="brand">MIND&nbsp;THE&nbsp;POUR</a>
+      <nav>
+        <a href="/states/">Prices by State</a>
+        <a href="/brands/">Brands</a>
+        <a href="/learn/">Learn</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="https://instagram.com/mindthepour">Instagram</a>
+      </nav>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site">
+      <p>Mind the Pour — the business, pricing &amp; culture behind every drink in India.</p>
+      <p><a href="/about/">About</a> · <a href="/learn/">Learn</a> · <a href="/responsible-drinking/">Responsible Drinking</a> · <a href="https://instagram.com/mindthepour">Instagram</a></p>
+      <p class="fine">Editorial &amp; educational content about the alcohol <em>industry</em>. Not a seller of alcohol. <strong>21+ only. Please drink responsibly.</strong></p>
+    </footer>
+
+    <style is:global>
+      :root {
+        --ink: #0E0E10; --surface: #1A1A1E; --amber: #E0A73C;
+        --green: #1F6B4E; --cream: #F4EAD5; --stone: #9A968E;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; background: var(--ink); color: var(--cream);
+        font-family: 'Inter', system-ui, sans-serif; line-height: 1.6;
+      }
+      h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
+      a { color: var(--amber); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      header.site, footer.site {
+        display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
+        align-items: center; padding: 1rem 1.5rem; background: var(--surface);
+      }
+      header.site nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+      .brand { color: var(--amber); font-weight: 700; letter-spacing: .04em; }
+      .wrap { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+      footer.site { flex-direction: column; align-items: flex-start; color: var(--stone); font-size: .85rem; }
+      .fine { font-size: .8rem; }
+      .hero-num { font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--amber); }
+      table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+      th, td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid #2a2a30; }
+      th { color: var(--amber); }
+      .card {
+        display: block; background: var(--surface); border: 1px solid #2a2a30;
+        border-radius: 12px; padding: 1rem 1.2rem; margin: .6rem 0;
+      }
+      .card:hover { border-color: var(--amber); text-decoration: none; }
+      .tag { display: inline-block; font-size: .75rem; color: var(--ink); background: var(--amber);
+        padding: .1rem .5rem; border-radius: 999px; font-weight: 600; }
+      details { background: var(--surface); border-radius: 10px; padding: .5rem 1rem; margin: .5rem 0; }
+      summary { cursor: pointer; font-weight: 600; color: var(--cream); }
+    </style>
+  </body>
+</html>

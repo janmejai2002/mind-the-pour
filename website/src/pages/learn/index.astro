@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import explainers from '../../data/explainers.json';
+
+const title = 'Learn: The Economics of Alcohol in India, Explained';
+const description = 'Plain-English explainers on liquor taxes, GST, pour cost, standard drinks, surrogate advertising, premiumization and more — the economics of what India drinks.';
+---
+<Base title={title} description={description}>
+  <h1>Learn the economics of what India drinks</h1>
+  <p>Straight answers to the questions people actually ask about alcohol in India — pricing,
+  taxes, bars, branding and drinking smart.</p>
+  {explainers.map((e) => (
+    <a class="card" href={`/learn/${e.slug}/`}>
+      <span class="tag">{e.pillar}</span>
+      <div style="margin-top:.5rem"><strong>{e.title}</strong></div>
+    </a>
+  ))}
+</Base>

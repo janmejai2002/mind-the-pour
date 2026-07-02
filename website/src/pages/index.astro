@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import states from '../data/states.json';
+import explainers from '../data/explainers.json';
+
+const title = 'Mind the Pour — The Economics of What India Drinks';
+const description = 'Decoding the business, pricing, psychology and culture behind alcohol in India. Liquor prices by state, bar economics, brand psychology and premiumization — explained with data.';
+
+const featuredStates = ['goa', 'karnataka', 'delhi', 'maharashtra', 'tamil-nadu', 'puducherry']
+  .map((slug) => states.find((s) => s.slug === slug))
+  .filter(Boolean);
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Mind the Pour',
+  url: 'https://mindthepour.in',
+  description,
+  publisher: { '@type': 'Organization', name: 'Mind the Pour' },
+};
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <p class="tag">The Economics of What India Drinks</p>
+  <h1>Why does the same bottle cost 3x more across a state line?</h1>
+  <p>Alcohol is one of India's largest consumer industries — and one of its least understood.
+  We decode the <strong>pricing, taxes, bar economics, brand psychology and culture</strong> behind
+  what India drinks. With receipts.</p>
+
+  <h2>Liquor prices &amp; taxes by state</h2>
+  <p>State excise duty is the single biggest reason prices swing so wildly. Start here:</p>
+  {featuredStates.map((s) => (
+    <a class="card" href={`/states/${s.slug}/`}>
+      <strong>{s.name}</strong> — {s.prohibition ? 'Dry state' : `${s.priceTier} price tier`} · {s.model}
+    </a>
+  ))}
+  <p><a href="/states/">See all {states.length} states &amp; UTs →</a></p>
+
+  <h2>Popular explainers</h2>
+  {explainers.slice(0, 4).map((e) => (
+    <a class="card" href={`/learn/${e.slug}/`}>
+      <span class="tag">{e.pillar}</span>
+      <div style="margin-top:.4rem"><strong>{e.title}</strong></div>
+    </a>
+  ))}
+  <p><a href="/learn/">All explainers →</a> · <a href="/brands/">Brands, decoded →</a></p>
+
+  <h2>What we cover</h2>
+  <ul>
+    <li><strong>Price Decoded</strong> — how excise duty makes or breaks the shelf price.</li>
+    <li><strong>Bar Economics</strong> — pour cost, cocktail margins, menu psychology.</li>
+    <li><strong>Brand &amp; Status</strong> — why you pay for the label, not always the liquid.</li>
+    <li><strong>Premiumization</strong> — India's award-winning single malts.</li>
+    <li><strong>Drink Smart</strong> — standard drinks, labels, and consumer literacy.</li>
+  </ul>
+
+  <Newsletter />
+</Base>

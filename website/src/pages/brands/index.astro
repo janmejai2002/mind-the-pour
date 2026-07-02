@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import brands from '../../data/brands.json';
+
+const title = 'Indian Alcohol Brands Decoded: Whisky, Beer, Wine & Craft Spirits';
+const description = 'The business and branding behind India\'s biggest drinks — from mass-market whisky and Old Monk to award-winning single malts like Amrut, Indri and Paul John.';
+
+// Group by type for a scannable index
+const groups = {};
+for (const b of brands) (groups[b.type] ??= []).push(b);
+---
+<Base title={title} description={description}>
+  <h1>Indian drinks brands, decoded</h1>
+  <p>Why some brands become status symbols, how branding shapes taste perception, and what
+  premiumization is doing to the market. We break down the business behind the bottle.</p>
+  {Object.entries(groups).map(([type, list]) => (
+    <section>
+      <h2>{type}</h2>
+      {list.map((b) => (
+        <a class="card" href={`/brands/${b.slug}/`}>
+          <strong>{b.name}</strong> — {b.positioning} · <span style="color:var(--stone)">{b.maker}</span>
+        </a>
+      ))}
+    </section>
+  ))}
+</Base>

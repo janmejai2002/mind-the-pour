@@ -1,0 +1,13 @@
+# Secrets — NEVER commit
+.env
+.env.*
+*.key
+
+# Node
+node_modules/
+dist/
+.astro/
+
+# OS
+.DS_Store
+Thumbs.db

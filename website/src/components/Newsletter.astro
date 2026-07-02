@@ -1,0 +1,20 @@
+---
+// Newsletter capture. The audience we OWN — what we sell to sponsors.
+// Wire `action` to a free provider (MailerLite / Buttondown / Beehiiv free tier).
+// Until then it points to a placeholder and won't submit real data.
+const action = 'https://YOUR-NEWSLETTER-PROVIDER/subscribe'; // TODO: replace
+---
+<section style="background:var(--surface);border:1px solid #2a2a30;border-radius:14px;padding:1.5rem;margin:2.5rem 0">
+  <h2 style="margin-top:0">Get the breakdowns in your inbox</h2>
+  <p>One sharp read a week on the economics of what India drinks. No spam. 21+.</p>
+  <form action={action} method="post" style="display:flex;gap:.5rem;flex-wrap:wrap">
+    <input
+      type="email" name="email" required placeholder="you@email.com"
+      style="flex:1;min-width:220px;padding:.7rem .9rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream)" />
+    <button
+      type="submit"
+      style="padding:.7rem 1.2rem;border:0;border-radius:8px;background:var(--amber);color:var(--ink);font-weight:700;cursor:pointer">
+      Subscribe
+    </button>
+  </form>
+</section>

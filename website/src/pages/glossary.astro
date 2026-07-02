@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Alcohol Glossary India: Peg, Large, Standard Drink, IMFL & More';
+const description = 'Plain-English definitions of Indian drinking terms — peg, large, patiala peg, standard drink, IMFL, excise duty, pour cost and more.';
+
+const terms = [
+  { t: 'Standard drink', d: 'A unit containing roughly 10g of pure alcohol — about a 30ml peg of spirits. Used to measure consumption consistently.' },
+  { t: 'Peg', d: 'The common Indian measure for spirits. A "small" peg is ~30ml; a "large" is ~60ml; a "patiala peg" is a generous ~120ml.' },
+  { t: 'Large', d: 'A 60ml serving of spirits — effectively two standard drinks.' },
+  { t: 'IMFL', d: 'Indian Made Foreign Liquor — spirits like whisky, rum, vodka, gin made in India, as distinct from country liquor.' },
+  { t: 'Excise duty', d: 'The state-level tax on alcohol. Because alcohol is outside GST, this is the biggest reason prices vary between states.' },
+  { t: 'Pour cost', d: 'The cost of the liquor in a drink as a percentage of its menu price. Bars typically target ~15-25% pour cost.' },
+  { t: 'Premiumization', d: 'The market shift toward higher-priced, higher-margin premium and craft spirits.' },
+];
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'Indian Alcohol Glossary',
+  hasDefinedTerm: terms.map((x) => ({ '@type': 'DefinedTerm', name: x.t, description: x.d })),
+};
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <h1>Alcohol glossary (India)</h1>
+  <p>The terms behind what India drinks — in plain English.</p>
+  {terms.map((x) => (
+    <details>
+      <summary>{x.t}</summary>
+      <p>{x.d}</p>
+    </details>
+  ))}
+</Base>

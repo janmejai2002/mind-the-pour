@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import states from '../../data/states.json';
+import generated from '../../data/state-content.json';
+
+// PROGRAMMATIC SEO: one page generated per state from states.json.
+// Add rows to states.json and pages appear automatically.
+export function getStaticPaths() {
+  return states.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+
+const { s } = Astro.props;
+const gen = generated[s.slug]; // AI-drafted rich content (scripts/generate-states.mjs), may be undefined
+const year = new Date().getFullYear();
+const title = `Liquor Prices & Excise Duty in ${s.name} (${year}) | Mind the Pour`;
+const description = `${s.summary} Retail model: ${s.model}. Here's why alcohol prices in ${s.name} look the way they do.`;
+
+// Base FAQs (always present); enriched with AI-drafted FAQs when available.
+const baseFaqs = [
+  {
+    q: `Why is alcohol ${s.prohibition ? 'banned' : (s.priceTier === 'Low' ? 'cheap' : 'expensive')} in ${s.name}?`,
+    a: s.whyCheap,
+  },
+  {
+    q: `How is liquor sold in ${s.name}?`,
+    a: `${s.name} uses a ${s.model.toLowerCase()} model for alcohol retail.`,
+  },
+  {
+    q: `Is alcohol under GST in ${s.name}?`,
+    a: `No. Alcohol for human consumption is outside GST across India, so ${s.name} sets its own state excise duty — the main driver of the shelf price.`,
+  },
+];
+if (s.traditional?.length > 0) {
+  baseFaqs.push({
+    q: `What are the traditional or tribal alcoholic drinks of ${s.name}?`,
+    a: `${s.name}'s traditional drinks include ${s.traditional.map((d) => d.name.replace(/\s*\(.*\)/, '')).join(', ')} — heritage brews tied to local communities, distinct from commercially taxed liquor.`,
+  });
+}
+const faqs = gen?.faqs?.length ? [...baseFaqs, ...gen.faqs] : baseFaqs;
+
+// GEO: FAQPage + Article schema so AI engines can lift Q&A pairs directly.
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    about: `Alcohol excise duty and pricing in ${s.name}, India`,
+    inLanguage: 'en-IN',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld} ogType="article">
+  <p class="tag">Price Decoded · {s.name}</p>
+  <h1>Liquor prices &amp; excise duty in {s.name} ({year})</h1>
+  <p>{gen?.intro ?? s.summary}</p>
+
+  <table>
+    <tbody>
+      <tr><th>Retail model</th><td>{s.model}</td></tr>
+      <tr><th>Relative price</th><td>{s.prohibition ? 'Dry state (no legal retail)' : s.priceTier}</td></tr>
+      <tr><th>Under GST?</th><td>No — governed by state excise duty</td></tr>
+      <tr><th>Data status</th><td>{s.status}</td></tr>
+    </tbody>
+  </table>
+
+  {gen?.sections?.map((sec) => (
+    <section>
+      <h2>{sec.heading}</h2>
+      {sec.paragraphs.map((p) => <p>{p}</p>)}
+    </section>
+  ))}
+
+  {s.traditional?.length > 0 && (
+    <section>
+      <h2>Traditional &amp; tribal drinks of {s.name}</h2>
+      <p>Beyond the excise-taxed bottle, {s.name} has its own heritage brews — part of local
+      culture and community life. (Availability and legal status vary; some are strictly traditional.)</p>
+      {s.traditional.map((d) => (
+        <div class="card">
+          <strong>{d.name}</strong> <span class="tag">{d.kind}</span>
+          <p style="margin:.4rem 0 0"><span style="color:var(--stone)">{d.communities}</span> — {d.note}</p>
+        </div>
+      ))}
+    </section>
+  )}
+
+  <h2>Frequently asked questions</h2>
+  {faqs.map((f) => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
+
+  <p style="margin-top:2rem;font-size:.85rem;color:var(--stone)">
+    Numbers marked <em>todo/estimate</em> are being verified against official state excise sources.
+    Correction? DM <a href="https://instagram.com/mindthepour">@mindthepour</a>.
+  </p>
+</Base>

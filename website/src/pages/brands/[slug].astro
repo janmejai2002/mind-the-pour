@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import brands from '../../data/brands.json';
+import generated from '../../data/brand-content.json';
+
+export function getStaticPaths() {
+  return brands.map((b) => ({ params: { slug: b.slug }, props: { b } }));
+}
+
+const { b } = Astro.props;
+const gen = generated[b.slug];
+const title = `${b.name}: The Business & Branding Behind the ${b.type} | Mind the Pour`;
+const description = `${b.summary} ${b.angle}`;
+
+const baseFaqs = [
+  { q: `Who makes ${b.name}?`, a: `${b.name} is made by ${b.maker}.` },
+  { q: `What kind of drink is ${b.name}?`, a: `${b.name} is a ${b.type.toLowerCase()} positioned as ${b.positioning.toLowerCase()}.` },
+];
+const faqs = gen?.faqs?.length ? [...baseFaqs, ...gen.faqs] : baseFaqs;
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    about: { '@type': 'Brand', name: b.name },
+    inLanguage: 'en-IN',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld} ogType="article">
+  <p class="tag">Brands · {b.type}</p>
+  <h1>{b.name}</h1>
+  <p>{gen?.intro ?? b.summary}</p>
+
+  <table>
+    <tbody>
+      <tr><th>Maker</th><td>{b.maker}</td></tr>
+      <tr><th>Category</th><td>{b.type}</td></tr>
+      <tr><th>Positioning</th><td>{b.positioning}</td></tr>
+    </tbody>
+  </table>
+
+  {gen?.sections?.map((sec) => (
+    <section>
+      <h2>{sec.heading}</h2>
+      {sec.paragraphs.map((p) => <p>{p}</p>)}
+    </section>
+  ))}
+
+  <h2>Frequently asked questions</h2>
+  {faqs.map((f) => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
+
+  <p style="margin-top:2rem;font-size:.85rem;color:var(--stone)">
+    Editorial analysis of brand strategy. Corrections welcome — DM
+    <a href="https://instagram.com/mindthepour"> @mindthepour</a>.
+  </p>
+</Base>
