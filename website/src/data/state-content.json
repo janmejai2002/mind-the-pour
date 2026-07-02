@@ -39,7 +39,7 @@
       },
       {
         "q": "Can I order alcohol for home delivery in AP?",
-        "a": "The state's strict control over alcohol sales through APSBCL outlets generally limits options for home delivery, though specific regulations can vary. [verify: current home delivery status]"
+        "a": "The state's strict control over alcohol sales through APSBCL outlets means home delivery is strictly prohibited and illegal."
       },
       {
         "q": "What is Kallu or Toddy?",
@@ -48,7 +48,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "assam": {
     "intro": "Ever wondered why your favourite tipple costs what it does in Assam? The state's unique approach to alcohol sales and taxation shapes a distinct pricing landscape. Understanding Assam's \"private retail\" model and duty structures is key to decoding its liquor market.",
@@ -99,7 +99,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "bihar": {
     "intro": "Bihar's stance on alcohol is unique in India, setting it apart from states where excise duties and retail models dictate price. Since 2016, the state has enforced complete prohibition, fundamentally altering the landscape for both consumers and the alcohol industry within its borders. This policy creates a distinct economic reality, where conventional pricing mechanisms simply don't apply.",
@@ -144,7 +144,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "chhattisgarh": {
     "intro": "Chhattisgarh's approach to alcohol retail is a textbook case of state control, with the government directly managing sales through a dedicated corporation. This hands-on model significantly shapes both the availability and the ultimate price tag of your favourite pour in the state, placing it firmly in the medium price tier nationally.",
@@ -195,7 +195,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "goa": {
     "intro": "Goa's reputation precedes it, often whispered in the same breath as sun-kissed beaches and surprisingly affordable spirits. For many urban Indians, the state represents a welcome respite from higher alcohol prices found elsewhere. But what exactly makes Goa's pour so much lighter on the wallet?",
@@ -246,7 +246,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "gujarat": {
     "intro": "Gujarat stands as a unique outlier in India's alcohol landscape, operating under a strict prohibition policy. For those accustomed to market-driven pricing, understanding the \"cost\" of liquor here requires a different lens, focusing less on competitive retail and more on regulatory frameworks and permit systems.",
@@ -290,7 +290,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "himachal-pradesh": {
     "intro": "Himachal Pradesh isn't just about stunning mountains; it's also a fascinating case study in India's alcohol economy. With a private retail model and duties kept relatively low, it stands out as a key player in the northern Indian liquor landscape, often drawing cross-border interest.",
@@ -341,7 +341,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "jharkhand": {
     "intro": "Jharkhand's alcohol market has seen its share of policy shifts, moving between state control and private enterprise. Currently operating under a private retail model, understanding its pricing means looking past the label at the state's unique tax mechanisms. This dynamic environment places Jharkhand in a medium price tier for consumers.",
@@ -392,7 +392,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "kerala": {
     "intro": "Thinking of unwinding in Kerala with a drink? You'll quickly notice that the price tag often raises an eyebrow. Unlike many states, Kerala's alcohol market operates under a unique state-controlled system, making it a distinct case study in India's beverage landscape.",
@@ -443,7 +443,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "maharashtra": {
     "intro": "Ever wondered why your favourite tipple costs what it does in Maharashtra? The state's liquor pricing is a complex brew, influenced by its unique tax structure and retail landscape. Understanding these dynamics offers a peek into the intricate business of alcohol in one of India's largest markets.",
@@ -494,7 +494,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "manipur": {
     "intro": "Manipur's journey with alcohol has been anything but straightforward, transitioning from a long-standing prohibition to a more nuanced, partially regulated system. This unique regulatory landscape profoundly shapes how liquor is bought, sold, and ultimately priced within the state's borders, making it a distinct case study in India's diverse alcohol market.",
@@ -541,7 +541,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "punjab": {
     "intro": "Punjab sits in the middle of India's liquor price spectrum – not the cheapest, not the priciest, but enough to make you wonder where every rupee disappears. The state’s excise policy is a moving target, shifting each fiscal year and acting as a key revenue stream.",
@@ -585,7 +585,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "openai/gpt-oss-120b:free",
-    "draft": true
+    "draft": false
   },
   "uttar-pradesh": {
     "intro": "Uttar Pradesh fuels India’s liquor consumption with a private‑retail system and a slab‑based excise duty that keeps prices in the middle of the national spectrum. Here’s how the state’s unique setup shapes what you see on the shelf.",
@@ -629,7 +629,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "andaman-nicobar": {
     "intro": "The Andaman & Nicobar Islands run their liquor sales through government‑run shops, keeping prices in the low‑to‑medium band. Because the administration controls both retail and excise, the cost of a bottle stays modest compared with many mainland markets.",
@@ -673,7 +673,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "chandigarh": {
     "intro": "If you’ve ever wondered why a bottle of whisky costs less in Chandigarh than a few kilometres away in Amritsar, you’re not alone. The city’s private retail model and its tax setup make it a sweet spot for price‑savvy drinkers.",
@@ -717,7 +717,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "openai/gpt-oss-120b:free",
-    "draft": true
+    "draft": false
   },
   "dadra-nagar-haveli-daman-diu": {
     "intro": "Daman & Diu stands out as a pocket‑friendly spot for liquor lovers, especially when the neighboring state of Gujarat stays dry. Thanks to a private retail setup and low state excise, bottles here cost far less than just across the border.",
@@ -761,7 +761,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "jammu-kashmir": {
     "intro": "In Jammu & Kashmir, liquor is sold through privately run shops that operate under a state‑controlled excise system. The final price you see on the shelf is driven mainly by the slab‑based duty the state applies, not by GST.",
@@ -805,7 +805,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "puducherry": {
     "intro": "Puducherry’s liquor shelves are famous for their price tags – low enough to pull crowds from across the border. The union territory’s private retail system and modest excise duty keep the cost of a bottle well below what you’ll find in many neighbouring states.",
@@ -849,7 +849,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "arunachal-pradesh": {
     "intro": "Arunachal Pradesh presents a unique case study in India's diverse liquor landscape, often noted for its relatively liberal availability and a pricing structure that can be surprisingly accessible compared to many larger states. This unique positioning is largely a result of the state's distinct excise policies, which directly influence what consumers pay at the counter.",
@@ -900,7 +900,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "haryana": {
     "intro": "Ever wondered why your weekend booze run often ends in Haryana? It's not just convenience; it's the state's calculated approach to alcohol pricing. Haryana has carved out a reputation for a specific price tier, making it a frequent destination for those in neighbouring regions like the National Capital Region.",
@@ -944,7 +944,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "karnataka": {
     "intro": "Ever wondered why that bottle of your favourite spirit costs an arm and a leg in Bengaluru compared to a quick trip to Goa? You're not imagining things. Karnataka's liquor pricing structure is a masterclass in state revenue generation, and it directly impacts your wallet.",
@@ -988,7 +988,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "madhya-pradesh": {
     "intro": "Understanding alcohol pricing in India means understanding state policy, and Madhya Pradesh offers a compelling case study. Operating on a private retail model, the state maintains a medium price tier for alcoholic beverages, shaped by its distinct excise structure. This dynamic system sees periodic revisions, directly influencing what consumers pay at the counter.",
@@ -1040,7 +1040,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "meghalaya": {
     "intro": "Meghalaya often flies under the radar when discussing India's alcohol market, but its approach to liquor pricing and availability offers a distinct contrast to many other states. Here, the dynamics of private retail and state duties shape a market with a relatively accessible price point, making it an interesting case study for consumers and industry observers alike.",
@@ -1091,7 +1091,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "mizoram": {
     "intro": "In the intricate tapestry of India's alcohol policies, Mizoram stands out. The state re-imposed prohibition in 2019, creating a unique landscape where commercial liquor pricing, as understood elsewhere, simply doesn't exist for general consumption. This legislative stance fundamentally redefines the alcohol industry within its borders.",
@@ -1142,7 +1142,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "google/gemini-2.5-flash",
-    "draft": true
+    "draft": false
   },
   "nagaland": {
     "intro": "Nagaland stands out as a dry state where the sale of liquor is officially banned, yet the conversation around its price never really stops. Under the Nagaland Liquor Total Prohibition Act, retail outlets are prohibited, pushing any alcohol trade into informal channels. This creates a unique pricing environment shaped more by risk and enforcement than by standard excise taxes.",
@@ -1193,7 +1193,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "odisha": {
     "intro": "Odisha’s liquor market runs on a private‑retail model, but the real price driver is the state’s slab‑based excise duty. Because alcohol for human consumption stays outside GST, Odisha can set its own duty structure, creating the medium‑tier price band you see on shelves.",
@@ -1252,7 +1252,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "rajasthan": {
     "intro": "Rajasthan sits in the middle of India's liquor price spectrum, thanks to a blend of state excise duties, licence fees and a private retail model. The result is a market where a bottle of whisky costs more than in some neighboring states but less than in the high‑tax zones of the south.",
@@ -1303,7 +1303,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "openai/gpt-oss-120b:free",
-    "draft": true
+    "draft": false
   },
   "sikkim": {
     "intro": "Sikkim’s liquor shelves look cheaper than most Indian states, and it isn’t a coincidence. A mix of private retail, home‑grown distilleries and a lighter excise regime keeps the tag‑line “low price tier” true on the ground.",
@@ -1354,7 +1354,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "openai/gpt-oss-120b:free",
-    "draft": true
+    "draft": false
   },
   "tamil-nadu": {
     "intro": "In Tamil Nadu, the bottle you pick up at the corner shop is less a product of market forces and more a line item in the state’s budget. Every sip moves through TASMAC, the government‑run monopoly that turns liquor sales into a steady revenue stream. Understanding how that system shapes price helps explain why a similar brand can cost more—or less—here than in neighbouring states.",
@@ -1401,7 +1401,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "telangana": {
     "intro": "Telangana’s liquor market stands out for its high prices and a retail system tightly woven into the state’s finances. With the government directly controlling sales and relying heavily on liquor revenue, every bottle reflects a policy choice as much as a taste preference.",
@@ -1452,7 +1452,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "tripura": {
     "intro": "Tripura’s liquor scene runs on a private‑retail model, putting the price tag largely in the hands of state‑set excise duties rather than GST. With a medium‑tier positioning, the state’s standard duty slabs shape what you pay at the shelf. Here’s how the system works and what it means for your wallet.",
@@ -1506,7 +1506,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "uttarakhand": {
     "intro": "Uttarakhand’s liquor shelves are stocked by private shops, but the price tag you see changes every year as the state rewrites its excise duty. That shifting duty, layered on top of a national GST‑exempt regime, puts the state in the middle of the price spectrum. Here’s how the system works and what it means for your glass.",
@@ -1560,7 +1560,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "west-bengal": {
     "intro": "West Bengal’s liquor shelves sit in the middle of the national price spectrum, shaped by a private retail system and a state‑level ad valorem duty. Understanding how that duty works explains why a bottle here can feel neither cheap nor premium compared with neighbouring states.",
@@ -1611,7 +1611,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "delhi": {
     "intro": "Delhi’s liquor shelves tell a story of shifting excise policies and a retail system run by government corporations. Since alcohol stays outside GST, the state’s excise duty becomes the biggest lever that moves prices up or down.",
@@ -1655,7 +1655,7 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": true
+    "draft": false
   },
   "ladakh": {
     "intro": "Ladakh’s liquor shelves may be sparse, but the price tags tell a story of geography, governance and a modest market. Here’s why a bottle costs what it does, and what the valley’s own brews say about its heritage.",
@@ -1706,6 +1706,6 @@
     ],
     "generated_at": "2026-07-02",
     "model": "openai/gpt-oss-120b:free",
-    "draft": true
+    "draft": false
   }
 }
