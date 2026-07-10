@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#0E0E10"/>
+
+  <!-- Bottle silhouette -->
+  <path d="M10 6H22V8H20V24C20 25.1 19.1 26 18 26H14C12.9 26 12 25.1 12 24V8H10V6Z" fill="#E0A73C"/>
+
+  <!-- Liquid level indicator -->
+  <rect x="12" y="16" width="8" height="7" fill="#1F6B4E" opacity="0.8"/>
+
+  <!-- Highlight for glass effect -->
+  <rect x="14" y="8" width="2" height="14" fill="#E0A73C" opacity="0.4"/>
+</svg>
