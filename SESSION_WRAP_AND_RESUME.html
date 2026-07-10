@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Wrap & Resume — Mind the Pour Launch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0E0E10 0%, #1A1A1E 100%);
+            color: #f4ead5;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1A1A1E;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            border-bottom: 3px solid #E0A73C;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #E0A73C;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            color: #9A968E;
+            font-size: 0.95em;
+        }
+
+        .tab-section {
+            margin: 30px 0;
+            border: 1px solid #1F6B4E;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-button {
+            background: #0E0E10;
+            color: #E0A73C;
+            padding: 12px 20px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            border-right: 1px solid #1F6B4E;
+        }
+
+        .tab-button:last-child {
+            border-right: none;
+        }
+
+        .tab-button:hover {
+            background: #1F6B4E;
+        }
+
+        .tab-button.active {
+            background: #E0A73C;
+            color: #0E0E10;
+        }
+
+        .tab-content {
+            padding: 20px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        h2 {
+            color: #E0A73C;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #1F6B4E;
+        }
+
+        h3 {
+            color: #1F6B4E;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            background: #0E0E10;
+            padding: 20px;
+            border-left: 4px solid #E0A73C;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            background: rgba(31, 107, 78, 0.2);
+            color: #1F6B4E;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #1F6B4E;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background: rgba(224, 167, 60, 0.1);
+            color: #E0A73C;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #E0A73C;
+            margin: 15px 0;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #E0A73C;
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #1F6B4E;
+        }
+
+        th {
+            background: #0E0E10;
+            color: #E0A73C;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(224, 167, 60, 0.05);
+        }
+
+        code {
+            background: #0E0E10;
+            color: #E0A73C;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat {
+            display: inline-block;
+            background: #0E0E10;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: #E0A73C;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #1F6B4E;
+            color: #9A968E;
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Session Wrap & Resume — Mind the Pour Launch</h1>
+            <p class="meta">📅 Date: 2026-07-10 | 🟢 Status: Ready to launch Reel 1</p>
+        </header>
+
+        <h2>/WRAP — What We Did Today</h2>
+
+        <h3>✅ Completed</h3>
+        <ol>
+            <li><strong>Read project brief</strong> — understood evaluation rubric (30 marks, 7 components, weekly league battles)</li>
+            <li><strong>Audited Mind the Pour status:</strong>
+                <ul>
+                    <li>Website deployed on Cloudflare Pages ✓</li>
+                    <li>Robots.txt configured for AI crawlers ✓</li>
+                    <li>llms.txt configured for Claude/ChatGPT/Perplexity discovery ✓</li>
+                    <li>Google Search Console data reviewed: 45 impressions in first week, real search demand confirmed</li>
+                </ul>
+            </li>
+            <li><strong>Identified first high-performing reel target:</strong> "Why Puducherry alcohol costs HALF Tamil Nadu's" (based on real GSC queries)</li>
+            <li><strong>Created full Reel 1 production guide</strong> (REEL_1_PRODUCTION_GUIDE.md/html)
+                <ul>
+                    <li>30-second script with hook, setup, payoff, CTA</li>
+                    <li>Caption ready to paste</li>
+                    <li>Visual specs + Canva template requirements</li>
+                    <li>Posting schedule: Jul 11, 1:30 PM IST</li>
+                    <li>Expected results: 15–25 website clicks, 500–1,500 impressions, 30+ saves</li>
+                </ul>
+            </li>
+            <li><strong>Created AI discovery action plan</strong> (AI_DISCOVERY_QUICK_START.md/html)
+                <ul>
+                    <li>Google Search Console setup (5 min)</li>
+                    <li>Analytics tracking (3 min)</li>
+                    <li>Verification checklist</li>
+                    <li>Timeline: 1–2 weeks to see Google rankings, 4 weeks to see full impact</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>🟡 Critical — Do by EOD Today</h2>
+        <div class="warning">
+            <strong>Submit Baseline submission</strong> (overdue, was due Jul 5):
+            <ul style="margin-top: 10px;">
+                <li>Send email to instructor with:
+                    <ul>
+                        <li>Asset: mindthepour.space + @mindthepour</li>
+                        <li>Niche: Business, pricing & culture behind India's alcohol industry</li>
+                        <li>Audience: 22–35 urban professionals</li>
+                        <li>Primary metric: IG followers</li>
+                        <li>Supporting: Website (SEO)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>/RESUME — Quick Re-entry (Next Session)</h2>
+
+        <h3>First, Read (5 min):</h3>
+        <ol>
+            <li><code>_System/hot.md</code> — current status</li>
+            <li><code>00_STRATEGY.md</code> — niche + positioning</li>
+            <li>These HTML files (just created):
+                <ul>
+                    <li><code>REEL_1_PRODUCTION_GUIDE.html</code></li>
+                    <li><code>AI_DISCOVERY_QUICK_START.html</code></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Then, Do One of These:</h3>
+
+        <div class="section">
+            <h4>If Reel 1 not posted yet:</h4>
+            <ul class="checklist">
+                <li>Finalize Canva template</li>
+                <li>Record/generate VO (30 sec)</li>
+                <li>Export MP4</li>
+                <li>Post on IG (Jul 11, 1:30 PM IST preferred)</li>
+                <li>Cross-post to YouTube Shorts</li>
+                <li>Log in War Room (hypothesis, actions, results, learning)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h4>If Reel 1 already posted:</h4>
+            <ul class="checklist">
+                <li>Check IG Insights (reach, saves, shares, profile visits)</li>
+                <li>Check Google Search Console (impressions/clicks from reel visibility?)</li>
+                <li>Reply to comments (drives ranking)</li>
+                <li>Plan Reel 2 (Bar Economics or Blind Taste Test)</li>
+                <li>Submit weekly War Room Log by Sunday</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h4>If you want to optimize before posting:</h4>
+            <ol>
+                <li>Read: <code>REEL_1_PRODUCTION_GUIDE.html</code> (full script, caption, specs)</li>
+                <li>Read: <code>AI_DISCOVERY_QUICK_START.html</code> (Google Search Console + Analytics)</li>
+                <li>Do Google Search Console setup (Step 1, 5 min)</li>
+                <li>Then build + post reel</li>
+            </ol>
+        </div>
+
+        <h2>📊 Key Numbers & Targets</h2>
+
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Week 1</th>
+                <th>Week 2</th>
+                <th>Week 4</th>
+                <th>Week 6</th>
+            </tr>
+            <tr>
+                <td>Google impressions</td>
+                <td>45</td>
+                <td>80–120</td>
+                <td>150–250</td>
+                <td>300+</td>
+            </tr>
+            <tr>
+                <td>Google clicks</td>
+                <td>3</td>
+                <td>10–20</td>
+                <td>30–50</td>
+                <td>50–100</td>
+            </tr>
+            <tr>
+                <td>IG followers</td>
+                <td>0</td>
+                <td>20–50</td>
+                <td>100–300</td>
+                <td>500+</td>
+            </tr>
+            <tr>
+                <td>IG → website clicks</td>
+                <td>0</td>
+                <td>40–80</td>
+                <td>100+</td>
+                <td>200+</td>
+            </tr>
+        </table>
+
+        <h2>📁 Files in Your Project Folder</h2>
+
+        <div class="section">
+            <code>Mind The Pour/</code>
+            <ul style="margin-top: 10px;">
+                <li><code>00_STRATEGY.md</code> (niche + positioning)</li>
+                <li><code>01_BRAND.md</code> (voice + visual identity)</li>
+                <li><code>02_INSTAGRAM_LAUNCH_KIT.md</code> (9-post grid + 5 reel scripts)</li>
+                <li><code>03_RESEARCH_CORPUS.md</code> (data sources)</li>
+                <li><strong>REEL_1_PRODUCTION_GUIDE.md/.html</strong> ← USE THIS TO SHOOT REEL</li>
+                <li><strong>AI_DISCOVERY_QUICK_START.md/.html</strong> ← USE THIS FOR GOOGLE SETUP</li>
+                <li><strong>SESSION_WRAP_AND_RESUME.md/.html</strong> (this file)</li>
+                <li><code>website/</code> (Astro 5, deployed to mindthepour.space)</li>
+                <li><code>data/</code> (state_excise_starter.csv)</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Immediate Wins This Week</h2>
+
+        <ol>
+            <li><strong>Post Reel 1</strong> (tomorrow, 1:30 PM) → expected 15–25 website clicks</li>
+            <li><strong>Submit sitemap to Google Search Console</strong> (5 min) → starts indexing top pages</li>
+            <li><strong>Write War Room Log by Sunday</strong> → 5 marks toward weekly evaluation</li>
+            <li><strong>Submit Baseline submission</strong> (overdue but critical for grade)</li>
+        </ol>
+
+        <p style="margin-top: 20px;"><strong>Budget so far:</strong> ₹0 (all organic)</p>
+
+        <h2>✅ Quick Sanity Checks</h2>
+
+        <h3>Before posting reel:</h3>
+        <ul class="checklist">
+            <li>Does mindthepour.space/states/puducherry load?</li>
+            <li>Does @mindthepour IG profile exist?</li>
+            <li>Is Canva template on-brand (ink black + amber)?</li>
+            <li>Does caption have proper CTA (link to website)?</li>
+            <li>Have you set up UTM link tracking?</li>
+        </ul>
+
+        <h3>Before bed Sunday:</h3>
+        <ul class="checklist">
+            <li>War Room Log submitted (hypothesis → action → results → learning)</li>
+            <li>Metrics tracked: IG Insights + GSC + Analytics</li>
+            <li>Next week's content planned (Reel 2, carousel, story poll)</li>
+        </ul>
+
+        <footer>
+            <p>📌 Use this file to resume next session. Update <code>_System/hot.md</code> before ending.</p>
+            <p style="margin-top: 10px; color: #9A968E;">Last updated: 2026-07-10</p>
+        </footer>
+    </div>
+</body>
+</html>
