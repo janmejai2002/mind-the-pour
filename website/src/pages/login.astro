@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Static page. Auth happens entirely client-side against Supabase Auth,
+// so the site needs no server/adapter and stays a pure static build.
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+<Base
+  title="Team Login"
+  description="Team login for Mind the Pour contributors."
+  noindex={true}
+>
+  <div id="login-root" data-url={sbUrl} data-key={sbKey} style="max-width:400px;margin:2rem auto">
+    <p class="tag">Team access</p>
+    <h1 style="margin:.5rem 0 .25rem">Sign in</h1>
+    <p style="color:var(--stone);margin:0 0 1.75rem">
+      For Mind the Pour contributors. Don't have an account? Ask Janmejai to add you.
+    </p>
+
+    <form id="login-form" style="display:grid;gap:1rem">
+      <div>
+        <label for="email" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">Email</label>
+        <input id="email" type="email" required autocomplete="username" placeholder="you@example.com"
+          style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem" />
+      </div>
+
+      <div>
+        <label for="password" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">Password</label>
+        <input id="password" type="password" required autocomplete="current-password" placeholder="••••••••"
+          style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem" />
+      </div>
+
+      <button id="login-btn" type="submit"
+        style="padding:.75rem 1.5rem;border:0;border-radius:8px;background:var(--amber);color:var(--ink);font-weight:700;cursor:pointer;font-size:.95rem">
+        Sign in →
+      </button>
+      <p id="login-status" style="margin:0;font-size:.88rem;min-height:1.2em"></p>
+    </form>
+  </div>
+
+  <script>
+    import { createClient } from '@supabase/supabase-js';
+
+    const root = document.getElementById('login-root');
+    const sb = createClient(root.dataset.url, root.dataset.key);
+
+    const form = document.getElementById('login-form');
+    const statusEl = document.getElementById('login-status');
+    const btn = document.getElementById('login-btn');
+
+    function say(msg, ok) {
+      statusEl.innerHTML = '<span style="color:' + (ok ? '#4ade80' : '#f87171') + '">' + msg + '</span>';
+    }
+
+    // Already signed in? Skip the form.
+    const { data: { session } } = await sb.auth.getSession();
+    if (session) location.replace('/admin/');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Signing in…';
+      say('');
+
+      const { error } = await sb.auth.signInWithPassword({
+        email: document.getElementById('email').value.trim(),
+        password: document.getElementById('password').value,
+      });
+
+      if (error) {
+        say(error.message === 'Invalid login credentials'
+          ? 'That email and password don’t match. Try again?'
+          : error.message);
+        btn.disabled = false;
+        btn.textContent = 'Sign in →';
+        return;
+      }
+      location.replace('/admin/');
+    });
+  </script>
+</Base>

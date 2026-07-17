@@ -1,0 +1,201 @@
+---
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<div style="margin:1.5rem 0">
+  <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:.75rem;align-items:center">
+    <span style="color:var(--stone);font-size:.85rem;font-weight:600">Show prices at:</span>
+    <label style="cursor:pointer;display:flex;align-items:center;gap:.35rem">
+      <input type="radio" name="vtype" value="retail" checked /> Retail shop
+    </label>
+    <label style="cursor:pointer;display:flex;align-items:center;gap:.35rem">
+      <input type="radio" name="vtype" value="bar" /> Bar / pub
+    </label>
+    <label style="cursor:pointer;display:flex;align-items:center;gap:.35rem">
+      <input type="radio" name="vtype" value="restaurant" /> Restaurant / hotel
+    </label>
+  </div>
+
+  <div
+    id="price-map"
+    data-url={sbUrl}
+    data-key={sbKey}
+    style="height:480px;border-radius:12px;background:var(--surface);border:1px solid #2a2a30;overflow:hidden"
+  ></div>
+
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.6rem;font-size:.8rem;color:var(--stone)">
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1F6B4E;margin-right:.3rem"></span>Under ₹400</span>
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#E0A73C;margin-right:.3rem"></span>₹400–700</span>
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#C0392B;margin-right:.3rem"></span>Over ₹700</span>
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#2a2a30;border:1px solid #555;margin-right:.3rem"></span>No data yet</span>
+    <span style="margin-left:auto">Avg price per 750ml equivalent</span>
+  </div>
+</div>
+
+<script is:inline>
+(function () {
+  /* State slugs → [lat, lng] of capital / geographic centre */
+  var STATE_COORDS = {
+    'andaman-nicobar':              [11.74, 92.66],
+    'andhra-pradesh':               [16.50, 80.64],
+    'arunachal-pradesh':            [27.10, 93.62],
+    'assam':                        [26.14, 91.74],
+    'bihar':                        [25.59, 85.14],
+    'chandigarh':                   [30.74, 76.79],
+    'chhattisgarh':                 [21.27, 81.63],
+    'dadra-nagar-haveli-daman-diu': [20.27, 72.97],
+    'delhi':                        [28.61, 77.21],
+    'goa':                          [15.30, 74.12],
+    'gujarat':                      [23.02, 72.57],
+    'haryana':                      [30.73, 76.79],
+    'himachal-pradesh':             [31.10, 77.17],
+    'jammu-kashmir':                [34.08, 74.80],
+    'jharkhand':                    [23.34, 85.31],
+    'karnataka':                    [12.97, 77.59],
+    'kerala':                       [8.52,  76.94],
+    'ladakh':                       [34.15, 77.58],
+    'lakshadweep':                  [10.57, 72.64],
+    'madhya-pradesh':               [23.26, 77.40],
+    'maharashtra':                  [19.08, 72.88],
+    'manipur':                      [24.82, 93.95],
+    'meghalaya':                    [25.58, 91.88],
+    'mizoram':                      [23.73, 92.72],
+    'nagaland':                     [25.67, 94.11],
+    'odisha':                       [20.30, 85.82],
+    'puducherry':                   [11.93, 79.83],
+    'punjab':                       [31.15, 75.34],
+    'rajasthan':                    [26.92, 75.79],
+    'sikkim':                       [27.34, 88.61],
+    'tamil-nadu':                   [13.08, 80.27],
+    'telangana':                    [17.38, 78.49],
+    'tripura':                      [23.84, 91.28],
+    'uttar-pradesh':                [26.85, 80.95],
+    'uttarakhand':                  [30.32, 78.03],
+    'west-bengal':                  [22.57, 88.36],
+  };
+
+  var STATE_NAMES = {
+    'andaman-nicobar': 'Andaman & Nicobar', 'andhra-pradesh': 'Andhra Pradesh',
+    'arunachal-pradesh': 'Arunachal Pradesh', 'assam': 'Assam', 'bihar': 'Bihar',
+    'chandigarh': 'Chandigarh', 'chhattisgarh': 'Chhattisgarh',
+    'dadra-nagar-haveli-daman-diu': 'Dadra NH & Daman Diu', 'delhi': 'Delhi',
+    'goa': 'Goa', 'gujarat': 'Gujarat', 'haryana': 'Haryana',
+    'himachal-pradesh': 'Himachal Pradesh', 'jammu-kashmir': 'J&K',
+    'jharkhand': 'Jharkhand', 'karnataka': 'Karnataka', 'kerala': 'Kerala',
+    'ladakh': 'Ladakh', 'lakshadweep': 'Lakshadweep', 'madhya-pradesh': 'Madhya Pradesh',
+    'maharashtra': 'Maharashtra', 'manipur': 'Manipur', 'meghalaya': 'Meghalaya',
+    'mizoram': 'Mizoram', 'nagaland': 'Nagaland', 'odisha': 'Odisha',
+    'puducherry': 'Puducherry', 'punjab': 'Punjab', 'rajasthan': 'Rajasthan',
+    'sikkim': 'Sikkim', 'tamil-nadu': 'Tamil Nadu', 'telangana': 'Telangana',
+    'tripura': 'Tripura', 'uttar-pradesh': 'Uttar Pradesh',
+    'uttarakhand': 'Uttarakhand', 'west-bengal': 'West Bengal',
+  };
+
+  function priceColor(price) {
+    if (!price) return '#1e1e24';
+    if (price < 400) return '#1F6B4E';
+    if (price < 700) return '#E0A73C';
+    return '#C0392B';
+  }
+
+  function priceRadius(count) {
+    if (!count) return 7;
+    return Math.min(7 + Math.sqrt(count) * 2, 18);
+  }
+
+  async function fetchSummary(url, key, venue) {
+    try {
+      var res = await fetch(
+        url + '/rest/v1/state_price_summary?venue_type=eq.' + venue + '&select=*',
+        { headers: { apikey: key, Authorization: 'Bearer ' + key } }
+      );
+      if (!res.ok) return {};
+      var rows = await res.json();
+      var map = {};
+      rows.forEach(function(r) { map[r.state_slug] = r; });
+      return map;
+    } catch(_) { return {}; }
+  }
+
+  function buildPopup(slug, name, info, venue) {
+    if (!info) {
+      return '<strong>' + name + '</strong><br/>' +
+             '<span style="color:#888;font-size:.85rem">No data yet — be first!</span>';
+    }
+    var venueLabel = { retail: 'retail shop', bar: 'bar', restaurant: 'restaurant' }[venue] || venue;
+    return '<strong>' + name + '</strong><br/>' +
+           'Avg price: <strong>₹' + info.avg_price + '</strong><br/>' +
+           info.sample_count + ' submission' + (info.sample_count !== 1 ? 's' : '') + '<br/>' +
+           '<small style="color:#aaa">' + venueLabel + ' · updated ' +
+           new Date(info.last_updated).toLocaleDateString('en-IN') + '</small>';
+  }
+
+  function initMap() {
+    var el = document.getElementById('price-map');
+    if (!el || !window.L) return;
+
+    var SB_URL = el.dataset.url;
+    var SB_KEY = el.dataset.key;
+    if (!SB_URL || !SB_KEY) return;
+
+    var map = window.L.map('price-map', { zoomControl: true, scrollWheelZoom: false })
+                      .setView([22, 82], 4.5);
+
+    window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 12,
+    }).addTo(map);
+
+    var markers = {};
+    var currentVenue = 'retail';
+
+    async function render(venue) {
+      Object.values(markers).forEach(function(m) { map.removeLayer(m); });
+      markers = {};
+
+      var data = await fetchSummary(SB_URL, SB_KEY, venue);
+
+      Object.entries(STATE_COORDS).forEach(function(entry) {
+        var slug = entry[0], coords = entry[1];
+        var info = data[slug];
+        var name = STATE_NAMES[slug] || slug;
+        var color = priceColor(info && info.avg_price);
+        var r = priceRadius(info && info.sample_count);
+
+        var m = window.L.circleMarker(coords, {
+          radius: r,
+          fillColor: color,
+          color: info ? '#ffffff44' : '#55555599',
+          weight: 1,
+          opacity: 0.9,
+          fillOpacity: info ? 0.88 : 0.55,
+        });
+
+        m.bindPopup(buildPopup(slug, name, info, venue), { maxWidth: 200 });
+        m.on('mouseover', function() { this.openPopup(); });
+        m.addTo(map);
+        markers[slug] = m;
+      });
+    }
+
+    render(currentVenue);
+
+    document.querySelectorAll('input[name="vtype"]').forEach(function(radio) {
+      radio.addEventListener('change', function(e) {
+        currentVenue = e.target.value;
+        render(currentVenue);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+})();
+</script>

@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import PriceMap from '../components/PriceMap.astro';
+import PriceSubmitForm from '../components/PriceSubmitForm.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const title = 'India Alcohol Price Map | Mind the Pour';
+const description = 'Crowd-sourced retail, bar and restaurant alcohol prices across India. See what people actually pay — by state, by brand, by venue. Submit yours and build the map.';
+
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'India Alcohol Price Database',
+  description: 'Crowd-sourced alcohol prices from retail shops, bars and restaurants across all Indian states and union territories.',
+  url: 'https://mindthepour.space/prices/',
+  publisher: { '@type': 'Organization', name: 'Mind the Pour', url: 'https://mindthepour.space' },
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  variableMeasured: 'Alcohol retail, bar and restaurant prices in Indian Rupees (INR)',
+  spatialCoverage: { '@type': 'Place', name: 'India' },
+  temporalCoverage: '2026/..',
+};
+---
+<Base title={title} description={description} jsonld={jsonld}>
+
+  <!-- Hidden config element so page-level scripts can read Supabase creds -->
+  <div id="sb-config" data-url={sbUrl} data-key={sbKey} style="display:none" aria-hidden="true"></div>
+
+  <p class="tag">Price Tracker · Crowd-sourced · Live</p>
+  <h1>What India actually pays for a drink</h1>
+  <p>Official rates tell one story. The receipt tells another. Every submission below is a real price paid at a real shop, bar or restaurant somewhere in India — not a government notification.</p>
+
+  <!-- Live stats strip -->
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0">
+    <div style="background:var(--surface);border:1px solid #2a2a30;border-radius:10px;padding:.8rem 1.1rem;flex:1;min-width:120px;text-align:center">
+      <div class="hero-num" style="font-size:2rem" id="stat-total">—</div>
+      <div style="font-size:.78rem;color:var(--stone)">prices submitted</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid #2a2a30;border-radius:10px;padding:.8rem 1.1rem;flex:1;min-width:120px;text-align:center">
+      <div class="hero-num" style="font-size:2rem" id="stat-states">—</div>
+      <div style="font-size:.78rem;color:var(--stone)">states covered</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid #2a2a30;border-radius:10px;padding:.8rem 1.1rem;flex:1;min-width:120px;text-align:center">
+      <div class="hero-num" style="font-size:2rem" id="stat-brands">—</div>
+      <div style="font-size:.78rem;color:var(--stone)">brands tracked</div>
+    </div>
+  </div>
+
+  <PriceMap />
+  <PriceSubmitForm />
+
+  <!-- Recent submissions -->
+  <section style="margin-top:2rem">
+    <h2>Recent submissions</h2>
+    <div id="recent-list" style="font-size:.88rem;color:var(--stone)">Loading…</div>
+  </section>
+
+  <section style="margin-top:2.5rem">
+    <h2>Why retail ≠ bar ≠ restaurant</h2>
+    <p>The same 750ml of whisky can cost ₹350 at a government wine shop, ₹900 at a bar, and ₹1,400 in a five-star restaurant. Each venue type is tracked separately — they're completely different economic stories.</p>
+    <p>State lines add another dimension. The same bottle can be 2–3× cheaper across a border because every state sets its own excise duty, MRP cap and retail model. That's what the colour coding on the map is showing you.</p>
+    <p style="margin-top:.5rem"><a href="/learn/">Why do prices vary so much? →</a> · <a href="/states/">Browse by state →</a></p>
+  </section>
+
+  <Newsletter />
+</Base>
+
+<script is:inline>
+(function () {
+  var cfg = document.getElementById('sb-config');
+  if (!cfg) return;
+  var SB_URL = cfg.dataset.url;
+  var SB_KEY = cfg.dataset.key;
+  if (!SB_URL || !SB_KEY) return;
+
+  var hdrs = { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY };
+
+  /* ── Stats (total, states, brands) ── */
+  fetch(SB_URL + '/rest/v1/price_submissions?select=id,state_slug,brand_slug&limit=10000', { headers: hdrs })
+    .then(function(r) { return r.json(); })
+    .then(function(rows) {
+      document.getElementById('stat-total').textContent  = rows.length;
+      document.getElementById('stat-states').textContent = new Set(rows.map(function(r){ return r.state_slug; })).size;
+      document.getElementById('stat-brands').textContent = new Set(rows.map(function(r){ return r.brand_slug; })).size;
+    })
+    .catch(function() {});
+
+  /* ── Recent submissions (last 8) ── */
+  fetch(
+    SB_URL + '/rest/v1/price_submissions?select=brand_name,volume_ml,price_inr,venue_type,state_slug,city,submitted_at&order=submitted_at.desc&limit=8',
+    { headers: hdrs }
+  )
+    .then(function(r) { return r.json(); })
+    .then(function(rows) {
+      var el = document.getElementById('recent-list');
+      if (!rows || !rows.length) {
+        el.textContent = 'No submissions yet — be the first!';
+        return;
+      }
+      var venueLabel = { retail: 'retail', bar: 'bar', restaurant: 'restaurant' };
+      el.innerHTML = rows.map(function(r) {
+        var when = new Date(r.submitted_at).toLocaleDateString('en-IN', { day:'numeric', month:'short' });
+        var loc  = r.city ? r.city + ', ' + r.state_slug : r.state_slug;
+        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid #1e1e24">' +
+               '<span><strong>' + r.brand_name + '</strong> ' + r.volume_ml + 'ml · ' +
+               (venueLabel[r.venue_type] || r.venue_type) + ' · ' + loc + '</span>' +
+               '<span style="color:var(--amber);font-weight:700;white-space:nowrap;margin-left:1rem">₹' + r.price_inr + ' <small style="color:var(--stone);font-weight:400">· ' + when + '</small></span>' +
+               '</div>';
+      }).join('');
+    })
+    .catch(function() {
+      document.getElementById('recent-list').textContent = 'Could not load recent submissions.';
+    });
+})();
+</script>

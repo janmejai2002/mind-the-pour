@@ -113,7 +113,7 @@
     "draft": false
   },
   "what-is-a-standard-drink-peg-large": {
-    "intro": "A peg, a large peg, and a patiala peg are informal Indian serving measures for spirits, and the amount of pure alcohol they contain depends on the volume poured and the drink’s alcohol‑by‑volume (ABV). Understanding these measures helps you gauge your intake more accurately than relying on glass size alone. This guide explains what each term means, how it relates to the concept of a standard drink, and why knowing the volume matters for health and responsible drinking.",
+    "intro": "A peg is 60ml, a large peg is 90ml and a patiala peg is 120ml. These are India's informal measures for spirits, and they refer only to the liquor poured — not the water, soda or ice that follows. What they don't tell you is how much alcohol you're actually drinking, which depends on both the volume and the drink's strength (ABV). This guide gives you the full chart, then converts each pour into standard drinks so the numbers mean something.",
     "sections": [
       {
         "heading": "What a peg means in India",
@@ -145,11 +145,12 @@
       }
     ],
     "takeaways": [
-      "A peg, large peg, and patiala peg are informal volume measures for spirits, not legally fixed amounts.",
-      "The pure alcohol in each pour depends on both the poured volume and the drink’s ABV.",
-      "You can convert these pours into standard drink units using the known ABV and the approximate volume placeholders.",
-      "State excise governs alcohol taxation in India, and direct advertising is banned, making surrogate common.",
-      "Knowing these measures helps you track intake and follow health‑related drinking advice."
+      "A peg is 60ml, a large is 90ml, a patiala is 120ml, and a small (chhota) peg is 30ml.",
+      "A 30ml chhota peg of standard 42.8% whisky is almost exactly one standard drink — the only common Indian pour that is.",
+      "One regular 60ml peg is already about two standard drinks, which surprises most people.",
+      "A patiala peg packs roughly four standard drinks into a single glass.",
+      "A 750ml bottle yields 12.5 regular pegs, 8 large pegs, or 6 patiala pegs.",
+      "Peg sizes are convention, not law — no Indian regulation fixes them, so bars can and do vary."
     ],
     "faqs": [
       {
@@ -167,7 +168,48 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
-    "draft": false
+    "draft": false,
+    "table": {
+      "caption": "Indian peg sizes in ml (and what they actually contain)",
+      "headers": [
+        "Measure",
+        "Volume",
+        "Pure alcohol*",
+        "Standard drinks*",
+        "Pours per 750ml"
+      ],
+      "rows": [
+        [
+          "Small peg (chhota)",
+          "30 ml",
+          "≈ 10 g",
+          "≈ 1",
+          "25"
+        ],
+        [
+          "Peg (regular)",
+          "60 ml",
+          "≈ 20 g",
+          "≈ 2",
+          "12.5"
+        ],
+        [
+          "Large peg",
+          "90 ml",
+          "≈ 30 g",
+          "≈ 3",
+          "8"
+        ],
+        [
+          "Patiala peg",
+          "120 ml",
+          "≈ 40 g",
+          "≈ 4",
+          "6"
+        ]
+      ],
+      "note": "*Calculated at 42.8% ABV, the standard strength for Indian whisky. One international standard drink = 10g of pure alcohol."
+    }
   },
   "how-bars-price-cocktails-pour-cost": {
     "intro": "Cocktails feel pricey because the liquid itself is only a fraction of the cost you’re covering. Bars price drinks using a pour‑cost formula that layers ingredient cost, rent, labour, utilities and the experience they sell. In India, where alcohol sits outside GST and is taxed through state excise, those overheads become even more visible on the bill.",
@@ -580,6 +622,73 @@
     ],
     "generated_at": "2026-07-02",
     "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "draft": false
+  },
+  "patiala-peg-size-ml": {
+    "intro": "A patiala peg is 120ml of spirits — exactly double a regular 60ml peg, and a third more than a 90ml large. It is the biggest of India's common pours, and at standard whisky strength it puts about four standard drinks into a single glass. The name comes from Punjab, and the story behind it involves a Maharaja, a British polo team, and a pour poured with intent.",
+    "table": {
+      "caption": "How a patiala peg compares",
+      "headers": [
+        "Measure",
+        "Volume",
+        "vs. patiala"
+      ],
+      "rows": [
+        [
+          "Small peg (chhota)",
+          "30 ml",
+          "One quarter"
+        ],
+        [
+          "Peg (regular)",
+          "60 ml",
+          "Half"
+        ],
+        [
+          "Large peg",
+          "90 ml",
+          "Three quarters"
+        ],
+        [
+          "Patiala peg",
+          "120 ml",
+          "—"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "heading": "How much is a patiala peg in ml?",
+        "paragraphs": [
+          "A patiala peg is 120ml. That is double a regular peg (60ml) and one-third larger than a large peg (90ml). A standard 750ml bottle holds just over six of them.",
+          "The traditional way to measure one without a jigger is by hand: hold your index and middle fingers horizontally against the side of the glass, and pour whisky up to the top of the two fingers. On a typical Indian tumbler that lands close to 120ml — which is exactly how the measure spread long before anyone was checking it against a jigger."
+        ]
+      },
+      {
+        "heading": "The Maharaja of Patiala story",
+        "paragraphs": [
+          "The name traces to Maharaja Bhupinder Singh of Patiala, who ruled from 1900 to 1938 and kept one of the finest polo teams in India. As the story goes, a visiting British team — variously told as an Irish regiment side — arrived to play, and the Maharaja hosted them the night before the match.",
+          "His hospitality was, by design, extravagant. The whisky was poured to double the usual measure, and kept coming. The next day his guests played badly, and Patiala won. The oversized pour that did the damage kept the city's name.",
+          "Treat it as folklore rather than documented history — the tale has the tidy shape of something improved in the retelling. But it has been told for a century, and the measure it named is now poured nightly across India."
+        ]
+      },
+      {
+        "heading": "What it means for how much you're drinking",
+        "paragraphs": [
+          "A 120ml patiala peg of 42.8% ABV whisky contains roughly 40g of pure alcohol. Since one international standard drink is 10g, that is about four standard drinks — in one glass, usually consumed at the pace of one.",
+          "Most health guidelines put low-risk daily consumption at around two standard drinks for men and one for women. A single patiala peg is roughly double the male guideline before you order a second. The measure's whole point, historically, was that the drinker would not notice how much they had taken on — which is worth remembering when someone pours you one."
+        ]
+      }
+    ],
+    "takeaways": [
+      "A patiala peg is 120ml — double a regular 60ml peg.",
+      "It contains roughly 40g of pure alcohol, about four standard drinks, at typical whisky strength.",
+      "The name comes from Maharaja Bhupinder Singh of Patiala and a polo match his guests reportedly lost the morning after.",
+      "The two-finger pour against the side of the glass is the traditional way to measure one.",
+      "A 750ml bottle holds about six patiala pegs."
+    ],
+    "generated_at": "2026-07-17T09:59:33.065Z",
+    "model": "hand-written (query-derived from GSC)",
     "draft": false
   }
 }

@@ -2,17 +2,42 @@
 import Base from '../../layouts/Base.astro';
 import explainers from '../../data/explainers.json';
 import generated from '../../data/explainer-content.json';
+import { getPublishedPosts, toExplainer, toContent } from '../../lib/posts.js';
 
-export function getStaticPaths() {
-  return explainers.map((e) => ({ params: { slug: e.slug }, props: { e } }));
+// Two content sources, one URL space: curated JSON explainers and team posts
+// written in /admin. Both render through the same template below.
+export async function getStaticPaths() {
+  const fromJson = explainers.map((e) => ({
+    params: { slug: e.slug },
+    props: { e, gen: generated[e.slug] },
+  }));
+
+  const posts = await getPublishedPosts();
+  // A JSON explainer wins if a post ever collides on slug — the curated file is
+  // the source of truth and shouldn't be overridable from the CMS.
+  const taken = new Set(explainers.map((e) => e.slug));
+  const fromCms = posts
+    .filter((p) => !taken.has(p.slug))
+    .map((p) => ({
+      params: { slug: p.slug },
+      props: { e: toExplainer(p), gen: toContent(p) },
+    }));
+
+  return [...fromJson, ...fromCms];
 }
 
-const { e } = Astro.props;
-const gen = generated[e.slug];
-const title = `${e.title} | Mind the Pour`;
-const description = gen?.intro?.slice(0, 155) ?? e.angle.slice(0, 155);
+const { e, gen } = Astro.props;
 
-const faqs = gen?.faqs ?? [];
+// seoTitle is written for the SERP (short, front-loaded, matches how people
+// actually search); e.title stays the on-page H1. Used verbatim without the
+// brand suffix — it costs 16 chars of a ~60-char budget and Google renders the
+// site name on the breadcrumb line anyway. Untitled entries keep the suffix.
+const title = e.seoTitle ?? `${e.title} | Mind the Pour`;
+const description = e.metaDescription ?? gen?.intro?.slice(0, 155) ?? e.angle.slice(0, 155);
+
+// Query-derived FAQs (phrased to mirror real Search Console queries) come first
+// so they're the strongest snippet candidates; AI-drafted ones follow.
+const faqs = [...(e.faqs ?? []), ...(gen?.faqs ?? [])];
 
 const jsonld = [
   {
@@ -40,6 +65,28 @@ const jsonld = [
   <p class="tag">{e.pillar}</p>
   <h1>{e.title}</h1>
   <p>{gen?.intro ?? e.angle}</p>
+
+  {gen?.table && (
+    <section>
+      <div class="table-scroll">
+        <table>
+          <caption style="text-align:left;color:var(--stone);font-size:.85rem;padding-bottom:.5rem">{gen.table.caption}</caption>
+          <thead>
+            <tr>{gen.table.headers.map((h) => <th>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {gen.table.rows.map((row) => (
+              <tr>{row.map((cell, i) => (i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>))}</tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {gen.table.note && <p style="font-size:.8rem;color:var(--stone);margin-top:.5rem">{gen.table.note}</p>}
+    </section>
+  )}
+
+  {/* Team posts arrive as markdown-rendered HTML; JSON explainers as sections. */}
+  {gen?.html && <div class="post-body" set:html={gen.html} />}
 
   {gen?.sections?.map((sec) => (
     <section>
@@ -70,4 +117,20 @@ const jsonld = [
   {!gen && (
     <p style="color:var(--stone)">Full explainer coming soon. Run <code>node scripts/generate-explainers.mjs</code> to draft it.</p>
   )}
+
+  <style>
+    .post-body :global(h2) { margin-top: 2rem; }
+    .post-body :global(ul), .post-body :global(ol) { padding-left: 1.2rem; }
+    .post-body :global(li) { margin: .35rem 0; }
+    .post-body :global(blockquote) {
+      border-left: 3px solid var(--amber); margin: 1.25rem 0;
+      padding: .25rem 0 .25rem 1rem; color: var(--stone);
+    }
+    .post-body :global(code) {
+      background: var(--surface); padding: .1rem .35rem; border-radius: 4px; font-size: .9em;
+    }
+    /* Markdown tables from the CMS can't be wrapped in .table-scroll by hand,
+       so give them their own scroll container. */
+    .post-body :global(table) { display: block; overflow-x: auto; white-space: nowrap; }
+  </style>
 </Base>

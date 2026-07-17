@@ -1,12 +1,170 @@
 [
-  { "slug": "why-alcohol-not-under-gst-india", "title": "Why is alcohol not under GST in India?", "question": "Why is alcohol not under GST in India?", "pillar": "Price Decoded", "angle": "Alcohol for human consumption is constitutionally left to states as a revenue source, so it sits outside GST and is taxed via state excise — the single biggest reason prices differ across states." },
-  { "slug": "why-liquor-prices-vary-by-state", "title": "Why do liquor prices vary so much across Indian states?", "question": "Why is the same bottle cheaper in one state than another?", "pillar": "Price Decoded", "angle": "Because each state sets its own excise duty, retail model (private vs. state monopoly) and licence fees, the same bottle can cost very differently across a state line." },
-  { "slug": "what-is-a-standard-drink-peg-large", "title": "What is a standard drink, a peg, a large and a patiala peg?", "question": "How much alcohol is in a peg, large or patiala peg?", "pillar": "Drink Smart", "angle": "Plain-English guide to Indian serving measures and the concept of a standard drink, so people actually know how much they're drinking." },
-  { "slug": "how-bars-price-cocktails-pour-cost", "title": "How do bars price cocktails? Pour cost explained", "question": "Why are cocktails so expensive at bars?", "pillar": "Bar Economics", "angle": "Bars price on pour cost, rent, staff and experience — the liquid is often the smallest part of what you pay for." },
-  { "slug": "surrogate-advertising-alcohol-india", "title": "Why can't alcohol be advertised in India? Surrogate advertising explained", "question": "Why do liquor brands advertise water, soda and music?", "pillar": "Status & Psychology", "angle": "Direct alcohol advertising is banned, so brands advertise 'surrogate' products (water, soda, music, events) to keep the brand visible legally." },
-  { "slug": "premiumization-indian-alcohol-market", "title": "What is premiumization and why is it reshaping India's drinks market?", "question": "Why are premium Indian spirits and single malts booming?", "pillar": "Premiumization", "angle": "Rising incomes, aspiration and 'made in India' pride are pushing consumers toward higher-priced, higher-margin premium and craft spirits." },
-  { "slug": "which-states-india-are-dry-prohibition", "title": "Which states in India are dry? Prohibition explained", "question": "Where is alcohol banned in India?", "pillar": "Price Decoded", "angle": "A clear rundown of prohibition (dry) states and the economics and enforcement realities behind alcohol bans." },
-  { "slug": "does-branding-change-how-alcohol-tastes", "title": "Does branding actually change how alcohol tastes?", "question": "Can you really taste an expensive whisky vs a cheap one?", "pillar": "Status & Psychology", "angle": "Expectation and priming shape perceived taste — branding does real perceptual work, which is exactly why it commands a price premium." },
-  { "slug": "traditional-tribal-alcohol-india", "title": "Traditional and tribal alcoholic drinks of India", "question": "What are the traditional and tribal alcoholic drinks of India?", "pillar": "Culture & Heritage", "angle": "From mahua and handia to feni and toddy, India has a deep heritage of community-brewed drinks — culturally significant, often outside the formal excise economy, and increasingly being formalised and premiumised." },
-  { "slug": "traditional-drinks-northeast-india", "title": "Apong, Zutho & Tongba: the traditional drinks of Northeast India", "question": "What alcohol do the tribes of Northeast India drink?", "pillar": "Culture & Heritage", "angle": "The Northeast has a rich culture of rice beers and millet brews — apong, zutho, kyat, tongba and more — each tied to specific communities, festivals and rituals." }
+  {
+    "slug": "why-alcohol-not-under-gst-india",
+    "title": "Why is alcohol not under GST in India?",
+    "seoTitle": "Is Alcohol Under GST in India? Why It's Exempt (2026)",
+    "metaDescription": "Alcohol for human consumption sits outside GST — states tax it via excise instead. Why it's exempt, what it means for beer and wine, and how it drives prices.",
+    "question": "Why is alcohol not under GST in India?",
+    "pillar": "Price Decoded",
+    "angle": "Alcohol for human consumption is constitutionally left to states as a revenue source, so it sits outside GST and is taxed via state excise — the single biggest reason prices differ across states.",
+    "faqs": [
+      { "q": "Is liquor under GST?", "a": "No. Alcohol for human consumption is explicitly excluded from GST under Article 366(12A) of the Constitution. It is taxed by individual states through state excise duty and VAT instead, which is why the same bottle carries a different price in every state." },
+      { "q": "Is GST applicable on alcohol in India?", "a": "Not on alcohol for human consumption. GST does apply to the inputs a distillery buys — glass bottles, labels, freight, packaging — and to industrial alcohol used in things like sanitiser. So producers pay GST on costs but cannot claim it back against excise, which quietly raises the shelf price." },
+      { "q": "Is there GST on beer in India?", "a": "No. Beer is alcohol for human consumption, so it is outside GST and taxed by state excise. This is why beer that costs about ₹100 in Goa can cost ₹200 or more in Karnataka for the same brand and bottle size." },
+      { "q": "Is there GST on wine?", "a": "No. Like beer and spirits, wine for human consumption falls outside GST and is taxed under state excise. Some states such as Maharashtra and Karnataka deliberately set lower excise on wine to support domestic vineyards." },
+      { "q": "What is the GST on liquor in Maharashtra?", "a": "There is no GST on liquor in Maharashtra. Maharashtra levies state excise duty plus VAT on alcohol instead. Maharashtra's excise rates are among India's highest, which is the main reason a bottle there often costs noticeably more than the same bottle in Goa or Puducherry." },
+      { "q": "Is alcohol exempted from GST?", "a": "'Exempt' is not quite the right word — alcohol for human consumption is constitutionally excluded from GST altogether, not exempted within it. The Constitution reserves the power to tax it for the states, so the GST Council has no authority over it." }
+    ]
+  },
+  {
+    "slug": "why-liquor-prices-vary-by-state",
+    "title": "Why do liquor prices vary so much across Indian states?",
+    "seoTitle": "Why Liquor Prices Vary by State in India (2026)",
+    "metaDescription": "Same bottle, different price. Excise duty, state monopolies and licence fees explain why liquor is cheap in Puducherry and Goa but expensive in Maharashtra.",
+    "question": "Why is the same bottle cheaper in one state than another?",
+    "pillar": "Price Decoded",
+    "angle": "Because each state sets its own excise duty, retail model (private vs. state monopoly) and licence fees, the same bottle can cost very differently across a state line.",
+    "faqs": [
+      { "q": "Why is liquor cheap in Pondicherry?", "a": "Puducherry keeps excise duty deliberately low and runs a largely private retail market. As a Union Territory with a tourism-driven economy, it earns more from volume — including buyers driving in from Tamil Nadu — than it would from high per-bottle duty. The same bottle can cost 30–40% less than across the Tamil Nadu border." },
+      { "q": "Why is alcohol expensive in Maharashtra?", "a": "Maharashtra stacks a high excise duty on top of VAT, and levies additional licence and privilege fees on retailers. The state treats alcohol as a major revenue source rather than a volume business, so the tax component alone can exceed the actual cost of the liquid." },
+      { "q": "Why is the same bottle cheaper in one state than another?", "a": "Because alcohol is outside GST, each state sets its own excise duty independently. Add differing retail models (private shops vs. state monopolies like TASMAC), licence fees and VAT, and the same 750ml bottle can vary by several hundred rupees across a single state border." },
+      { "q": "What is the excise duty on liquor in Delhi?", "a": "Delhi levies excise duty alongside VAT, at rates set annually in its excise policy. Delhi's rates sit in the middle of the national range — higher than Goa or Puducherry, lower than Maharashtra or Karnataka — which is why Delhi prices are moderate but not cheap." },
+      { "q": "What is the alcohol tax in Tamil Nadu?", "a": "Tamil Nadu taxes alcohol through state excise plus VAT, and sells almost all liquor through TASMAC, the state-run retail monopoly. Because the state is both tax collector and retailer, it captures both the duty and the retail margin — a key reason Tamil Nadu prices run above neighbouring Puducherry." },
+      { "q": "Can I carry liquor across state borders in India?", "a": "Generally no, or only in very small quantities. Each state sets a personal transport limit, and crossing a border with more than that is an excise offence — even between two states where alcohol is legal. This enforcement is exactly what stops price arbitrage from levelling out the differences." }
+    ]
+  },
+  {
+    "slug": "what-is-a-standard-drink-peg-large",
+    "title": "What is a standard drink, a peg, a large and a patiala peg?",
+    "seoTitle": "Peg Size in ML: Small, Large & Patiala Peg Chart",
+    "metaDescription": "A peg is 60ml, a large peg is 90ml, a patiala peg is 120ml. The full chart of Indian peg sizes in ml, plus how many standard drinks each one actually is.",
+    "question": "How much alcohol is in a peg, large or patiala peg?",
+    "pillar": "Drink Smart",
+    "angle": "Plain-English guide to Indian serving measures and the concept of a standard drink, so people actually know how much they're drinking.",
+    "faqs": [
+      { "q": "How many ml is 1 peg?", "a": "One peg is 60ml. This is the standard 'chhota' or regular peg served across most of India. Some bars pour 50ml, but 60ml is the accepted default." },
+      { "q": "How many ml is a large peg?", "a": "A large peg is 90ml — one and a half times a regular 60ml peg. When you order a 'large' at an Indian bar, this is what you get." },
+      { "q": "How many ml is a patiala peg?", "a": "A patiala peg is 120ml, double a regular peg. It is the largest of the common Indian measures and contains roughly four standard drinks of alcohol in a single glass." },
+      { "q": "What is a small peg in ml?", "a": "A small peg — also called a chhota peg — is 30ml. It is exactly half a regular peg, and at typical whisky strength it works out to almost precisely one international standard drink." },
+      { "q": "What is 'large' in alcohol?", "a": "'Large' is Indian bar shorthand for a 90ml pour of spirits, as opposed to a regular 60ml peg. It refers only to the volume of liquor poured, not the size of the glass or the amount of mixer added." },
+      { "q": "What does peg mean in a drink?", "a": "A peg is India's informal unit for a measure of spirits — whisky, rum, brandy, vodka or gin. It refers strictly to the liquor poured, before any water, soda or ice. Ordering 'two pegs' means 120ml of spirit in total." },
+      { "q": "What is the full form of peg in alcohol?", "a": "There is no official full form. Acronyms like 'Peg Measure of English Gin' circulate online but are folk inventions with no historical basis. The word most likely descends from the medieval English peg tankard — a shared drinking vessel with pegs set inside it to mark each drinker's fair measure." },
+      { "q": "How many pegs are in a 750ml bottle?", "a": "A standard 750ml bottle holds 12.5 regular pegs (60ml), about 8 large pegs (90ml), or roughly 6 patiala pegs (120ml)." },
+      { "q": "Is one peg of whisky a lot?", "a": "One 60ml peg of 42.8% ABV whisky contains about 20g of pure alcohol — roughly two international standard drinks. So a single 'one peg' is already at the daily low-risk limit many health guidelines suggest for men, and above it for women." }
+    ]
+  },
+  {
+    "slug": "patiala-peg-size-ml",
+    "title": "What is a Patiala peg?",
+    "seoTitle": "Patiala Peg: Size in ML, Meaning & The Origin Story",
+    "metaDescription": "A patiala peg is 120ml — double a regular peg. What it means, how much alcohol is really in one, and the Maharaja of Patiala story behind the name.",
+    "question": "What is a patiala peg and how many ml is it?",
+    "pillar": "Drink Smart",
+    "angle": "The patiala peg is 120ml — double a regular peg and about four standard drinks in one glass. Its name comes from a piece of Punjab folklore involving the Maharaja of Patiala, a British polo team and a deliberately generous pour.",
+    "faqs": [
+      { "q": "How many ml is a patiala peg?", "a": "A patiala peg is 120ml — exactly double a regular 60ml peg, and one-third more than a 90ml large peg. It is the biggest of the standard Indian pours." },
+      { "q": "What is a patiala peg?", "a": "A patiala peg is an oversized measure of spirits — 120ml — served in a single glass. The traditional way to gauge one without a jigger is to pour whisky up to the height of your index and middle fingers held horizontally against the side of the glass." },
+      { "q": "What is the origin of the patiala peg?", "a": "The name traces to Maharaja Bhupinder Singh of Patiala in the early 1900s. As the story goes, ahead of a polo match against a visiting British team, he had his hosts served extravagantly large whisky pours the night before to blunt their game the next day. The oversized measure kept his name. It is folklore rather than documented history, but it has stuck for a century." },
+      { "q": "How much alcohol is in a patiala peg?", "a": "A 120ml patiala peg of 42.8% ABV whisky contains roughly 40g of pure alcohol — about four international standard drinks. That is a full evening's low-risk allowance in one glass, which is worth knowing before you order a second." },
+      { "q": "Is a patiala peg bigger than a large peg?", "a": "Yes. A large peg is 90ml; a patiala peg is 120ml. A patiala is a third larger than a large, and double a regular 60ml peg." }
+    ]
+  },
+  {
+    "slug": "how-bars-price-cocktails-pour-cost",
+    "title": "How do bars price cocktails? Pour cost explained",
+    "seoTitle": "Pour Cost: How Bars Price Cocktails in India",
+    "metaDescription": "Why a ₹150 pour sells for ₹700. Pour cost, rent, staff and licence fees — how Indian bars actually price a cocktail, broken down line by line.",
+    "question": "Why are cocktails so expensive at bars?",
+    "pillar": "Bar Economics",
+    "angle": "Bars price on pour cost, rent, staff and experience — the liquid is often the smallest part of what you pay for.",
+    "faqs": [
+      { "q": "What is pour cost?", "a": "Pour cost is the cost of the liquor in a drink expressed as a percentage of its menu price. If ₹150 of spirits sells for ₹750, the pour cost is 20%. Most Indian bars target 18–25% — meaning the liquid is roughly a fifth of what you pay." },
+      { "q": "How do you price liquor for a bar?", "a": "Work backwards from pour cost. Take your cost per pour — bottle price divided by pours per bottle — and divide by your target pour cost percentage. A 60ml pour costing ₹120 at a 20% target prices at ₹600. Then adjust for what the local market will actually bear." },
+      { "q": "Why are cocktails so expensive at bars?", "a": "Because you are not mostly paying for alcohol. The liquid is typically 20% of the price. The rest covers rent, staff, licence fees — which run into lakhs annually in most Indian cities — electricity, wastage, breakage and the margin that keeps the place open." },
+      { "q": "How much does a cocktail cost to make?", "a": "The ingredients in a typical ₹700 cocktail cost a bar roughly ₹120–180: spirits, mixers, fresh citrus, garnish and ice. Elaborate drinks with house syrups or infusions cost more in labour than ingredients." }
+    ]
+  },
+  {
+    "slug": "surrogate-advertising-alcohol-india",
+    "title": "Why can't alcohol be advertised in India? Surrogate advertising explained",
+    "seoTitle": "Surrogate Advertising: Why Alcohol Ads Are Banned in India",
+    "metaDescription": "Why liquor brands sell music CDs, soda and packaged water. How India's alcohol ad ban created surrogate advertising — and what the law actually permits.",
+    "question": "Why do liquor brands advertise water, soda and music?",
+    "pillar": "Status & Psychology",
+    "angle": "Direct alcohol advertising is banned, so brands advertise 'surrogate' products (water, soda, music, events) to keep the brand visible legally.",
+    "faqs": [
+      { "q": "What is surrogate advertising?", "a": "Surrogate advertising is promoting a banned product by advertising a legal one that shares its brand name. Royal Stag advertises music, Officer's Choice advertises soda, Kingfisher advertises packaged water — same brand identity, same colours, same jingle, legal product." },
+      { "q": "Why is alcohol advertising banned in India?", "a": "The Cable Television Networks (Regulation) Act 1995 prohibits direct advertising of alcohol on television and radio, and the rule extends across most mass media. The intent is to limit alcohol promotion, particularly to young audiences." },
+      { "q": "Is surrogate advertising legal in India?", "a": "It occupies a grey zone. Advertising a genuine legal product is permitted, but ASCI guidelines require the surrogate product to actually exist and be sold in meaningful quantities. Regulators have repeatedly cracked down on brands whose 'music CDs' or 'soda' exist mainly as an advertising pretext." }
+    ]
+  },
+  {
+    "slug": "premiumization-indian-alcohol-market",
+    "title": "What is premiumization and why is it reshaping India's drinks market?",
+    "seoTitle": "Premiumization: India's Booming Premium Spirits Market",
+    "metaDescription": "Why Indian single malts and craft gin are exploding. How rising incomes and 'made in India' pride are reshaping the alcohol market — and its margins.",
+    "question": "Why are premium Indian spirits and single malts booming?",
+    "pillar": "Premiumization",
+    "angle": "Rising incomes, aspiration and 'made in India' pride are pushing consumers toward higher-priced, higher-margin premium and craft spirits.",
+    "faqs": [
+      { "q": "What is premiumization in the alcohol industry?", "a": "Premiumization is the shift in consumer spending toward fewer but more expensive drinks. Instead of selling more bottles, brands sell costlier ones — which lifts revenue and margin without needing volume growth in a market where volume is politically constrained." },
+      { "q": "Why are Indian single malts booming?", "a": "Indian whiskies like Amrut, Paul John, Indri and Rampur have won major international awards, which collapsed the old assumption that good whisky must be Scottish. Combine that with rising disposable income and genuine national pride, and a category that barely existed in 2010 now competes globally." },
+      { "q": "What is IMFL?", "a": "IMFL stands for Indian Made Foreign Liquor — spirits made in India in styles introduced under British rule, such as whisky, rum, brandy, gin and vodka. It is the industry's largest category by volume and the base from which premium Indian brands have grown." }
+    ]
+  },
+  {
+    "slug": "which-states-india-are-dry-prohibition",
+    "title": "Which states in India are dry? Prohibition explained",
+    "seoTitle": "Which States in India Are Dry? Full List (2026)",
+    "metaDescription": "Gujarat, Bihar, Mizoram, Nagaland and Lakshadweep ban alcohol. The complete list of dry states in India, plus the economics behind prohibition.",
+    "question": "Where is alcohol banned in India?",
+    "pillar": "Price Decoded",
+    "angle": "A clear rundown of prohibition (dry) states and the economics and enforcement realities behind alcohol bans.",
+    "faqs": [
+      { "q": "Which states in India are dry?", "a": "Gujarat, Bihar, Mizoram, Nagaland and the Union Territory of Lakshadweep prohibit alcohol. Manipur has partial prohibition. Other states have periodically banned and unbanned it — Kerala and Andhra Pradesh both reversed course after the revenue loss proved unsustainable." },
+      { "q": "Why is alcohol banned in Gujarat?", "a": "Gujarat has been dry since 1960, rooted in Gandhian principles — Gandhi was from Gujarat and campaigned against alcohol. The ban is the longest-running in India, though permits are available to tourists and residents on medical grounds." },
+      { "q": "Do dry states actually stop drinking?", "a": "No. Prohibition reliably shifts consumption to smuggling, bootlegging and illicit country liquor rather than eliminating it — and illicit liquor carries a real risk of methanol poisoning. States also forgo enormous excise revenue: Bihar gave up an estimated ₹5,000 crore a year." }
+    ]
+  },
+  {
+    "slug": "does-branding-change-how-alcohol-tastes",
+    "title": "Does branding actually change how alcohol tastes?",
+    "seoTitle": "Does Branding Change How Alcohol Tastes?",
+    "metaDescription": "Blind taste tests say price changes what you taste. The psychology of expectation, priming, and why an expensive whisky genuinely does taste better.",
+    "question": "Can you really taste an expensive whisky vs a cheap one?",
+    "pillar": "Status & Psychology",
+    "angle": "Expectation and priming shape perceived taste — branding does real perceptual work, which is exactly why it commands a price premium.",
+    "faqs": [
+      { "q": "Does expensive alcohol actually taste better?", "a": "Partly, and partly not. Blind tastings show people struggle to rank spirits by price. But when they know the price, brain imaging shows genuinely greater activity in pleasure-related regions. The enjoyment is real — it is just produced by expectation as much as by the liquid." },
+      { "q": "Can you taste the difference between cheap and expensive whisky?", "a": "Experts can reliably detect differences in character — peat, sherry cask, age. Most drinkers can detect differences but cannot consistently identify which is more expensive. The gap between perceived and actual quality is precisely where brand marketing operates." }
+    ]
+  },
+  {
+    "slug": "traditional-tribal-alcohol-india",
+    "title": "Traditional and tribal alcoholic drinks of India",
+    "seoTitle": "Traditional & Tribal Alcoholic Drinks of India",
+    "metaDescription": "Mahua, handia, feni, toddy and more. India's heritage of community-brewed drinks — what they are, who makes them, and where they stand legally.",
+    "question": "What are the traditional and tribal alcoholic drinks of India?",
+    "pillar": "Culture & Heritage",
+    "angle": "From mahua and handia to feni and toddy, India has a deep heritage of community-brewed drinks — culturally significant, often outside the formal excise economy, and increasingly being formalised and premiumised.",
+    "faqs": [
+      { "q": "What is mahua?", "a": "Mahua is a spirit distilled from the flowers of the mahua tree, made across central India by Adivasi communities. Long stigmatised as 'country liquor' under colonial-era excise law, it has recently been legalised as a heritage liquor in Madhya Pradesh and is now being bottled commercially." },
+      { "q": "What is feni?", "a": "Feni is Goa's traditional spirit, distilled from either cashew apples or coconut toddy. It holds a Geographical Indication tag, meaning only spirit made in Goa by traditional methods can legally carry the name." },
+      { "q": "Is tribal alcohol legal in India?", "a": "It depends on the state. Much of it was criminalised under colonial excise law that reserved distillation for licensed producers. Several states — Madhya Pradesh with mahua, Goa with feni — have since created heritage liquor categories that legalise and formalise traditional production." }
+    ]
+  },
+  {
+    "slug": "traditional-drinks-northeast-india",
+    "title": "Apong, Zutho & Tongba: the traditional drinks of Northeast India",
+    "seoTitle": "Apong, Zutho & Tongba: Northeast India's Drinks",
+    "metaDescription": "The rice beers and millet brews of Northeast India — apong, zutho, kyat and tongba. What each is, which communities brew it, and how it's made.",
+    "question": "What alcohol do the tribes of Northeast India drink?",
+    "pillar": "Culture & Heritage",
+    "angle": "The Northeast has a rich culture of rice beers and millet brews — apong, zutho, kyat, tongba and more — each tied to specific communities, festivals and rituals.",
+    "faqs": [
+      { "q": "What is apong?", "a": "Apong is a rice beer brewed by the Mising and Adi communities of Arunachal Pradesh and Assam. It comes in two main forms: poro apong, made with rice and ash from burnt rice husk, and nogin apong, a lighter unashed version." },
+      { "q": "What is tongba?", "a": "Tongba is a warm millet beer of the Limbu community, popular across Sikkim, Darjeeling and Nepal. Fermented millet is packed into a wooden vessel, hot water is added, and it is sipped through a bamboo straw — then refilled with hot water several times over." },
+      { "q": "What is zutho?", "a": "Zutho is a rice beer of the Naga communities of Nagaland, brewed from sprouted rice. It is milky white, mildly sour, and central to Naga festivals and community gatherings." }
+    ]
+  }
 ]

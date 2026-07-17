@@ -7,6 +7,7 @@ const {
   description,
   jsonld,          // optional array/object of schema.org JSON-LD
   ogType = 'website',
+  noindex = false, // true for /login, /admin — keep them out of the index
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -40,7 +41,7 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
     <!-- Open Graph / social -->
     <meta property="og:title" content={title} />
@@ -96,24 +97,57 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
       * { box-sizing: border-box; }
       body {
         margin: 0; background: var(--ink); color: var(--cream);
-        font-family: 'Inter', system-ui, sans-serif; line-height: 1.6;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 1.0625rem; line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
       }
       h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
+      /* Even line lengths on headings; fewer orphans in prose. */
+      h1, h2, h3 { text-wrap: balance; }
+      p, li { text-wrap: pretty; }
+
+      /* Vertical rhythm: sections need to breathe more than paragraphs do,
+         otherwise long explainers read as one undifferentiated wall. */
+      h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0 0 1rem; letter-spacing: -0.02em; }
+      h2 { font-size: 1.5rem; margin: 2.75rem 0 .75rem; letter-spacing: -0.01em; }
+      h3 { font-size: 1.15rem; margin: 1.75rem 0 .5rem; }
+      p { margin: 0 0 1.15rem; }
+      section { margin-bottom: .5rem; }
+
       a { color: var(--amber); text-decoration: none; }
       a:hover { text-decoration: underline; }
+      /* Visible keyboard focus — the dark theme swallows the UA default. */
+      :where(a, button, summary, input, select, textarea):focus-visible {
+        outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 3px;
+      }
       header.site, footer.site {
         display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
         align-items: center; padding: 1rem 1.5rem; background: var(--surface);
       }
       header.site nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
       .brand { color: var(--amber); font-weight: 700; letter-spacing: .04em; }
-      .wrap { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+      /* The container is sized for tables and cards; prose inside it is capped
+         separately at a readable measure. Previously everything ran to ~90ch,
+         which is well past the 65-75ch comfort range for long-form reading. */
+      .wrap { max-width: 820px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+      /* 34em ≈ 70 rendered characters. NOT `ch` — that unit is the width of the
+         "0" glyph, which Inter draws much wider than its average letter, so
+         `68ch` actually renders ~88 characters. Measured, not assumed. */
+      .wrap :is(p, ul, ol, blockquote) { max-width: 34em; }
+      /* Cards and tables set their own width; don't cap prose inside them. */
+      .wrap :is(.card, td, th) :is(p, ul, ol) { max-width: none; }
       footer.site { flex-direction: column; align-items: flex-start; color: var(--stone); font-size: .85rem; }
       .fine { font-size: .8rem; }
       .hero-num { font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--amber); }
-      table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-      th, td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid #2a2a30; }
-      th { color: var(--amber); }
+      /* Wide tables scroll inside their own box so the page body never scrolls
+         sideways on a phone — all of our search clicks so far are mobile. */
+      .table-scroll { overflow-x: auto; margin: 1.5rem 0; -webkit-overflow-scrolling: touch; }
+      .table-scroll table { margin: 0; }
+      table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .95rem; }
+      th, td { text-align: left; padding: .7rem .6rem; border-bottom: 1px solid #2a2a30; }
+      th { color: var(--amber); font-weight: 600; white-space: nowrap; }
+      tbody th[scope='row'] { color: var(--cream); }
+      tbody tr:last-child :is(th, td) { border-bottom: 0; }
       .card {
         display: block; background: var(--surface); border: 1px solid #2a2a30;
         border-radius: 12px; padding: 1rem 1.2rem; margin: .6rem 0;

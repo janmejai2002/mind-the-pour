@@ -1,0 +1,202 @@
+---
+import states from '../data/states.json';
+import brands from '../data/brands.json';
+
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+
+const volumes = [
+  { ml: 30,   label: '30ml (small peg)' },
+  { ml: 60,   label: '60ml (peg)' },
+  { ml: 90,   label: '90ml (large peg)' },
+  { ml: 180,  label: '180ml (quarter)' },
+  { ml: 330,  label: '330ml (can / small beer)' },
+  { ml: 375,  label: '375ml (half bottle)' },
+  { ml: 500,  label: '500ml (beer pint)' },
+  { ml: 650,  label: '650ml (large beer)' },
+  { ml: 750,  label: '750ml (standard bottle)' },
+  { ml: 1000, label: '1 litre' },
+];
+---
+
+<section
+  id="price-submit-section"
+  data-url={sbUrl}
+  data-key={sbKey}
+  style="background:var(--surface);border:1px solid #2a2a30;border-radius:14px;padding:1.5rem;margin:2rem 0"
+>
+  <h2 style="margin-top:0">Add a price</h2>
+  <p style="color:var(--stone);margin:.3rem 0 1.25rem">One receipt = one dot on the map. Takes 30 seconds.</p>
+
+  <form id="price-form" autocomplete="off" style="display:grid;gap:1rem">
+
+    <div>
+      <label for="brand-select" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">Brand</label>
+      <select id="brand-select" required
+        style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem">
+        <option value="">— Select brand —</option>
+        {brands.map(b => (
+          <option value={b.slug} data-name={b.name}>{b.name} ({b.type})</option>
+        ))}
+        <option value="other">Other / not listed</option>
+      </select>
+    </div>
+
+    <div id="other-brand-wrap" style="display:none">
+      <label for="other-brand-input" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">Brand name</label>
+      <input id="other-brand-input" type="text" placeholder="e.g. Rockford Reserve 750ml"
+        style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem" />
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div>
+        <label for="volume-select" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">Volume / size</label>
+        <select id="volume-select" required
+          style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem">
+          <option value="">— Volume —</option>
+          {volumes.map(v => (
+            <option value={v.ml}>{v.label}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="price-input" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">Price paid (₹)</label>
+        <input id="price-input" type="number" min="1" max="99999" required placeholder="e.g. 480"
+          style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem" />
+      </div>
+    </div>
+
+    <div>
+      <p style="font-weight:600;font-size:.9rem;margin:0 0 .5rem">Where did you buy it?</p>
+      <div style="display:flex;gap:1.25rem;flex-wrap:wrap">
+        <label style="cursor:pointer;display:flex;align-items:center;gap:.4rem">
+          <input type="radio" name="venue" value="retail" checked /> Retail / wine shop
+        </label>
+        <label style="cursor:pointer;display:flex;align-items:center;gap:.4rem">
+          <input type="radio" name="venue" value="bar" /> Bar / pub
+        </label>
+        <label style="cursor:pointer;display:flex;align-items:center;gap:.4rem">
+          <input type="radio" name="venue" value="restaurant" /> Restaurant / hotel
+        </label>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div>
+        <label for="state-select" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">State / UT</label>
+        <select id="state-select" required
+          style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem">
+          <option value="">— State —</option>
+          {states.map(s => (
+            <option value={s.slug}>{s.name}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="city-input" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.9rem">
+          City <span style="color:var(--stone);font-weight:400">(optional)</span>
+        </label>
+        <input id="city-input" type="text" placeholder="e.g. Mumbai"
+          style="width:100%;padding:.65rem .85rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.92rem" />
+      </div>
+    </div>
+
+    <div>
+      <button id="submit-btn" type="submit"
+        style="padding:.75rem 1.5rem;border:0;border-radius:8px;background:var(--amber);color:var(--ink);font-weight:700;cursor:pointer;font-size:.95rem;letter-spacing:.02em">
+        Add price to map →
+      </button>
+      <p id="form-status" style="margin:.6rem 0 0;font-size:.88rem;min-height:1.2em"></p>
+    </div>
+
+  </form>
+</section>
+
+<script is:inline>
+(function () {
+  var section = document.getElementById('price-submit-section');
+  if (!section) return;
+
+  var SB_URL = section.dataset.url;
+  var SB_KEY = section.dataset.key;
+
+  var brandSel   = document.getElementById('brand-select');
+  var otherWrap  = document.getElementById('other-brand-wrap');
+  var otherInput = document.getElementById('other-brand-input');
+  var volSel     = document.getElementById('volume-select');
+  var priceIn    = document.getElementById('price-input');
+  var stateSel   = document.getElementById('state-select');
+  var cityIn     = document.getElementById('city-input');
+  var form       = document.getElementById('price-form');
+  var statusEl   = document.getElementById('form-status');
+  var btn        = document.getElementById('submit-btn');
+
+  brandSel && brandSel.addEventListener('change', function () {
+    otherWrap.style.display = brandSel.value === 'other' ? 'block' : 'none';
+  });
+
+  function setStatus(msg, ok) {
+    statusEl.innerHTML = '<span style="color:' + (ok ? '#1F6B4E' : '#C0392B') + '">' + msg + '</span>';
+  }
+
+  form && form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    statusEl.innerHTML = '';
+
+    var brandSlug = brandSel.value;
+    var brandName = brandSlug === 'other'
+      ? (otherInput && otherInput.value.trim())
+      : (brandSel.selectedOptions[0] && brandSel.selectedOptions[0].dataset.name);
+    var volume    = parseInt(volSel.value, 10);
+    var price     = parseInt(priceIn.value, 10);
+    var venue     = document.querySelector('input[name="venue"]:checked') &&
+                    document.querySelector('input[name="venue"]:checked').value;
+    var state     = stateSel.value;
+    var city      = (cityIn.value && cityIn.value.trim()) || null;
+
+    if (!brandSlug)                          return setStatus('Please select a brand.');
+    if (brandSlug === 'other' && !brandName) return setStatus('Please enter the brand name.');
+    if (!volume)                             return setStatus('Please select a volume.');
+    if (!price || price < 1)                 return setStatus('Please enter a valid price in ₹.');
+    if (!state)                              return setStatus('Please select a state.');
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    try {
+      var res = await fetch(SB_URL + '/rest/v1/price_submissions', {
+        method: 'POST',
+        headers: {
+          apikey:          SB_KEY,
+          Authorization:   'Bearer ' + SB_KEY,
+          'Content-Type':  'application/json',
+          Prefer:          'return=minimal',
+        },
+        body: JSON.stringify({
+          brand_slug:  brandSlug === 'other' ? 'other' : brandSlug,
+          brand_name:  brandName,
+          volume_ml:   volume,
+          price_inr:   price,
+          venue_type:  venue,
+          state_slug:  state,
+          city:        city,
+        }),
+      });
+
+      if (!res.ok) {
+        var err = await res.text();
+        throw new Error(err || res.status);
+      }
+
+      setStatus('✓ Price added — thank you! The map updates shortly.', true);
+      form.reset();
+      otherWrap.style.display = 'none';
+    } catch (err) {
+      setStatus('Something went wrong (' + err.message + '). Try again?');
+    } finally {
+      btn.disabled    = false;
+      btn.textContent = 'Add price to map →';
+    }
+  });
+})();
+</script>

@@ -1,0 +1,338 @@
+---
+import Base from '../../layouts/Base.astro';
+import explainers from '../../data/explainers.json';
+
+// Static shell. Everything below is client-side against Supabase, guarded by
+// RLS (the `authors` allowlist) — the anon key here grants nothing on its own.
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+
+const pillars = [...new Set(explainers.map((e) => e.pillar))];
+---
+<Base title="Team Admin" description="Write and publish posts." noindex={true}>
+  <div id="admin-root" data-url={sbUrl} data-key={sbKey}>
+
+    <div id="gate" style="text-align:center;padding:3rem 0;color:var(--stone)">Checking your session…</div>
+
+    <div id="app" hidden>
+      <!-- ---------- header ---------- -->
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
+        <div>
+          <p class="tag">Team admin</p>
+          <h1 style="margin:.5rem 0 0">Posts</h1>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:center">
+          <span id="whoami" style="color:var(--stone);font-size:.85rem"></span>
+          <button id="signout" style="padding:.45rem .9rem;border:1px solid #33333a;border-radius:8px;background:transparent;color:var(--stone);cursor:pointer;font-size:.85rem">Sign out</button>
+        </div>
+      </div>
+
+      <!-- ---------- list view ---------- -->
+      <div id="list-view">
+        <button id="new-post" style="padding:.7rem 1.3rem;border:0;border-radius:8px;background:var(--amber);color:var(--ink);font-weight:700;cursor:pointer;margin-bottom:1.5rem">
+          + New post
+        </button>
+        <div id="post-list"></div>
+      </div>
+
+      <!-- ---------- editor view ---------- -->
+      <div id="edit-view" hidden>
+        <button id="back" style="background:none;border:0;color:var(--amber);cursor:pointer;padding:0;margin-bottom:1rem;font-size:.9rem">← Back to all posts</button>
+        <h2 id="edit-heading" style="margin:.25rem 0 1.5rem">New post</h2>
+
+        <form id="post-form" style="display:grid;gap:1.25rem">
+          <div>
+            <label class="lbl" for="f-title">Headline <span class="hint">— the big heading on the page</span></label>
+            <input id="f-title" required placeholder="What is a Patiala peg?" class="inp" />
+          </div>
+
+          <div>
+            <label class="lbl" for="f-slug">URL <span class="hint">— auto-filled from the headline; lowercase-with-dashes</span></label>
+            <div style="display:flex;align-items:center;gap:.4rem">
+              <span style="color:var(--stone);font-size:.85rem;white-space:nowrap">/learn/</span>
+              <input id="f-slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" class="inp" placeholder="what-is-a-patiala-peg" />
+            </div>
+            <p class="hint" style="margin:.3rem 0 0">Once a post is published, changing this breaks its Google ranking. Set it right the first time.</p>
+          </div>
+
+          <div>
+            <label class="lbl" for="f-seo">Google title <span class="hint">— what shows in search results</span></label>
+            <input id="f-seo" maxlength="60" class="inp" placeholder="Patiala Peg: Size in ML, Meaning & Origin" />
+            <div class="meter"><div id="seo-bar" class="bar"></div></div>
+            <p class="hint" id="seo-count">0 / 60 — aim for 50-60. Front-load the words people search.</p>
+          </div>
+
+          <div>
+            <label class="lbl" for="f-meta">Google description <span class="hint">— the grey text under the title</span></label>
+            <textarea id="f-meta" maxlength="160" rows="2" class="inp" placeholder="A patiala peg is 120ml — double a regular peg. What it means, how much alcohol is in one, and the story behind the name."></textarea>
+            <div class="meter"><div id="meta-bar" class="bar"></div></div>
+            <p class="hint" id="meta-count">0 / 160 — aim for 120-160. Promise the answer, don't tease it.</p>
+          </div>
+
+          <div>
+            <label class="lbl" for="f-pillar">Pillar</label>
+            <select id="f-pillar" class="inp">
+              {pillars.map((p) => <option value={p}>{p}</option>)}
+            </select>
+          </div>
+
+          <div>
+            <label class="lbl" for="f-intro">Intro <span class="hint">— answer the question in the first sentence</span></label>
+            <textarea id="f-intro" rows="4" class="inp" placeholder="A patiala peg is 120ml of spirits — exactly double a regular 60ml peg…"></textarea>
+          </div>
+
+          <div>
+            <label class="lbl" for="f-body">Body <span class="hint">— Markdown: ## for headings, **bold**, - for bullets</span></label>
+            <textarea id="f-body" rows="16" class="inp" style="font-family:ui-monospace,Menlo,monospace;font-size:.85rem" placeholder="## How much is a patiala peg?&#10;&#10;A patiala peg is **120ml**…"></textarea>
+          </div>
+
+          <div>
+            <label class="lbl">FAQs <span class="hint">— phrase these exactly how people search. This is what wins Google snippets.</span></label>
+            <div id="faq-list" style="display:grid;gap:.75rem"></div>
+            <button type="button" id="add-faq" style="margin-top:.6rem;padding:.45rem .9rem;border:1px solid #33333a;border-radius:8px;background:transparent;color:var(--amber);cursor:pointer;font-size:.85rem">+ Add FAQ</button>
+          </div>
+
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;border-top:1px solid #2a2a30;padding-top:1.25rem">
+            <button type="button" id="save-draft" style="padding:.7rem 1.3rem;border:1px solid #33333a;border-radius:8px;background:transparent;color:var(--cream);font-weight:600;cursor:pointer">Save draft</button>
+            <button type="button" id="publish" style="padding:.7rem 1.3rem;border:0;border-radius:8px;background:var(--green);color:#fff;font-weight:700;cursor:pointer">Publish to site →</button>
+            <button type="button" id="unpublish" hidden style="padding:.7rem 1.3rem;border:1px solid #33333a;border-radius:8px;background:transparent;color:var(--stone);cursor:pointer">Unpublish</button>
+          </div>
+          <p id="edit-status" style="margin:0;font-size:.88rem;min-height:1.2em"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .lbl { display:block; margin-bottom:.4rem; font-weight:600; font-size:.9rem; }
+    .hint { color:var(--stone); font-weight:400; font-size:.8rem; }
+    .inp {
+      width:100%; padding:.65rem .85rem; border-radius:8px; border:1px solid #33333a;
+      background:var(--ink); color:var(--cream); font-size:.92rem; font-family:inherit;
+    }
+    .inp:focus { outline:2px solid var(--amber); outline-offset:1px; }
+    .meter { height:3px; background:#2a2a30; border-radius:2px; margin-top:.4rem; overflow:hidden; }
+    .bar { height:100%; width:0; background:var(--stone); transition:width .15s, background .15s; }
+  </style>
+
+  <script>
+    import { createClient } from '@supabase/supabase-js';
+
+    const root = document.getElementById('admin-root');
+    const sb = createClient(root.dataset.url, root.dataset.key);
+    const $ = (id) => document.getElementById(id);
+
+    // ---------- gate ----------
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) { location.replace('/login/'); }
+
+    // Being signed in isn't enough — RLS requires a row in `authors`.
+    // Check it here so we can show a clear message instead of silent failures.
+    const { data: me } = await sb.from('authors').select('name, role').eq('id', session.user.id).maybeSingle();
+    if (!me) {
+      $('gate').innerHTML =
+        '<p>Your account isn’t on the contributors list yet.</p>' +
+        '<p style="font-size:.9rem">Ask Janmejai to add you, then reload.</p>' +
+        '<button onclick="this.disabled=true;window.__signout()" style="margin-top:1rem;padding:.5rem 1rem;border:1px solid #33333a;border-radius:8px;background:transparent;color:var(--stone);cursor:pointer">Sign out</button>';
+      window.__signout = async () => { await sb.auth.signOut(); location.replace('/login/'); };
+      throw new Error('not an author');
+    }
+
+    $('gate').hidden = true;
+    $('app').hidden = false;
+    $('whoami').textContent = me.name + (me.role === 'admin' ? ' · admin' : '');
+
+    $('signout').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      location.replace('/login/');
+    });
+
+    // ---------- state ----------
+    let editingId = null;
+
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    const slugify = (s) => s.toLowerCase().trim()
+      .replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+    function say(msg, ok) {
+      $('edit-status').innerHTML = msg
+        ? '<span style="color:' + (ok ? '#4ade80' : '#f87171') + '">' + esc(msg) + '</span>' : '';
+    }
+
+    // ---------- list ----------
+    async function loadList() {
+      const { data, error } = await sb.from('posts')
+        .select('id, slug, title, status, updated_at, published_at')
+        .order('updated_at', { ascending: false });
+
+      if (error) { $('post-list').innerHTML = '<p style="color:#f87171">' + esc(error.message) + '</p>'; return; }
+      if (!data.length) {
+        $('post-list').innerHTML = '<p style="color:var(--stone)">No posts yet. Hit “New post” to write the first one.</p>';
+        return;
+      }
+
+      $('post-list').innerHTML = data.map((p) => {
+        const live = p.status === 'published';
+        return '<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">' +
+          '<div style="min-width:0">' +
+            '<strong>' + esc(p.title) + '</strong>' +
+            '<span class="tag" style="margin-left:.5rem;background:' + (live ? 'var(--green)' : '#3a3a42') + ';color:' + (live ? '#fff' : 'var(--stone)') + '">' +
+              (live ? 'Live' : 'Draft') + '</span>' +
+            '<p style="margin:.3rem 0 0;font-size:.8rem;color:var(--stone)">/learn/' + esc(p.slug) + '/ · edited ' +
+              new Date(p.updated_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + '</p>' +
+          '</div>' +
+          '<button data-edit="' + p.id + '" style="padding:.4rem .9rem;border:1px solid #33333a;border-radius:8px;background:transparent;color:var(--amber);cursor:pointer;font-size:.85rem">Edit</button>' +
+        '</div>';
+      }).join('');
+
+      $('post-list').querySelectorAll('[data-edit]').forEach((b) =>
+        b.addEventListener('click', () => openEditor(b.dataset.edit)));
+    }
+
+    // ---------- faqs ----------
+    function faqRow(q = '', a = '') {
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'background:var(--surface);border:1px solid #2a2a30;border-radius:10px;padding:.85rem;display:grid;gap:.5rem';
+      const qi = document.createElement('input');
+      qi.className = 'inp'; qi.placeholder = 'How many ml is a patiala peg?'; qi.value = q; qi.dataset.q = '1';
+      const ai = document.createElement('textarea');
+      ai.className = 'inp'; ai.rows = 3; ai.placeholder = 'A patiala peg is 120ml — exactly double a regular 60ml peg…'; ai.value = a; ai.dataset.a = '1';
+      const rm = document.createElement('button');
+      rm.type = 'button'; rm.textContent = 'Remove';
+      rm.style.cssText = 'justify-self:start;background:none;border:0;color:var(--stone);cursor:pointer;font-size:.8rem;padding:0';
+      rm.addEventListener('click', () => wrap.remove());
+      wrap.append(qi, ai, rm);
+      $('faq-list').append(wrap);
+    }
+    $('add-faq').addEventListener('click', () => faqRow());
+
+    const readFaqs = () => [...$('faq-list').children]
+      .map((w) => ({ q: w.querySelector('[data-q]').value.trim(), a: w.querySelector('[data-a]').value.trim() }))
+      .filter((f) => f.q && f.a);
+
+    // ---------- counters ----------
+    function meter(inputId, barId, countId, min, max, tail) {
+      const el = $(inputId);
+      const upd = () => {
+        const n = el.value.length;
+        const bar = $(barId);
+        bar.style.width = Math.min(100, (n / max) * 100) + '%';
+        const good = n >= min && n <= max;
+        bar.style.background = n === 0 ? 'var(--stone)' : good ? '#4ade80' : '#f59e0b';
+        $(countId).textContent = n + ' / ' + max + ' — ' + (n === 0 ? tail : good ? 'good length ✓' : n < min ? 'a bit short — use the space' : 'too long, will get cut off');
+      };
+      el.addEventListener('input', upd);
+      return upd;
+    }
+    const updSeo = meter('f-seo', 'seo-bar', 'seo-count', 50, 60, 'aim for 50-60. Front-load the words people search.');
+    const updMeta = meter('f-meta', 'meta-bar', 'meta-count', 120, 160, 'aim for 120-160. Promise the answer, don’t tease it.');
+
+    // auto-slug from headline, but stop once the user edits the slug themselves
+    let slugTouched = false;
+    $('f-slug').addEventListener('input', () => { slugTouched = true; });
+    $('f-title').addEventListener('input', () => {
+      if (!slugTouched && !editingId) $('f-slug').value = slugify($('f-title').value);
+    });
+
+    // ---------- editor ----------
+    function showList() {
+      $('edit-view').hidden = true; $('list-view').hidden = false; loadList();
+    }
+    function showEdit() { $('list-view').hidden = true; $('edit-view').hidden = false; }
+    $('back').addEventListener('click', showList);
+
+    function fill(p) {
+      $('f-title').value = p?.title ?? '';
+      $('f-slug').value = p?.slug ?? '';
+      $('f-seo').value = p?.seo_title ?? '';
+      $('f-meta').value = p?.meta_description ?? '';
+      $('f-pillar').value = p?.pillar ?? 'Price Decoded';
+      $('f-intro').value = p?.intro ?? '';
+      $('f-body').value = p?.body ?? '';
+      $('faq-list').innerHTML = '';
+      (p?.faqs ?? []).forEach((f) => faqRow(f.q, f.a));
+      updSeo(); updMeta(); say('');
+    }
+
+    $('new-post').addEventListener('click', () => {
+      editingId = null; slugTouched = false;
+      $('edit-heading').textContent = 'New post';
+      $('unpublish').hidden = true;
+      fill(null); faqRow();
+      showEdit();
+    });
+
+    async function openEditor(id) {
+      const { data, error } = await sb.from('posts').select('*').eq('id', id).single();
+      if (error) return alert(error.message);
+      editingId = id; slugTouched = true;
+      $('edit-heading').textContent = 'Edit post';
+      $('unpublish').hidden = data.status !== 'published';
+      fill(data);
+      showEdit();
+    }
+
+    function collect(status) {
+      return {
+        slug: $('f-slug').value.trim(),
+        title: $('f-title').value.trim(),
+        seo_title: $('f-seo').value.trim() || null,
+        meta_description: $('f-meta').value.trim() || null,
+        pillar: $('f-pillar').value,
+        intro: $('f-intro').value.trim(),
+        body: $('f-body').value,
+        faqs: readFaqs(),
+        status,
+        author_id: session.user.id,
+      };
+    }
+
+    async function save(status) {
+      const p = collect(status);
+      if (!p.title) return say('Give the post a headline first.');
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(p.slug)) return say('The URL must be lowercase-words-with-dashes.');
+      if (status === 'published') {
+        if (!p.seo_title) return say('A Google title is required before publishing.');
+        if (!p.meta_description) return say('A Google description is required before publishing.');
+        if (!p.intro) return say('Write an intro before publishing.');
+      }
+
+      say('Saving…');
+      const q = editingId
+        ? sb.from('posts').update(p).eq('id', editingId).select('id').single()
+        : sb.from('posts').insert(p).select('id').single();
+      const { data, error } = await q;
+
+      if (error) {
+        return say(error.code === '23505'
+          ? 'That URL is already used by another post. Pick a different one.'
+          : error.message);
+      }
+      editingId = data.id;
+      $('unpublish').hidden = status !== 'published';
+
+      if (status === 'published') {
+        say('Saved. Publishing to the site…', true);
+        const { error: pubErr } = await sb.functions.invoke('publish');
+        say(pubErr
+          ? 'Saved and marked live, but the site rebuild didn’t trigger (' + pubErr.message + '). Tell Janmejai.'
+          : '✓ Published. It’ll be live on the site in about 2 minutes.', !pubErr);
+      } else {
+        say('✓ Draft saved.', true);
+      }
+    }
+
+    $('save-draft').addEventListener('click', () => save('draft'));
+    $('publish').addEventListener('click', () => save('published'));
+    $('unpublish').addEventListener('click', async () => {
+      if (!confirm('Take this post off the live site?')) return;
+      await save('draft');
+      await sb.functions.invoke('publish');
+      say('✓ Unpublished. It’ll disappear from the site in about 2 minutes.', true);
+    });
+
+    loadList();
+  </script>
+</Base>

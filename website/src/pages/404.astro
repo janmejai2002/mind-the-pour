@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import explainers from '../data/explainers.json';
+
+// Without this file the build emits no 404.html, and Cloudflare Pages falls back
+// to serving index.html with HTTP 200 for every unknown URL. That's a "soft 404":
+// Google sees unlimited duplicate copies of the homepage on junk URLs, and a
+// mistyped link looks like it worked. This page makes Cloudflare return a real 404.
+const popular = explainers.filter((e) =>
+  ['why-liquor-prices-vary-by-state', 'what-is-a-standard-drink-peg-large', 'patiala-peg-size-ml'].includes(e.slug)
+);
+---
+<Base
+  title="Page not found (404)"
+  description="That page doesn't exist. Find liquor prices by state, peg sizes, and the economics of what India drinks."
+  noindex={true}
+>
+  <p class="tag">404</p>
+  <h1>That pour didn't land.</h1>
+  <p>This page doesn't exist — it may have moved, or the link might be mistyped.</p>
+
+  <h2>Try one of these instead</h2>
+  {popular.map((e) => (
+    <a class="card" href={`/learn/${e.slug}/`}>
+      <strong>{e.title}</strong>
+      <p style="margin:.35rem 0 0;font-size:.88rem;color:var(--stone)">{e.angle}</p>
+    </a>
+  ))}
+
+  <p style="margin-top:1.5rem">
+    Or browse <a href="/states/">prices by state</a>, the <a href="/learn/">explainers</a>,
+    or the <a href="/glossary/">glossary</a>.
+  </p>
+</Base>
