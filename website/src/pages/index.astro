@@ -32,12 +32,14 @@ const dryCount = states.filter((s) => s.prohibition).length;
 const homeExplainerHooks = {
   'why-alcohol-not-under-gst-india': { stat: '0%', copy: 'Why alcohol is the ONLY major product dodging GST — and who gets rich off it.' },
   'why-liquor-prices-vary-by-state': { copy: 'The Border Arbitrage: Why your exact same bottle costs 300% more across state lines.' },
-  'what-is-a-standard-drink-peg-large': { stat: '20g', copy: "The 'Large Peg' Lie: You're already drinking past the daily danger limit." },
   'how-bars-price-cocktails-pour-cost': { stat: '₹150 → ₹700', copy: 'The 500% Markup: How bars secretly price your favorite cocktails.' },
+  'csd-canteen-liquor-quota-black-market': { stat: '₹0 Tax', copy: 'The CSD Economy: How the military liquor quota fuels a massive civilian black market.' },
+  'airport-duty-free-liquor-pricing-illusion': { copy: 'The Airport Illusion: Why Delhi Duty-Free is sometimes more expensive than a local shop.' },
+  'why-craft-gin-brands-made-in-goa': { stat: '90%', copy: 'The Goa Cartel: Why almost every new Indian craft gin is forced to distill in one state.' },
 };
 const featuredExplainers = explainers
   .filter((e) => homeExplainerHooks[e.slug])
-  .slice(0, 4);
+  .slice(0, 6);
 
 const jsonld = {
   '@context': 'https://schema.org',
@@ -118,12 +120,32 @@ const jsonld = {
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0xFAF7F2,
-          waveHeight: 20.00,
-          waveSpeed: 0.70,
-          zoom: 0.85
+          color: 0xD49A2A,
+          shininess: 45.00,
+          waveHeight: 35.00,
+          waveSpeed: 0.35,
+          zoom: 0.90
         })
       }
     })
+  </script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.gsap && window.ScrollTrigger) {
+        window.gsap.utils.toArray('.card').forEach(card => {
+          window.gsap.from(card, {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
+          });
+        });
+      }
+    });
   </script>
 </Base>
