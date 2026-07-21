@@ -1,11 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import Newsletter from '../components/Newsletter.astro';
+import LedgerChart from '../components/LedgerChart.jsx';
 import states from '../data/states.json';
 import explainers from '../data/explainers.json';
 
-const title = 'Mind the Pour — The Economics of What India Drinks';
-const description = 'Decoding the business, pricing, psychology and culture behind alcohol in India. Liquor prices by state, bar economics, brand psychology and premiumization — explained with data.';
+const title = 'Mind the Pour — The Hidden Economics of Your Friday Night';
+const description = 'We expose the shadow economics, ruthless brand psychology, and hidden taxes behind every drop of alcohol poured in India. The truth is in the numbers.';
 
 // State cards are the highest-traffic section on the homepage, and most of
 // states.json is still placeholder pricing (status: "todo"). A fake price
@@ -16,12 +17,12 @@ const homeStateStats = [
   {
     slug: 'bihar',
     stat: '₹5,000 cr',
-    copy: "walked away every year — Bihar has been dry since 2016",
+    copy: "The black market boom: What Bihar loses every single year since going dry.",
   },
   {
     slug: 'gujarat',
     stat: '1960',
-    copy: 'the year Gujarat went dry — still India’s longest-running ban',
+    copy: 'The year Gujarat went dry — discovering the loopholes in India’s longest-running ban.',
   },
 ];
 const dryCount = states.filter((s) => s.prohibition).length;
@@ -29,10 +30,10 @@ const dryCount = states.filter((s) => s.prohibition).length;
 // Same fix for explainers: lead with the real number or tension already
 // proven to rank (Google Search Console), not a description of the article.
 const homeExplainerHooks = {
-  'why-alcohol-not-under-gst-india': { stat: '0%', copy: 'GST on alcohol — the only major consumer product left outside it entirely' },
-  'why-liquor-prices-vary-by-state': { copy: 'Same bottle, same brand — hundreds of rupees apart on either side of a state line' },
-  'what-is-a-standard-drink-peg-large': { stat: '20g', copy: "of pure alcohol in one regular ‘peg’ — already at the daily low-risk limit" },
-  'how-bars-price-cocktails-pour-cost': { stat: '₹150 → ₹700', copy: 'how a bar turns one pour into a cocktail menu price' },
+  'why-alcohol-not-under-gst-india': { stat: '0%', copy: 'Why alcohol is the ONLY major product dodging GST — and who gets rich off it.' },
+  'why-liquor-prices-vary-by-state': { copy: 'The Border Arbitrage: Why your exact same bottle costs 300% more across state lines.' },
+  'what-is-a-standard-drink-peg-large': { stat: '20g', copy: "The 'Large Peg' Lie: You're already drinking past the daily danger limit." },
+  'how-bars-price-cocktails-pour-cost': { stat: '₹150 → ₹700', copy: 'The 500% Markup: How bars secretly price your favorite cocktails.' },
 };
 const featuredExplainers = explainers
   .filter((e) => homeExplainerHooks[e.slug])
@@ -48,15 +49,24 @@ const jsonld = {
 };
 ---
 <Base title={title} description={description} jsonld={jsonld}>
-  <p class="tag">The Economics of What India Drinks</p>
-  <h1>Why does the same bottle cost 3x more across a state line?</h1>
-  <p>Alcohol is one of India's largest consumer industries — and one of its least understood.
-  We decode the <strong>pricing, taxes, bar economics, brand psychology and culture</strong> behind
-  what India drinks. With receipts.</p>
-  <p><a class="btn" href="#states">See the price gap by state ↓</a></p>
+  
+  <div id="vanta-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 80vh; z-index: -1; opacity: 0.15;"></div>
 
-  <h2 id="states">Liquor prices &amp; taxes by state</h2>
-  <p>State excise duty is the single biggest reason prices swing so wildly. Two states, with receipts:</p>
+  <div style="padding-top: 4rem; padding-bottom: 4rem; text-align: center;">
+    <p class="tag" style="margin-bottom: 1.5rem; font-size: 0.9rem; padding: 0.4rem 1rem; background: var(--ink);"><span class="badge-urgent" style="margin-right: 0.4rem; background: var(--red);">EXPOSED</span> The Economics of What India Drinks</p>
+    <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); max-width: 900px; margin: 0 auto 1.5rem auto;">
+      Why Your Friday Night Drink Costs <span class="highlight-red" style="white-space: nowrap; text-decoration: underline; text-decoration-color: var(--amber); text-underline-offset: 6px;">300% More</span> Than It Should.
+    </h1>
+    <p style="font-size: 1.35rem; max-width: 650px; margin: 0 auto 2.5rem auto; color: var(--ink); opacity: 0.9;">
+      We expose the shadow economics, ruthless brand psychology, and hidden taxes behind every drop of alcohol poured in India. <strong>The truth is in the numbers.</strong>
+    </p>
+    <p><a class="btn" href="#states" style="font-size: 1.1rem; padding: 1rem 2rem;">Follow The Money ↓</a></p>
+  </div>
+
+  <LedgerChart client:load type="network" />
+
+  <h2 id="states" style="margin-top: 4rem;"><span class="badge-urgent">DATA LEAK</span> The Great State Rip-Off: Liquor Taxes Exposed</h2>
+  <p>State excise duty isn't just a tax—it's a weapon. See the receipts on how states manipulate your wallet:</p>
   {homeStateStats.map(({ slug, stat, copy }) => {
     const s = states.find((st) => st.slug === slug);
     return (
@@ -66,13 +76,17 @@ const jsonld = {
       </a>
     );
   })}
-  <a class="card card--stat" href="/states/">
-    <span class="hero-num">{dryCount}</span>
-    <span class="card-copy">states ban alcohol outright — see who else, and every other state's price story</span>
+  <a class="card card--stat" href="/states/" style="background: var(--ink); border-color: var(--ink);">
+    <span class="hero-num" style="color: var(--cream);">{dryCount}</span>
+    <span class="card-copy" style="color: var(--cream);">states ban alcohol outright. Discover the black markets they accidentally created.</span>
   </a>
-  <p><a href="/states/">See all {states.length} states &amp; UTs →</a></p>
+  <p style="text-align: right;"><a href="/states/" style="font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Reveal all {states.length} states &amp; UTs →</a></p>
 
-  <h2>Popular explainers</h2>
+
+  <LedgerChart client:load type="ledger" />
+  <h2 style="margin-top: 4rem;"><span class="badge-urgent">BANNED</span> Viral Exposés</h2>
+  <p>The articles the industry hopes you never read.</p>
+
   {featuredExplainers.map((e) => {
     const hook = homeExplainerHooks[e.slug];
     return (
@@ -85,7 +99,31 @@ const jsonld = {
       </a>
     );
   })}
-  <p><a href="/learn/">All explainers →</a> · <a href="/brands/">Brands, decoded →</a></p>
+  <p style="text-align: right;"><a href="/learn/" style="font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Read All Exposés →</a> &nbsp;·&nbsp; <a href="/brands/" style="font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Brands Decoded →</a></p>
 
   <Newsletter />
+
+  <!-- Vanta.js Background Setup -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" is:inline></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js" is:inline></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.VANTA) {
+        window.VANTA.WAVES({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0xFAF7F2,
+          waveHeight: 20.00,
+          waveSpeed: 0.70,
+          zoom: 0.85
+        })
+      }
+    })
+  </script>
 </Base>

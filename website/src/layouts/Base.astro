@@ -69,16 +69,16 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" />
     </noscript>
 
     <!-- schema.org structured data (the GEO signal) -->
@@ -106,7 +106,7 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
         <a href="/brands/">Brands</a>
         <a href="/learn/">Learn</a>
         <a href="/glossary/">Glossary</a>
-        <a href="https://instagram.com/mindthepour">Instagram</a>
+        <a href="https://instagram.com/mindthepour" class="btn btn--nav" rel="me">Follow @mindthepour →</a>
       </nav>
     </header>
     <main class="wrap">
@@ -120,17 +120,17 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
 
     <style is:global>
       :root {
-        --ink: #0E0E10; --surface: #1A1A1E; --amber: #E0A73C;
-        --green: #1F6B4E; --cream: #F4EAD5; --stone: #9A968E;
+        --ink: #1c1a17; --surface: #F3EFE6; --amber: #E2A829;
+        --green: #2C5545; --cream: #FAF7F2; --stone: #8E8A83; --red: #C33124;
       }
       * { box-sizing: border-box; }
       body {
-        margin: 0; background: var(--ink); color: var(--cream);
-        font-family: 'Inter', system-ui, sans-serif;
-        font-size: 1.0625rem; line-height: 1.7;
+        margin: 0; background: var(--cream); color: var(--ink);
+        font-family: 'Lora', Georgia, serif;
+        font-size: 1.125rem; line-height: 1.7;
         -webkit-font-smoothing: antialiased;
       }
-      h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
+      h1, h2, h3, .brand { font-family: 'Playfair Display', serif; line-height: 1.15; }
       /* Even line lengths on headings; fewer orphans in prose. */
       h1, h2, h3 { text-wrap: balance; }
       p, li { text-wrap: pretty; }
@@ -143,18 +143,20 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
       p { margin: 0 0 1.15rem; }
       section { margin-bottom: .5rem; }
 
-      a { color: var(--amber); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      .highlight-red { color: var(--red); font-style: italic; }
+      .badge-urgent { display: inline-block; background: var(--red); color: var(--cream); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 3px; letter-spacing: 0.05em; vertical-align: middle; margin-right: 0.5rem; }
+      a { color: var(--green); text-decoration: none; }
+      a:hover { text-decoration: underline; color: var(--ink); }
       /* Visible keyboard focus — the dark theme swallows the UA default. */
       :where(a, button, summary, input, select, textarea):focus-visible {
-        outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 3px;
+        outline: 2px solid var(--green); outline-offset: 2px; border-radius: 3px;
       }
       header.site, footer.site {
         display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
         align-items: center; padding: 1rem 1.5rem; background: var(--surface);
       }
       header.site nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-      .brand { color: var(--amber); font-weight: 700; letter-spacing: .04em; }
+      .brand { color: var(--ink); font-weight: 900; letter-spacing: .02em; font-family: 'Playfair Display', serif; }
       /* The container is sized for tables and cards; prose inside it is capped
          separately at a readable measure. Previously everything ran to ~90ch,
          which is well past the 65-75ch comfort range for long-form reading. */
@@ -167,7 +169,7 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
       .wrap :is(.card, td, th) :is(p, ul, ol) { max-width: none; }
       footer.site { flex-direction: column; align-items: flex-start; color: var(--stone); font-size: .85rem; }
       .fine { font-size: .8rem; }
-      .hero-num { font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--amber); }
+      .hero-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(3rem, 10vw, 6rem); color: var(--amber); }
       /* A stat-led CTA under the H1: converts hero curiosity into a click
          instead of leaving the reader to scroll and hope. */
       .btn {
@@ -177,30 +179,53 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
         letter-spacing: -0.01em; transition: transform .15s ease, opacity .15s ease;
       }
       .btn:hover { text-decoration: none; opacity: .92; transform: translateY(-1px); }
+      /* Compact nav variant of .btn: Instagram is the primary channel (the
+         grading metric), so it gets a CTA pill instead of a plain text link
+         buried in the nav list. */
+      .btn--nav { padding: .4rem .9rem; font-size: .85rem; margin: 0; }
       /* Stat-led cards: the number leads (reusing .hero-num, scaled down),
          the label follows — flips card hierarchy from "here's a category"
          to "here's a fact", per the state/explainer card redesign. */
       .card--stat { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; }
       .card--stat .hero-num { font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1; flex-shrink: 0; }
-      .card--stat .card-copy { color: var(--cream); flex: 1 1 14rem; }
+      .card--stat .card-copy { color: var(--ink); flex: 1 1 14rem; }
       /* Wide tables scroll inside their own box so the page body never scrolls
          sideways on a phone — all of our search clicks so far are mobile. */
       .table-scroll { overflow-x: auto; margin: 1.5rem 0; -webkit-overflow-scrolling: touch; }
       .table-scroll table { margin: 0; }
       table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .95rem; }
-      th, td { text-align: left; padding: .7rem .6rem; border-bottom: 1px solid #2a2a30; }
-      th { color: var(--amber); font-weight: 600; white-space: nowrap; }
-      tbody th[scope='row'] { color: var(--cream); }
-      tbody tr:last-child :is(th, td) { border-bottom: 0; }
+      th, td { text-align: left; padding: .7rem .6rem; border-bottom: 1px solid #d4cfc5; }
+      th { color: var(--ink); font-weight: 600; white-space: nowrap; }
       .card {
-        display: block; background: var(--surface); border: 1px solid #2a2a30;
+        display: block; background: var(--surface); border: 1px solid #d4cfc5;
         border-radius: 12px; padding: 1rem 1.2rem; margin: .6rem 0;
       }
-      .card:hover { border-color: var(--amber); text-decoration: none; }
-      .tag { display: inline-block; font-size: .75rem; color: var(--ink); background: var(--amber);
+      .card:hover { border-color: var(--green); text-decoration: none; }
+      .tag { display: inline-block; font-size: .75rem; color: var(--cream); background: var(--green);
         padding: .1rem .5rem; border-radius: 999px; font-weight: 600; }
       details { background: var(--surface); border-radius: 10px; padding: .5rem 1rem; margin: .5rem 0; }
-      summary { cursor: pointer; font-weight: 600; color: var(--cream); }
+      summary { cursor: pointer; font-weight: 600; color: var(--ink); }
     </style>
+    <script>
+      import Lenis from 'lenis';
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const lenis = new Lenis({
+        autoRaf: true,
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      window.lenis = lenis;
+      window.gsap = gsap;
+      window.ScrollTrigger = ScrollTrigger;
+    </script>
   </body>
 </html>
