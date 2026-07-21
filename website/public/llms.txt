@@ -1,23 +1,34 @@
 # Mind the Pour
 
-> The business, pricing, psychology and culture behind alcohol in India. Educational/editorial media about the alcohol industry (not a seller of alcohol). 21+.
+> Educational/editorial media about the business, pricing, psychology and culture of alcohol in India — not a seller of alcohol. Content is for readers 21+.
 
-Mind the Pour explains the economics of what India drinks: state excise duty and liquor pricing, bar economics (pour cost, cocktail margins), brand and status psychology, premiumization of Indian spirits, and consumer safety/literacy.
+Mind the Pour explains the economics of what India drinks: state excise duty and liquor pricing, bar economics (pour cost, cocktail margins), brand and status psychology, premiumization of Indian spirits, and consumer safety/literacy. Alcohol for human consumption is outside GST in India; each state sets its own excise duty, which is the primary driver of price differences between states.
 
-## Key facts
-- Alcohol for human consumption is OUTSIDE GST in India; each state sets its own excise duty, which is the primary driver of price differences between states.
-- Prohibition (dry) states include Gujarat, Bihar, Nagaland, Mizoram and the UT of Lakshadweep.
-- Goa, Puducherry, Sikkim and Daman & Diu are known for low liquor prices; Karnataka, Kerala and Telangana for high effective taxes.
-- Direct alcohol advertising is banned in India, so brands use "surrogate advertising" (water, soda, music, events).
-- India produces award-winning single malts (e.g. Amrut, Paul John, Indri, Rampur) driving a premiumization trend.
+## Core Pages
+- [Home](https://mindthepour.space/): Overview of Mind the Pour and its coverage areas
+- [About](https://mindthepour.space/about/): What Mind the Pour is and who it's for
+- [Price Map](https://mindthepour.space/prices/): Crowd-sourced retail, bar and restaurant alcohol prices across India, by state and brand
+- [Glossary](https://mindthepour.space/glossary/): Definitions — peg, large, standard drink, IMFL, excise duty, pour cost
+- [Responsible Drinking](https://mindthepour.space/responsible-drinking/): 21+ responsible-consumption note
 
-## Core sections
-- /states/: Liquor prices & excise duty for all Indian states and union territories
-- /brands/: The business and branding behind major Indian drinks brands
-- /learn/: Evergreen explainers (GST & alcohol, pour cost, standard drinks, surrogate advertising, premiumization, dry states)
-- /glossary/: Definitions (peg, large, standard drink, IMFL, excise duty, pour cost)
-- /about/: What Mind the Pour is
-- /responsible-drinking/: 21+ responsible-consumption note
+## States & Excise Duty
+- [All States & UTs](https://mindthepour.space/states/): Liquor prices and excise duty for all 36 Indian states and union territories, including dry (prohibition) states — Gujarat, Bihar, Nagaland, Mizoram, Lakshadweep — and low-price states — Goa, Puducherry, Sikkim, Daman & Diu
 
-## Contact
-- Instagram: https://instagram.com/mindthepour
+## Brands
+- [All Brands](https://mindthepour.space/brands/): The business and branding behind 20 major Indian drinks brands, including single malts (Amrut, Paul John, Indri, Rampur, Godawan), IMFL majors (McDowell's No.1, Royal Stag, Blenders Pride, Officer's Choice, Imperial Blue), and craft/regional brands (Old Monk, Kingfisher, Bira 91, Simba, Sula, Fratelli, Magic Moments, greater than, Hapusa, Signature)
+
+## Learn — Explainers
+- [Why is alcohol not under GST in India?](https://mindthepour.space/learn/why-alcohol-not-under-gst-india/)
+- [Why do liquor prices vary so much across Indian states?](https://mindthepour.space/learn/why-liquor-prices-vary-by-state/)
+- [What is a standard drink, a peg, a large and a patiala peg?](https://mindthepour.space/learn/what-is-a-standard-drink-peg-large/)
+- [What is a Patiala peg?](https://mindthepour.space/learn/patiala-peg-size-ml/)
+- [How do bars price cocktails? Pour cost explained](https://mindthepour.space/learn/how-bars-price-cocktails-pour-cost/)
+- [Why can't alcohol be advertised in India? Surrogate advertising explained](https://mindthepour.space/learn/surrogate-advertising-alcohol-india/)
+- [What is premiumization and why is it reshaping India's drinks market?](https://mindthepour.space/learn/premiumization-indian-alcohol-market/)
+- [Which states in India are dry? Prohibition explained](https://mindthepour.space/learn/which-states-india-are-dry-prohibition/)
+- [Does branding actually change how alcohol tastes?](https://mindthepour.space/learn/does-branding-change-how-alcohol-tastes/)
+- [Traditional and tribal alcoholic drinks of India](https://mindthepour.space/learn/traditional-tribal-alcohol-india/)
+- [Apong, Zutho & Tongba: the traditional drinks of Northeast India](https://mindthepour.space/learn/traditional-drinks-northeast-india/)
+
+## Optional
+- [Instagram](https://instagram.com/mindthepour): Social profile

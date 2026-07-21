@@ -24,8 +24,9 @@ const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
     id="price-map"
     data-url={sbUrl}
     data-key={sbKey}
-    style="height:480px;border-radius:12px;background:var(--surface);border:1px solid #2a2a30;overflow:hidden"
+    style="height:min(480px, 65vh);min-height:320px;border-radius:12px;background:var(--surface);border:1px solid #2a2a30;overflow:hidden"
   ></div>
+  <p style="font-size:.78rem;color:var(--stone);margin:.5rem 0 0;text-align:center">Tap a dot to see the price · tap elsewhere to close</p>
 
   <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.6rem;font-size:.8rem;color:var(--stone)">
     <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1F6B4E;margin-right:.3rem"></span>Under ₹400</span>
@@ -142,8 +143,16 @@ const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
     var SB_KEY = el.dataset.key;
     if (!SB_URL || !SB_KEY) return;
 
-    var map = window.L.map('price-map', { zoomControl: true, scrollWheelZoom: false })
-                      .setView([22, 82], 4.5);
+    var map = window.L.map('price-map', {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      tap: true,
+      tapTolerance: 20,
+    }).setView([22, 82], 4.5);
+
+    // Expose state names to sibling scripts (comparison slider, guess card)
+    // so they don't need to duplicate this list.
+    window.MTP_STATE_NAMES = STATE_NAMES;
 
     window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -175,8 +184,13 @@ const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
           fillOpacity: info ? 0.88 : 0.55,
         });
 
-        m.bindPopup(buildPopup(slug, name, info, venue), { maxWidth: 200 });
-        m.on('mouseover', function() { this.openPopup(); });
+        // Bind the popup and rely on Leaflet's default click/tap handling to
+        // open it — `mouseover` never fires on touch devices, which meant
+        // mobile visitors (the majority of traffic) could not see any price
+        // info by tapping a marker. Click works identically on desktop and
+        // mobile, and tapping elsewhere on the map closes the popup by
+        // default (autoClose/closeOnClick), so no extra wiring is needed.
+        m.bindPopup(buildPopup(slug, name, info, venue), { maxWidth: 200, closeButton: true });
         m.addTo(map);
         markers[slug] = m;
       });

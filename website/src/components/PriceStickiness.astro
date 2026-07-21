@@ -1,0 +1,299 @@
+---
+// Two stickiness features that sit below the map:
+//  A. Two-state comparison slider
+//  B. "Guess before you see it" reveal
+// Both read from `state_price_summary` via the same public REST pattern
+// used in PriceMap.astro / prices.astro. State names come from
+// window.MTP_STATE_NAMES, set by PriceMap.astro — no duplicated list.
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+---
+
+<section
+  id="mtp-stickiness"
+  data-url={sbUrl}
+  data-key={sbKey}
+  style="margin:2rem 0;display:grid;gap:1.25rem"
+>
+  <!-- A. Comparison slider -->
+  <div style="background:var(--surface);border:1px solid #2a2a30;border-radius:14px;padding:1.5rem">
+    <h2 style="margin-top:0">Compare two states</h2>
+    <p style="color:var(--stone);margin:.3rem 0 1.1rem">Same bottle, two states, two very different bills.</p>
+
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center">
+      <span style="color:var(--stone);font-size:.85rem;font-weight:600">Venue:</span>
+      <label style="cursor:pointer;display:flex;align-items:center;gap:.35rem">
+        <input type="radio" name="cmp-venue" value="retail" checked /> Retail
+      </label>
+      <label style="cursor:pointer;display:flex;align-items:center;gap:.35rem">
+        <input type="radio" name="cmp-venue" value="bar" /> Bar
+      </label>
+      <label style="cursor:pointer;display:flex;align-items:center;gap:.35rem">
+        <input type="radio" name="cmp-venue" value="restaurant" /> Restaurant
+      </label>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem">
+      <div>
+        <label for="cmp-state-a" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.85rem">State A</label>
+        <select id="cmp-state-a"
+          style="width:100%;padding:.6rem .75rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.9rem"></select>
+      </div>
+      <div>
+        <label for="cmp-state-b" style="display:block;margin-bottom:.35rem;font-weight:600;font-size:.85rem">State B</label>
+        <select id="cmp-state-b"
+          style="width:100%;padding:.6rem .75rem;border-radius:8px;border:1px solid #33333a;background:var(--ink);color:var(--cream);font-size:.9rem"></select>
+      </div>
+    </div>
+
+    <div id="cmp-bars" style="display:grid;gap:.6rem;margin-bottom:1rem">
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.25rem">
+          <span id="cmp-label-a" style="font-weight:600">—</span>
+          <span id="cmp-price-a" class="hero-num" style="font-size:1.1rem">—</span>
+        </div>
+        <div style="background:#0E0E10;border-radius:999px;height:14px;overflow:hidden">
+          <div id="cmp-bar-a" style="height:100%;width:0%;background:var(--amber);border-radius:999px;transition:width .5s ease"></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.25rem">
+          <span id="cmp-label-b" style="font-weight:600">—</span>
+          <span id="cmp-price-b" class="hero-num" style="font-size:1.1rem">—</span>
+        </div>
+        <div style="background:#0E0E10;border-radius:999px;height:14px;overflow:hidden">
+          <div id="cmp-bar-b" style="height:100%;width:0%;background:var(--green);border-radius:999px;transition:width .5s ease"></div>
+        </div>
+      </div>
+    </div>
+
+    <p id="cmp-stat-line" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--cream);margin:0;min-height:1.4em">
+      Loading price data…
+    </p>
+  </div>
+
+  <!-- B. Guess before you see it -->
+  <div style="background:var(--surface);border:1px solid #2a2a30;border-radius:14px;padding:1.5rem">
+    <h2 style="margin-top:0">Guess the average</h2>
+    <p id="guess-intro" style="color:var(--stone);margin:.3rem 0 1.1rem">Loading a state for you to guess…</p>
+
+    <div id="guess-widget" style="display:none">
+      <p style="margin:0 0 .5rem;font-size:.9rem">
+        What's the average <strong id="guess-venue-label">retail</strong> price of a 750ml-equivalent bottle in
+        <strong id="guess-state-name">—</strong>?
+      </p>
+      <div style="display:flex;align-items:center;gap:.9rem;margin-bottom:.9rem">
+        <input id="guess-range" type="range" min="100" max="2000" step="10" value="500" style="flex:1;accent-color:var(--amber)" />
+        <span id="guess-value" class="hero-num" style="font-size:1.3rem;min-width:5.5ch;text-align:right">₹500</span>
+      </div>
+      <button id="guess-btn" class="btn" type="button" style="border:0;cursor:pointer">Reveal the real number →</button>
+      <p id="guess-result" style="margin:.9rem 0 0;font-size:1rem;min-height:1.4em"></p>
+    </div>
+    <p id="guess-empty" style="display:none;color:var(--stone);margin:0">
+      Not enough submissions yet to run a guessing game — be the one who fixes that.
+    </p>
+  </div>
+</section>
+
+<script is:inline>
+(function () {
+  var section = document.getElementById('mtp-stickiness');
+  if (!section) return;
+
+  var SB_URL = section.dataset.url;
+  var SB_KEY = section.dataset.key;
+  if (!SB_URL || !SB_KEY) return;
+
+  var hdrs = { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY };
+  var venueLabels = { retail: 'retail', bar: 'bar', restaurant: 'restaurant' };
+
+  function getStateNames() {
+    return window.MTP_STATE_NAMES || {};
+  }
+
+  async function fetchSummary(venue) {
+    try {
+      var res = await fetch(
+        SB_URL + '/rest/v1/state_price_summary?venue_type=eq.' + venue + '&select=*',
+        { headers: hdrs }
+      );
+      if (!res.ok) return {};
+      var rows = await res.json();
+      var map = {};
+      rows.forEach(function (r) { map[r.state_slug] = r; });
+      return map;
+    } catch (_) { return {}; }
+  }
+
+  /* ───────────── A. Comparison slider ───────────── */
+  (function comparisonWidget() {
+    var selA = document.getElementById('cmp-state-a');
+    var selB = document.getElementById('cmp-state-b');
+    if (!selA || !selB) return;
+
+    var names = getStateNames();
+    var slugs = Object.keys(names);
+    // Names may not be ready yet (script order race is unlikely since
+    // PriceMap's script runs synchronously before this one, but guard anyway).
+    if (!slugs.length) {
+      // Fallback: try again shortly in case of an unexpected load order.
+      setTimeout(comparisonWidget, 150);
+      return;
+    }
+
+    slugs.forEach(function (slug) {
+      [selA, selB].forEach(function (sel) {
+        var opt = document.createElement('option');
+        opt.value = slug;
+        opt.textContent = names[slug];
+        sel.appendChild(opt);
+      });
+    });
+
+    var currentVenue = 'retail';
+    var summaryCache = {};
+
+    function labelWithPrice(slug, info) {
+      return names[slug] + (info ? '' : ' (no data)');
+    }
+
+    async function getSummary(venue) {
+      if (!summaryCache[venue]) summaryCache[venue] = await fetchSummary(venue);
+      return summaryCache[venue];
+    }
+
+    async function render() {
+      var data = await getSummary(currentVenue);
+      var a = data[selA.value];
+      var b = data[selB.value];
+
+      document.getElementById('cmp-label-a').textContent = labelWithPrice(selA.value, a);
+      document.getElementById('cmp-label-b').textContent = labelWithPrice(selB.value, b);
+      document.getElementById('cmp-price-a').textContent = a ? '₹' + Math.round(a.avg_price) : '—';
+      document.getElementById('cmp-price-b').textContent = b ? '₹' + Math.round(b.avg_price) : '—';
+
+      var maxPrice = Math.max(a ? a.avg_price : 0, b ? b.avg_price : 0, 1);
+      document.getElementById('cmp-bar-a').style.width = (a ? (a.avg_price / maxPrice) * 100 : 0) + '%';
+      document.getElementById('cmp-bar-b').style.width = (b ? (b.avg_price / maxPrice) * 100 : 0) + '%';
+
+      var line = document.getElementById('cmp-stat-line');
+      if (a && b && a.avg_price > 0 && b.avg_price > 0) {
+        var venueWord = venueLabels[currentVenue] || currentVenue;
+        if (a.avg_price === b.avg_price) {
+          line.textContent = names[selA.value] + ' and ' + names[selB.value] + ' cost about the same for ' + venueWord + '.';
+        } else {
+          var cheaper = a.avg_price < b.avg_price ? selA.value : selB.value;
+          var pricier = a.avg_price < b.avg_price ? selB.value : selA.value;
+          var cheaperPrice = Math.min(a.avg_price, b.avg_price);
+          var pricierPrice = Math.max(a.avg_price, b.avg_price);
+          var pct = Math.round(((pricierPrice - cheaperPrice) / pricierPrice) * 100);
+          line.textContent = names[cheaper] + ' is ' + pct + '% cheaper than ' + names[pricier] + ' for ' + venueWord + '.';
+        }
+      } else {
+        line.textContent = 'Not enough submissions yet for one or both states — add one below!';
+      }
+    }
+
+    async function pickDefaultStatesWithData() {
+      var data = await getSummary('retail');
+      var withData = slugs.filter(function (s) { return data[s] && data[s].sample_count > 0; });
+      if (withData.length >= 2) {
+        selA.value = withData[0];
+        selB.value = withData[1];
+      } else if (withData.length === 1) {
+        selA.value = withData[0];
+        selB.value = slugs.find(function (s) { return s !== withData[0]; }) || slugs[1];
+      } else {
+        selA.value = slugs[0];
+        selB.value = slugs[1];
+      }
+    }
+
+    document.querySelectorAll('input[name="cmp-venue"]').forEach(function (radio) {
+      radio.addEventListener('change', function (e) {
+        currentVenue = e.target.value;
+        render();
+      });
+    });
+    selA.addEventListener('change', render);
+    selB.addEventListener('change', render);
+
+    pickDefaultStatesWithData().then(render);
+  })();
+
+  /* ───────────── B. Guess before you see it ───────────── */
+  (function guessWidget() {
+    var intro   = document.getElementById('guess-intro');
+    var widget  = document.getElementById('guess-widget');
+    var empty   = document.getElementById('guess-empty');
+    var range   = document.getElementById('guess-range');
+    var valueEl = document.getElementById('guess-value');
+    var btn     = document.getElementById('guess-btn');
+    var result  = document.getElementById('guess-result');
+    var stateNameEl = document.getElementById('guess-state-name');
+    var venueLabelEl = document.getElementById('guess-venue-label');
+    if (!widget) return;
+
+    range.addEventListener('input', function () {
+      valueEl.textContent = '₹' + range.value;
+    });
+
+    async function init() {
+      var names = getStateNames();
+      var slugs = Object.keys(names);
+      if (!slugs.length) { setTimeout(init, 150); return; }
+
+      // Try retail first (matches the map's default view); fall back to any
+      // venue with at least one state carrying real data.
+      var venue = 'retail';
+      var data = await fetchSummary(venue);
+      var withData = slugs.filter(function (s) { return data[s] && data[s].sample_count > 0; });
+
+      if (!withData.length) {
+        for (var i = 0; i < ['bar', 'restaurant'].length; i++) {
+          venue = ['bar', 'restaurant'][i];
+          data = await fetchSummary(venue);
+          withData = slugs.filter(function (s) { return data[s] && data[s].sample_count > 0; });
+          if (withData.length) break;
+        }
+      }
+
+      if (!withData.length) {
+        intro.style.display = 'none';
+        empty.style.display = 'block';
+        return;
+      }
+
+      // Rotate the featured state daily so repeat visitors see something new,
+      // without needing any server-side state.
+      var dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+      var slug = withData[dayOfYear % withData.length];
+      var info = data[slug];
+
+      intro.style.display = 'none';
+      widget.style.display = 'block';
+      stateNameEl.textContent = names[slug];
+      venueLabelEl.textContent = venueLabels[venue] || venue;
+
+      btn.addEventListener('click', function () {
+        var guess = parseInt(range.value, 10);
+        var real = Math.round(info.avg_price);
+        var diff = Math.abs(guess - real);
+        var msg;
+        if (diff <= 15) {
+          msg = 'Spot on! The real average in ' + names[slug] + ' is ₹' + real + '.';
+        } else {
+          msg = 'You were ₹' + diff + ' ' + (guess < real ? 'under' : 'over') + ' — the real average in ' +
+                names[slug] + ' is ₹' + real + ' (' + info.sample_count + ' submission' +
+                (info.sample_count !== 1 ? 's' : '') + ').';
+        }
+        result.innerHTML = '<span style="color:var(--amber);font-weight:700">' + msg + '</span>';
+        btn.disabled = true;
+        range.disabled = true;
+      }, { once: true });
+    }
+
+    init();
+  })();
+})();
+</script>

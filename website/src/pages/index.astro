@@ -7,9 +7,36 @@ import explainers from '../data/explainers.json';
 const title = 'Mind the Pour — The Economics of What India Drinks';
 const description = 'Decoding the business, pricing, psychology and culture behind alcohol in India. Liquor prices by state, bar economics, brand psychology and premiumization — explained with data.';
 
-const featuredStates = ['goa', 'karnataka', 'delhi', 'maharashtra', 'tamil-nadu', 'puducherry']
-  .map((slug) => states.find((s) => s.slug === slug))
-  .filter(Boolean);
+// State cards are the highest-traffic section on the homepage, and most of
+// states.json is still placeholder pricing (status: "todo"). A fake price
+// tier sitting next to a real one breaks trust for the whole grid — so this
+// slot only surfaces facts we can actually stand behind: verified prohibition
+// status and numbers already published (and sourced) in our own explainers.
+const homeStateStats = [
+  {
+    slug: 'bihar',
+    stat: '₹5,000 cr',
+    copy: "walked away every year — Bihar has been dry since 2016",
+  },
+  {
+    slug: 'gujarat',
+    stat: '1960',
+    copy: 'the year Gujarat went dry — still India’s longest-running ban',
+  },
+];
+const dryCount = states.filter((s) => s.prohibition).length;
+
+// Same fix for explainers: lead with the real number or tension already
+// proven to rank (Google Search Console), not a description of the article.
+const homeExplainerHooks = {
+  'why-alcohol-not-under-gst-india': { stat: '0%', copy: 'GST on alcohol — the only major consumer product left outside it entirely' },
+  'why-liquor-prices-vary-by-state': { copy: 'Same bottle, same brand — hundreds of rupees apart on either side of a state line' },
+  'what-is-a-standard-drink-peg-large': { stat: '20g', copy: "of pure alcohol in one regular ‘peg’ — already at the daily low-risk limit" },
+  'how-bars-price-cocktails-pour-cost': { stat: '₹150 → ₹700', copy: 'how a bar turns one pour into a cocktail menu price' },
+};
+const featuredExplainers = explainers
+  .filter((e) => homeExplainerHooks[e.slug])
+  .slice(0, 4);
 
 const jsonld = {
   '@context': 'https://schema.org',
@@ -26,33 +53,39 @@ const jsonld = {
   <p>Alcohol is one of India's largest consumer industries — and one of its least understood.
   We decode the <strong>pricing, taxes, bar economics, brand psychology and culture</strong> behind
   what India drinks. With receipts.</p>
+  <p><a class="btn" href="#states">See the price gap by state ↓</a></p>
 
-  <h2>Liquor prices &amp; taxes by state</h2>
-  <p>State excise duty is the single biggest reason prices swing so wildly. Start here:</p>
-  {featuredStates.map((s) => (
-    <a class="card" href={`/states/${s.slug}/`}>
-      <strong>{s.name}</strong> — {s.prohibition ? 'Dry state' : `${s.priceTier} price tier`} · {s.model}
-    </a>
-  ))}
+  <h2 id="states">Liquor prices &amp; taxes by state</h2>
+  <p>State excise duty is the single biggest reason prices swing so wildly. Two states, with receipts:</p>
+  {homeStateStats.map(({ slug, stat, copy }) => {
+    const s = states.find((st) => st.slug === slug);
+    return (
+      <a class="card card--stat" href={`/states/${s.slug}/`}>
+        <span class="hero-num">{stat}</span>
+        <span class="card-copy"><strong>{s.name}</strong> — {copy}</span>
+      </a>
+    );
+  })}
+  <a class="card card--stat" href="/states/">
+    <span class="hero-num">{dryCount}</span>
+    <span class="card-copy">states ban alcohol outright — see who else, and every other state's price story</span>
+  </a>
   <p><a href="/states/">See all {states.length} states &amp; UTs →</a></p>
 
   <h2>Popular explainers</h2>
-  {explainers.slice(0, 4).map((e) => (
-    <a class="card" href={`/learn/${e.slug}/`}>
-      <span class="tag">{e.pillar}</span>
-      <div style="margin-top:.4rem"><strong>{e.title}</strong></div>
-    </a>
-  ))}
+  {featuredExplainers.map((e) => {
+    const hook = homeExplainerHooks[e.slug];
+    return (
+      <a class="card card--stat" href={`/learn/${e.slug}/`}>
+        {hook.stat && <span class="hero-num">{hook.stat}</span>}
+        <span class="card-copy">
+          <span class="tag">{e.pillar}</span>
+          <div style="margin-top:.4rem">{hook.copy}</div>
+        </span>
+      </a>
+    );
+  })}
   <p><a href="/learn/">All explainers →</a> · <a href="/brands/">Brands, decoded →</a></p>
-
-  <h2>What we cover</h2>
-  <ul>
-    <li><strong>Price Decoded</strong> — how excise duty makes or breaks the shelf price.</li>
-    <li><strong>Bar Economics</strong> — pour cost, cocktail margins, menu psychology.</li>
-    <li><strong>Brand &amp; Status</strong> — why you pay for the label, not always the liquid.</li>
-    <li><strong>Premiumization</strong> — India's award-winning single malts.</li>
-    <li><strong>Drink Smart</strong> — standard drinks, labels, and consumer literacy.</li>
-  </ul>
 
   <Newsletter />
 </Base>

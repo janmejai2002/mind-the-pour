@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PriceMap from '../components/PriceMap.astro';
 import PriceSubmitForm from '../components/PriceSubmitForm.astro';
+import PriceStickiness from '../components/PriceStickiness.astro';
 import Newsletter from '../components/Newsletter.astro';
 
 const title = 'India Alcohol Price Map | Mind the Pour';
@@ -47,8 +48,10 @@ const jsonld = {
       <div style="font-size:.78rem;color:var(--stone)">brands tracked</div>
     </div>
   </div>
+  <p id="momentum-line" style="font-size:.85rem;color:var(--stone);margin:-.75rem 0 0">Loading today's activity…</p>
 
   <PriceMap />
+  <PriceStickiness />
   <PriceSubmitForm />
 
   <!-- Recent submissions -->
@@ -113,5 +116,37 @@ const jsonld = {
     .catch(function() {
       document.getElementById('recent-list').textContent = 'Could not load recent submissions.';
     });
+
+  /* ── Momentum ticker: prices added in the last 24h ── */
+  (function momentum() {
+    var el = document.getElementById('momentum-line');
+    if (!el) return;
+
+    var since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+
+    fetch(
+      SB_URL + '/rest/v1/price_submissions?select=city,state_slug,submitted_at&submitted_at=gte.' +
+        encodeURIComponent(since) + '&order=submitted_at.desc&limit=50',
+      { headers: hdrs }
+    )
+      .then(function (r) { return r.json(); })
+      .then(function (rows) {
+        if (!rows || !rows.length) {
+          el.textContent = 'Be the first to add a price today →';
+          return;
+        }
+        var last = rows[0];
+        var mins = Math.max(1, Math.round((Date.now() - new Date(last.submitted_at).getTime()) / 60000));
+        var when = mins < 60 ? mins + ' min ago' :
+          Math.round(mins / 60) + (Math.round(mins / 60) === 1 ? ' hour ago' : ' hours ago');
+        var loc = last.city || last.state_slug;
+        var count = rows.length + (rows.length === 50 ? '+' : '');
+        el.textContent = count + ' price' + (rows.length !== 1 ? 's' : '') +
+          ' added in the last 24h — last one ' + when + ' from ' + loc + '.';
+      })
+      .catch(function () {
+        el.textContent = '';
+      });
+  })();
 })();
 </script>

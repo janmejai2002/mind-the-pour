@@ -2,6 +2,9 @@
 // Base layout — carries all SEO + GEO signals.
 // GEO = Generative Engine Optimization: structured data + clear semantics
 // so AI engines (ChatGPT, Gemini, Perplexity) can cite this page.
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+
 const {
   title,
   description,
@@ -55,10 +58,28 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Fonts (free, Google Fonts) -->
+    <!-- Fonts (free, Google Fonts). Loaded non-render-blocking: the browser
+         fetches the stylesheet at high priority via `preload`, then swaps it
+         to an active stylesheet on load instead of blocking first paint on
+         it. `font-display: swap` (baked into the Google Fonts URL) then lets
+         text render in a fallback font immediately, avoiding invisible text
+         while the webfont downloads. <noscript> covers the no-JS case. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" />
+    </noscript>
 
     <!-- schema.org structured data (the GEO signal) -->
     {schemas.map((s) => (
@@ -68,7 +89,15 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
   <body>
     <header class="site">
       <a href="/" class="brand" style="display:flex; align-items:center; gap:0.6rem;">
-        <img src="/logo.png" alt="Mind the Pour Logo" style="height:28px; width:auto; border-radius:4px;" />
+        <Image
+          src={logo}
+          alt="Mind the Pour Logo"
+          width={56}
+          height={56}
+          loading="eager"
+          fetchpriority="high"
+          style="height:28px; width:28px; border-radius:4px;"
+        />
         MIND&nbsp;THE&nbsp;POUR
       </a>
       <nav>
@@ -139,6 +168,21 @@ const ogImage = new URL(`/og/${ogKey}.png`, Astro.site).href;
       footer.site { flex-direction: column; align-items: flex-start; color: var(--stone); font-size: .85rem; }
       .fine { font-size: .8rem; }
       .hero-num { font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--amber); }
+      /* A stat-led CTA under the H1: converts hero curiosity into a click
+         instead of leaving the reader to scroll and hope. */
+      .btn {
+        display: inline-block; margin: .25rem 0 0; padding: .75rem 1.4rem;
+        background: var(--amber); color: var(--ink); border-radius: 8px;
+        font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+        letter-spacing: -0.01em; transition: transform .15s ease, opacity .15s ease;
+      }
+      .btn:hover { text-decoration: none; opacity: .92; transform: translateY(-1px); }
+      /* Stat-led cards: the number leads (reusing .hero-num, scaled down),
+         the label follows — flips card hierarchy from "here's a category"
+         to "here's a fact", per the state/explainer card redesign. */
+      .card--stat { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; }
+      .card--stat .hero-num { font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1; flex-shrink: 0; }
+      .card--stat .card-copy { color: var(--cream); flex: 1 1 14rem; }
       /* Wide tables scroll inside their own box so the page body never scrolls
          sideways on a phone — all of our search clicks so far are mobile. */
       .table-scroll { overflow-x: auto; margin: 1.5rem 0; -webkit-overflow-scrolling: touch; }

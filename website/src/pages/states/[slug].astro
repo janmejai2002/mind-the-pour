@@ -75,6 +75,14 @@ const jsonld = [
     </table>
   </div>
 
+  {s.referencePrice && (
+    <p class="card card--stat">
+      <span class="hero-num">₹{s.referencePrice.price}</span>
+      <span class="card-copy">{s.referencePrice.product} in {s.name}, as of {s.referencePrice.asOf} —
+      per <a href={s.referencePrice.sourceUrl}>{s.referencePrice.source}</a>.</span>
+    </p>
+  )}
+
   {gen?.sections?.map((sec) => (
     <section>
       <h2>{sec.heading}</h2>
